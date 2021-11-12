@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,9 +14,27 @@
 		571600F127147134002E53B9 /* PocketSong.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 571600EF27147134002E53B9 /* PocketSong.xcdatamodeld */; };
 		571600F32714713B002E53B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571600F22714713B002E53B9 /* Assets.xcassets */; };
 		571600F62714713B002E53B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 571600F42714713B002E53B9 /* LaunchScreen.storyboard */; };
+		571600FE2714737B002E53B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571600FD2714737B002E53B9 /* GoogleService-Info.plist */; };
+		5716010327148745002E53B9 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716010227148745002E53B9 /* SignInVC.swift */; };
+		D66ACBDCC6D5A98ED8BD7A1F /* Pods_PocketSong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FB5EA06A3F0C60186FB9ED /* Pods_PocketSong.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07FB5EA06A3F0C60186FB9ED /* Pods_PocketSong.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PocketSong.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0804574D79ADC3DCA6EE3B06 /* Pods-PocketSong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSong.debug.xcconfig"; path = "Target Support Files/Pods-PocketSong/Pods-PocketSong.debug.xcconfig"; sourceTree = "<group>"; };
+		57077A4F273F099800713534 /* appIcon29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon29.png; sourceTree = "<group>"; };
+		57077A50273F099900713534 /* appIcon40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon40.png; sourceTree = "<group>"; };
+		57077A51273F099A00713534 /* appIcon60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon60.png; sourceTree = "<group>"; };
+		57077A52273F099A00713534 /* appIcon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon58.png; sourceTree = "<group>"; };
+		57077A53273F099B00713534 /* appIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon120.png; sourceTree = "<group>"; };
+		57077A54273F099C00713534 /* appIcon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon152.png; sourceTree = "<group>"; };
+		57077A55273F099D00713534 /* appIcon87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon87.png; sourceTree = "<group>"; };
+		57077A56273F099E00713534 /* appIcon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon80.png; sourceTree = "<group>"; };
+		57077A57273F099E00713534 /* appIcon120.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = appIcon120.jpeg; sourceTree = "<group>"; };
+		57077A58273F099F00713534 /* appIcon20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon20.png; sourceTree = "<group>"; };
+		57077A59273F09A000713534 /* appIcon167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon167.png; sourceTree = "<group>"; };
+		57077A5A273F09A000713534 /* appIcon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon76.png; sourceTree = "<group>"; };
+		57077A5B273F09A100713534 /* appIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon180.png; sourceTree = "<group>"; };
 		571600E327147134002E53B9 /* PocketSong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketSong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		571600E627147134002E53B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		571600E827147134002E53B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +44,9 @@
 		571600F22714713B002E53B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		571600F52714713B002E53B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		571600F72714713B002E53B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		571600FD2714737B002E53B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5716010227148745002E53B9 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		C8908642AE917357CBED719E /* Pods-PocketSong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSong.release.xcconfig"; path = "Target Support Files/Pods-PocketSong/Pods-PocketSong.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +54,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D66ACBDCC6D5A98ED8BD7A1F /* Pods_PocketSong.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57077A4E273F099700713534 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				57077A5C273F0A8700713534 /* AppIcons */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		57077A5C273F0A8700713534 /* AppIcons */ = {
+			isa = PBXGroup;
+			children = (
+				57077A58273F099F00713534 /* appIcon20.png */,
+				57077A4F273F099800713534 /* appIcon29.png */,
+				57077A50273F099900713534 /* appIcon40.png */,
+				57077A52273F099A00713534 /* appIcon58.png */,
+				57077A51273F099A00713534 /* appIcon60.png */,
+				57077A5A273F09A000713534 /* appIcon76.png */,
+				57077A56273F099E00713534 /* appIcon80.png */,
+				57077A55273F099D00713534 /* appIcon87.png */,
+				57077A57273F099E00713534 /* appIcon120.jpeg */,
+				57077A53273F099B00713534 /* appIcon120.png */,
+				57077A54273F099C00713534 /* appIcon152.png */,
+				57077A59273F09A000713534 /* appIcon167.png */,
+				57077A5B273F09A100713534 /* appIcon180.png */,
+			);
+			path = AppIcons;
+			sourceTree = "<group>";
+		};
 		571600DA27147134002E53B9 = {
 			isa = PBXGroup;
 			children = (
 				571600E527147134002E53B9 /* PocketSong */,
 				571600E427147134002E53B9 /* Products */,
+				B2254D9F6605FFA1ED845274 /* Pods */,
+				B6A1863E14C9FD43B5FDA8F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +110,9 @@
 		571600E527147134002E53B9 /* PocketSong */ = {
 			isa = PBXGroup;
 			children = (
+				57077A4E273F099700713534 /* Resources */,
+				571600FF271486AC002E53B9 /* VC */,
+				571600FD2714737B002E53B9 /* GoogleService-Info.plist */,
 				571600E627147134002E53B9 /* AppDelegate.swift */,
 				571600E827147134002E53B9 /* SceneDelegate.swift */,
 				571600EA27147134002E53B9 /* ViewController.swift */,
@@ -70,6 +125,31 @@
 			path = PocketSong;
 			sourceTree = "<group>";
 		};
+		571600FF271486AC002E53B9 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				5716010227148745002E53B9 /* SignInVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		B2254D9F6605FFA1ED845274 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0804574D79ADC3DCA6EE3B06 /* Pods-PocketSong.debug.xcconfig */,
+				C8908642AE917357CBED719E /* Pods-PocketSong.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B6A1863E14C9FD43B5FDA8F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07FB5EA06A3F0C60186FB9ED /* Pods_PocketSong.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 571600FA2714713B002E53B9 /* Build configuration list for PBXNativeTarget "PocketSong" */;
 			buildPhases = (
+				C47F508C18ED54C487FF735C /* [CP] Check Pods Manifest.lock */,
 				571600DF27147134002E53B9 /* Sources */,
 				571600E027147134002E53B9 /* Frameworks */,
 				571600E127147134002E53B9 /* Resources */,
+				9C28C58A2031439C71AF85F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -106,7 +188,7 @@
 				};
 			};
 			buildConfigurationList = 571600DE27147134002E53B9 /* Build configuration list for PBXProject "PocketSong" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -129,12 +211,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				571600F62714713B002E53B9 /* LaunchScreen.storyboard in Resources */,
+				571600FE2714737B002E53B9 /* GoogleService-Info.plist in Resources */,
 				571600F32714713B002E53B9 /* Assets.xcassets in Resources */,
 				571600EE27147134002E53B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9C28C58A2031439C71AF85F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PocketSong/Pods-PocketSong-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PocketSong/Pods-PocketSong-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PocketSong/Pods-PocketSong-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C47F508C18ED54C487FF735C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PocketSong-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		571600DF27147134002E53B9 /* Sources */ = {
@@ -145,6 +270,7 @@
 				571600EB27147134002E53B9 /* ViewController.swift in Sources */,
 				571600E727147134002E53B9 /* AppDelegate.swift in Sources */,
 				571600E927147134002E53B9 /* SceneDelegate.swift in Sources */,
+				5716010327148745002E53B9 /* SignInVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,9 +414,11 @@
 		};
 		571600FB2714713B002E53B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0804574D79ADC3DCA6EE3B06 /* Pods-PocketSong.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y45X66CA2C;
@@ -306,7 +434,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ShKang.PocketSong.PocketSong;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShKang.PocketSong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -316,9 +444,11 @@
 		};
 		571600FC2714713B002E53B9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8908642AE917357CBED719E /* Pods-PocketSong.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Y45X66CA2C;
@@ -334,7 +464,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ShKang.PocketSong.PocketSong;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ShKang.PocketSong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
