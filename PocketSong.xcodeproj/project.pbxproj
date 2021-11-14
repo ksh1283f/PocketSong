@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57077A60273F0C7000713534 /* robot_note.png in Resources */ = {isa = PBXBuildFile; fileRef = 57077A5E273F0C7000713534 /* robot_note.png */; };
+		57077A61273F0C7000713534 /* Group.png in Resources */ = {isa = PBXBuildFile; fileRef = 57077A5F273F0C7000713534 /* Group.png */; };
+		57077A63274086C100713534 /* MyMemoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57077A62274086C100713534 /* MyMemoriesVC.swift */; };
+		57077A65274089B000713534 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57077A64274089B000713534 /* MapKit.framework */; };
+		57077A692741653A00713534 /* memories.png in Resources */ = {isa = PBXBuildFile; fileRef = 57077A682741653A00713534 /* memories.png */; };
 		571600E727147134002E53B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571600E627147134002E53B9 /* AppDelegate.swift */; };
 		571600E927147134002E53B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571600E827147134002E53B9 /* SceneDelegate.swift */; };
-		571600EB27147134002E53B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571600EA27147134002E53B9 /* ViewController.swift */; };
 		571600EE27147134002E53B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 571600EC27147134002E53B9 /* Main.storyboard */; };
 		571600F127147134002E53B9 /* PocketSong.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 571600EF27147134002E53B9 /* PocketSong.xcdatamodeld */; };
 		571600F32714713B002E53B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 571600F22714713B002E53B9 /* Assets.xcassets */; };
 		571600F62714713B002E53B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 571600F42714713B002E53B9 /* LaunchScreen.storyboard */; };
 		571600FE2714737B002E53B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571600FD2714737B002E53B9 /* GoogleService-Info.plist */; };
 		5716010327148745002E53B9 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716010227148745002E53B9 /* SignInVC.swift */; };
+		578F72DF274180DD00E61F8B /* CatchSongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F72DE274180DD00E61F8B /* CatchSongVC.swift */; };
 		D66ACBDCC6D5A98ED8BD7A1F /* Pods_PocketSong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FB5EA06A3F0C60186FB9ED /* Pods_PocketSong.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,10 +40,14 @@
 		57077A59273F09A000713534 /* appIcon167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon167.png; sourceTree = "<group>"; };
 		57077A5A273F09A000713534 /* appIcon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon76.png; sourceTree = "<group>"; };
 		57077A5B273F09A100713534 /* appIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon180.png; sourceTree = "<group>"; };
+		57077A5E273F0C7000713534 /* robot_note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = robot_note.png; path = ../../../../../../Desktop/PocketSongResources/robot_note.png; sourceTree = "<group>"; };
+		57077A5F273F0C7000713534 /* Group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Group.png; path = ../../../../../../Desktop/PocketSongResources/Group.png; sourceTree = "<group>"; };
+		57077A62274086C100713534 /* MyMemoriesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMemoriesVC.swift; sourceTree = "<group>"; };
+		57077A64274089B000713534 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		57077A682741653A00713534 /* memories.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = memories.png; path = ../../../../../../Desktop/PocketSongResources/appIcon/memories.png; sourceTree = "<group>"; };
 		571600E327147134002E53B9 /* PocketSong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketSong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		571600E627147134002E53B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		571600E827147134002E53B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		571600EA27147134002E53B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		571600ED27147134002E53B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		571600F027147134002E53B9 /* PocketSong.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PocketSong.xcdatamodel; sourceTree = "<group>"; };
 		571600F22714713B002E53B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +55,7 @@
 		571600F72714713B002E53B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		571600FD2714737B002E53B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5716010227148745002E53B9 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		578F72DE274180DD00E61F8B /* CatchSongVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchSongVC.swift; sourceTree = "<group>"; };
 		C8908642AE917357CBED719E /* Pods-PocketSong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSong.release.xcconfig"; path = "Target Support Files/Pods-PocketSong/Pods-PocketSong.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57077A65274089B000713534 /* MapKit.framework in Frameworks */,
 				D66ACBDCC6D5A98ED8BD7A1F /* Pods_PocketSong.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +75,7 @@
 		57077A4E273F099700713534 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				57077A5D273F0C1900713534 /* images */,
 				57077A5C273F0A8700713534 /* AppIcons */,
 			);
 			path = Resources;
@@ -72,6 +84,8 @@
 		57077A5C273F0A8700713534 /* AppIcons */ = {
 			isa = PBXGroup;
 			children = (
+				57077A5F273F0C7000713534 /* Group.png */,
+				57077A5E273F0C7000713534 /* robot_note.png */,
 				57077A58273F099F00713534 /* appIcon20.png */,
 				57077A4F273F099800713534 /* appIcon29.png */,
 				57077A50273F099900713534 /* appIcon40.png */,
@@ -87,6 +101,14 @@
 				57077A5B273F09A100713534 /* appIcon180.png */,
 			);
 			path = AppIcons;
+			sourceTree = "<group>";
+		};
+		57077A5D273F0C1900713534 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				57077A682741653A00713534 /* memories.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 		571600DA27147134002E53B9 = {
@@ -115,7 +137,6 @@
 				571600FD2714737B002E53B9 /* GoogleService-Info.plist */,
 				571600E627147134002E53B9 /* AppDelegate.swift */,
 				571600E827147134002E53B9 /* SceneDelegate.swift */,
-				571600EA27147134002E53B9 /* ViewController.swift */,
 				571600EC27147134002E53B9 /* Main.storyboard */,
 				571600F22714713B002E53B9 /* Assets.xcassets */,
 				571600F42714713B002E53B9 /* LaunchScreen.storyboard */,
@@ -129,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				5716010227148745002E53B9 /* SignInVC.swift */,
+				57077A62274086C100713534 /* MyMemoriesVC.swift */,
+				578F72DE274180DD00E61F8B /* CatchSongVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -145,6 +168,7 @@
 		B6A1863E14C9FD43B5FDA8F7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57077A64274089B000713534 /* MapKit.framework */,
 				07FB5EA06A3F0C60186FB9ED /* Pods_PocketSong.framework */,
 			);
 			name = Frameworks;
@@ -210,8 +234,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57077A60273F0C7000713534 /* robot_note.png in Resources */,
+				57077A61273F0C7000713534 /* Group.png in Resources */,
 				571600F62714713B002E53B9 /* LaunchScreen.storyboard in Resources */,
 				571600FE2714737B002E53B9 /* GoogleService-Info.plist in Resources */,
+				57077A692741653A00713534 /* memories.png in Resources */,
 				571600F32714713B002E53B9 /* Assets.xcassets in Resources */,
 				571600EE27147134002E53B9 /* Main.storyboard in Resources */,
 			);
@@ -266,8 +293,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57077A63274086C100713534 /* MyMemoriesVC.swift in Sources */,
+				578F72DF274180DD00E61F8B /* CatchSongVC.swift in Sources */,
 				571600F127147134002E53B9 /* PocketSong.xcdatamodeld in Sources */,
-				571600EB27147134002E53B9 /* ViewController.swift in Sources */,
 				571600E727147134002E53B9 /* AppDelegate.swift in Sources */,
 				571600E927147134002E53B9 /* SceneDelegate.swift in Sources */,
 				5716010327148745002E53B9 /* SignInVC.swift in Sources */,

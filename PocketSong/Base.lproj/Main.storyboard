@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,7 +33,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="Rhx-NG-q6o">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Group.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rhx-NG-q6o">
                                 <rect key="frame" x="87" y="384" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -46,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="1064" y="441"/>
         </scene>
-        <!--Item-->
+        <!--Catch-->
         <scene sceneID="jXY-ZU-nrS">
             <objects>
                 <viewController id="EQr-w7-DTl" sceneMemberID="viewController">
@@ -54,7 +55,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="robot_note" translatesAutoresizingMaskIntoConstraints="NO" id="SKP-i8-KxY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="robot_note.png" translatesAutoresizingMaskIntoConstraints="NO" id="SKP-i8-KxY">
                                 <rect key="frame" x="87" y="314" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -62,29 +63,51 @@
                         <viewLayoutGuide key="safeArea" id="j0p-Hz-Pmt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="EFJ-6u-4Qp"/>
+                    <tabBarItem key="tabBarItem" title="Catch" image="TabBarIcons_catch" id="EFJ-6u-4Qp">
+                        <color key="badgeColor" systemColor="labelColor"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fVX-7Y-b7C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="271" y="1002"/>
         </scene>
-        <!--Item 1-->
+        <!--MyMemories-->
         <scene sceneID="Kfs-9D-s5B">
             <objects>
-                <viewController id="81W-5s-VDR" sceneMemberID="viewController">
+                <viewController id="81W-5s-VDR" customClass="MyMemoriesVC" customModule="PocketSong" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L6T-kM-kSh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="robot_note" translatesAutoresizingMaskIntoConstraints="NO" id="0pI-Vj-oFh">
-                                <rect key="frame" x="57" y="301" width="285" height="248"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Memories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cHT-hg-BVC">
+                                <rect key="frame" x="7" y="88" width="407" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="g8X-3W-CIy"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="407" id="pE9-bi-2z0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MFg-z9-8Qh">
+                                <rect key="frame" x="1" y="155" width="412" height="658"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0PI-hw-9nw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cHT-hg-BVC" secondAttribute="trailing" id="8H6-AD-qLA"/>
+                            <constraint firstItem="MFg-z9-8Qh" firstAttribute="centerX" secondItem="L6T-kM-kSh" secondAttribute="centerX" id="D1a-x2-aMu"/>
+                            <constraint firstItem="MFg-z9-8Qh" firstAttribute="top" secondItem="cHT-hg-BVC" secondAttribute="bottom" constant="8" symbolic="YES" id="E37-Pb-XAe"/>
+                            <constraint firstItem="MFg-z9-8Qh" firstAttribute="bottom" secondItem="0PI-hw-9nw" secondAttribute="bottom" id="Eks-hl-TIP"/>
+                            <constraint firstItem="MFg-z9-8Qh" firstAttribute="leading" secondItem="0PI-hw-9nw" secondAttribute="leading" constant="1" id="bKq-NQ-awP"/>
+                            <constraint firstItem="cHT-hg-BVC" firstAttribute="top" secondItem="0PI-hw-9nw" secondAttribute="top" id="te5-9S-vhQ"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="0rI-yS-S5P"/>
+                    <tabBarItem key="tabBarItem" title="MyMemories" image="TabBarIcons_myMemories" id="0rI-yS-S5P"/>
+                    <connections>
+                        <outlet property="mapView" destination="MFg-z9-8Qh" id="cUg-S2-nsy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20f-9J-Pqc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,11 +122,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemBackgroundColor"/>
+                        <tabBarAppearance key="standardAppearance">
+                            <color key="selectionIndicatorTintColor" name="AccentColor"/>
+                        </tabBarAppearance>
                     </tabBar>
                     <connections>
                         <segue destination="81W-5s-VDR" kind="relationship" relationship="viewControllers" id="fLC-0I-OYv"/>
-                        <segue destination="FUR-XE-jK2" kind="relationship" relationship="viewControllers" id="27G-Au-LMd"/>
                         <segue destination="EQr-w7-DTl" kind="relationship" relationship="viewControllers" id="RJd-1C-dqR"/>
+                        <segue destination="FUR-XE-jK2" kind="relationship" relationship="viewControllers" id="9SR-r0-tmY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIi-bZ-gvU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -111,9 +138,18 @@
             <point key="canvasLocation" x="-104" y="81"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
-        <image name="Group" width="224" height="194"/>
-        <image name="robot_note" width="336" height="322"/>
+        <image name="Group.png" width="224" height="194"/>
+        <image name="TabBarIcons_catch" width="40" height="40"/>
+        <image name="TabBarIcons_myMemories" width="40" height="30"/>
+        <image name="robot_note.png" width="336" height="322"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
