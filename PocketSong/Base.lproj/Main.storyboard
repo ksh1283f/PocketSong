@@ -89,7 +89,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MFg-z9-8Qh">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MFg-z9-8Qh">
                                 <rect key="frame" x="1" y="155" width="412" height="658"/>
                             </mapView>
                         </subviews>
@@ -106,7 +106,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="MyMemories" image="TabBarIcons_myMemories" id="0rI-yS-S5P"/>
                     <connections>
-                        <outlet property="mapView" destination="MFg-z9-8Qh" id="cUg-S2-nsy"/>
+                        <outlet property="mapView" destination="MFg-z9-8Qh" id="OdH-3r-ZfY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20f-9J-Pqc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
