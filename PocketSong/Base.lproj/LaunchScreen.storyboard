@@ -16,19 +16,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIcon180.png" translatesAutoresizingMaskIntoConstraints="NO" id="5jq-Pu-nNE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="robot_note.png" translatesAutoresizingMaskIntoConstraints="NO" id="5jq-Pu-nNE">
                                 <rect key="frame" x="117" y="358" width="180" height="180"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="1rw-ah-46d"/>
-                                    <constraint firstAttribute="height" constant="180" id="bOJ-OC-ZQR"/>
+                                    <constraint firstAttribute="height" constant="180" id="66F-bM-BYL"/>
+                                    <constraint firstAttribute="width" constant="180" id="aXu-8y-Mb1"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CatchSongs!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oe-zN-tdT">
+                                <rect key="frame" x="85" y="536" width="245" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="GAY-at-XFz"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="245" id="u6e-Oc-yRg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5jq-Pu-nNE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="J3q-ie-Div"/>
-                            <constraint firstItem="5jq-Pu-nNE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OXZ-ap-GK4"/>
+                            <constraint firstItem="5oe-zN-tdT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="492" id="65u-m0-e8j"/>
+                            <constraint firstItem="5jq-Pu-nNE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="117" id="9mn-Q0-gqC"/>
+                            <constraint firstItem="5jq-Pu-nNE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="314" id="Eew-uQ-Mf6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5oe-zN-tdT" secondAttribute="bottom" constant="290" id="Gt7-ht-jDT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5oe-zN-tdT" secondAttribute="trailing" constant="84" id="QEt-SJ-fUg"/>
+                            <constraint firstItem="5oe-zN-tdT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="Rrh-38-Fby"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5jq-Pu-nNE" secondAttribute="bottom" constant="324" id="nTj-fS-OFF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5jq-Pu-nNE" secondAttribute="trailing" constant="117" id="tnq-MU-Uj7"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,7 +54,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appIcon180.png" width="180" height="180"/>
+        <image name="robot_note.png" width="336" height="322"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

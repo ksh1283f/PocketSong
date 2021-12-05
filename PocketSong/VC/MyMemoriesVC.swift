@@ -96,7 +96,7 @@ private extension MKMapView{
         setRegion(coordinateRegion, animated: true)
         
         // for test function
-        makePin(targetCoordinate: location.coordinate)
+        //makePin(targetCoordinate: location.coordinate)
     }
     
     func makePin( targetCoordinate: CLLocationCoordinate2D){

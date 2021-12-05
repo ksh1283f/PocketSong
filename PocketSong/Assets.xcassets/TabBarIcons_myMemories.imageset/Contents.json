@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "memories.png",
+      "filename" : "momories.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "momories_x2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "momories_x3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

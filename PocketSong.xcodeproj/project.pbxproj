@@ -21,6 +21,8 @@
 		571600FE2714737B002E53B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571600FD2714737B002E53B9 /* GoogleService-Info.plist */; };
 		5716010327148745002E53B9 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716010227148745002E53B9 /* SignInVC.swift */; };
 		578F72DF274180DD00E61F8B /* CatchSongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F72DE274180DD00E61F8B /* CatchSongVC.swift */; };
+		57CA8F13275CF0D600E54093 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F12275CF0D600E54093 /* MainTabBarVC.swift */; };
+		57CA8F15275D2DC600E54093 /* SongsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F14275D2DC600E54093 /* SongsVC.swift */; };
 		D66ACBDCC6D5A98ED8BD7A1F /* Pods_PocketSong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FB5EA06A3F0C60186FB9ED /* Pods_PocketSong.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,8 @@
 		571600FD2714737B002E53B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5716010227148745002E53B9 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		578F72DE274180DD00E61F8B /* CatchSongVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchSongVC.swift; sourceTree = "<group>"; };
+		57CA8F12275CF0D600E54093 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
+		57CA8F14275D2DC600E54093 /* SongsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsVC.swift; sourceTree = "<group>"; };
 		C8908642AE917357CBED719E /* Pods-PocketSong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSong.release.xcconfig"; path = "Target Support Files/Pods-PocketSong/Pods-PocketSong.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +156,8 @@
 				5716010227148745002E53B9 /* SignInVC.swift */,
 				57077A62274086C100713534 /* MyMemoriesVC.swift */,
 				578F72DE274180DD00E61F8B /* CatchSongVC.swift */,
+				57CA8F12275CF0D600E54093 /* MainTabBarVC.swift */,
+				57CA8F14275D2DC600E54093 /* SongsVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -296,7 +302,9 @@
 				57077A63274086C100713534 /* MyMemoriesVC.swift in Sources */,
 				578F72DF274180DD00E61F8B /* CatchSongVC.swift in Sources */,
 				571600F127147134002E53B9 /* PocketSong.xcdatamodeld in Sources */,
+				57CA8F15275D2DC600E54093 /* SongsVC.swift in Sources */,
 				571600E727147134002E53B9 /* AppDelegate.swift in Sources */,
+				57CA8F13275CF0D600E54093 /* MainTabBarVC.swift in Sources */,
 				571600E927147134002E53B9 /* SceneDelegate.swift in Sources */,
 				5716010327148745002E53B9 /* SignInVC.swift in Sources */,
 			);
@@ -452,9 +460,14 @@
 				DEVELOPMENT_TEAM = Y45X66CA2C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PocketSong/Info.plist;
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to Location's Info always for Using Beacon.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Used to Location's Info always for Using Beacon.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to Location's Info for Using Beacon when In Use.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -482,9 +495,14 @@
 				DEVELOPMENT_TEAM = Y45X66CA2C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PocketSong/Info.plist;
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to Location's Info always for Using Beacon.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Used to Location's Info always for Using Beacon.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to Location's Info for Using Beacon when In Use.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

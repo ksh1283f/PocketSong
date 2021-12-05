@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Catch.png",
+      "filename" : "memories_inactive.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Catch_x2.png",
+      "filename" : "memories_inactive_x2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Catch_x3.png",
+      "filename" : "memories_inactive_x3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

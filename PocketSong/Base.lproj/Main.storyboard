@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-1051" y="82"/>
         </scene>
-        <!--Item 2-->
+        <!--Songs-->
         <scene sceneID="jN8-gB-gOu">
             <objects>
-                <viewController id="FUR-XE-jK2" sceneMemberID="viewController">
+                <viewController id="FUR-XE-jK2" customClass="SongsVC" customModule="PocketSong" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="34F-dY-MSv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,9 @@
                         <viewLayoutGuide key="safeArea" id="Gdc-4Q-ytz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="pHA-Mg-j8l"/>
+                    <tabBarItem key="tabBarItem" title="Songs" image="TabBarIcons_inactiveCollections" selectedImage="TabBarIcons_collections" id="pHA-Mg-j8l">
+                        <color key="badgeColor" systemColor="labelColor"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0k-5k-OXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,7 +65,7 @@
                         <viewLayoutGuide key="safeArea" id="j0p-Hz-Pmt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Catch" image="TabBarIcons_catch" id="EFJ-6u-4Qp">
+                    <tabBarItem key="tabBarItem" title="Catch" image="TabBarIcons_inactiveCatch" selectedImage="TabBarIcons_catch" id="EFJ-6u-4Qp">
                         <color key="badgeColor" systemColor="labelColor"/>
                     </tabBarItem>
                 </viewController>
@@ -104,7 +106,9 @@
                             <constraint firstItem="cHT-hg-BVC" firstAttribute="top" secondItem="0PI-hw-9nw" secondAttribute="top" id="te5-9S-vhQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="MyMemories" image="TabBarIcons_myMemories" id="0rI-yS-S5P"/>
+                    <tabBarItem key="tabBarItem" title="MyMemories" image="TabBarIcons_myMemories" selectedImage="TabBarIcons_inactiveMymemories" id="0rI-yS-S5P">
+                        <color key="badgeColor" systemColor="labelColor"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="mapView" destination="MFg-z9-8Qh" id="OdH-3r-ZfY"/>
                     </connections>
@@ -113,16 +117,16 @@
             </objects>
             <point key="canvasLocation" x="786.95652173913049" y="-222.32142857142856"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab BarVC-->
         <scene sceneID="qJI-vN-Dyh">
             <objects>
-                <tabBarController id="E8Y-Vl-lQF" sceneMemberID="viewController">
+                <tabBarController id="E8Y-Vl-lQF" customClass="MainTabBarVC" customModule="PocketSong" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kvf-mv-vP6"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LKy-aH-eVV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" systemColor="systemBackgroundColor"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <tabBarAppearance key="standardAppearance">
                             <color key="selectionIndicatorTintColor" name="AccentColor"/>
                         </tabBarAppearance>
@@ -141,8 +145,12 @@
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="Group.png" width="224" height="194"/>
-        <image name="TabBarIcons_catch" width="40" height="40"/>
-        <image name="TabBarIcons_myMemories" width="40" height="30"/>
+        <image name="TabBarIcons_catch" width="25" height="21.5"/>
+        <image name="TabBarIcons_collections" width="25" height="21.5"/>
+        <image name="TabBarIcons_inactiveCatch" width="25" height="21.5"/>
+        <image name="TabBarIcons_inactiveCollections" width="25" height="21.5"/>
+        <image name="TabBarIcons_inactiveMymemories" width="25" height="13.5"/>
+        <image name="TabBarIcons_myMemories" width="25" height="13.5"/>
         <image name="robot_note.png" width="336" height="322"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
