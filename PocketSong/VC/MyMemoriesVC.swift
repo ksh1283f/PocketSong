@@ -21,7 +21,13 @@ class MyMemoriesVC: UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         checkLocationServices()
+        mapView.roundCorners(cornerRadius: 20, maskedCorners: [.layerMinXMinYCorner,
+                                                               .layerMinXMaxYCorner,
+                                                               .layerMaxXMinYCorner,
+                                                               .layerMaxXMaxYCorner
+                                                              ])
     }
     
     func setupLocationManager(){
@@ -83,8 +89,6 @@ class MyMemoriesVC: UIViewController{
     func updateMyMemoriInfo(){
         
     }
-    
-//    mapView.addAnnotation(<#T##annotation: MKAnnotation##MKAnnotation#>)
 }
 
 private extension MKMapView{
@@ -104,6 +108,14 @@ private extension MKMapView{
         pin.coordinate = targetCoordinate
         // todo add click event when it is clicked show the description view
         self.addAnnotation(pin)
+    }
+}
+extension UIView {
+    // make corner rounded shape
+    func roundCorners(cornerRadius:CGFloat, maskedCorners:CACornerMask) {
+        clipsToBounds = true
+        layer.cornerRadius = cornerRadius
+        layer.maskedCorners = CACornerMask(arrayLiteral: maskedCorners)
     }
 }
 
