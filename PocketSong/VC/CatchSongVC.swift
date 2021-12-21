@@ -34,7 +34,10 @@ class CatchSongVC: UIViewController {
     func startImageInitAnimation() {
         //todo effect
         // 1. label typing effect
+        InfomationLabel.playTypingEffect(textValue: "Let's start catch your memory!")
+        
         // 2. robot image animation(jumping or moving left and right)
+        
         // => looping
     }
     
@@ -45,11 +48,25 @@ class CatchSongVC: UIViewController {
     
     @IBAction func onClickedBtnCatch(_ sender: Any) {
         startImageShazamAnimation()
-        // todo start shazam
         
+        
+        // start shazam
+        do{
+            // the app doesn't use custom catalog, so parameter value is nil.
+            try shazamController?.match(catalog: nil)
+            
+            
+            
+        } catch{
+            print("shazamController's match handler is not handled.")
+        }
+           
     }
     
     func onShazamed(matched:SHMatchedMediaItem?, error:Error?){
+        
+        // todo end shazam animation
+        
         // isListening = false
         if error != nil {
             print(error.debugDescription)

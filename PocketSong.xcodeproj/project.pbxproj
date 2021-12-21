@@ -26,6 +26,7 @@
 		57CA8F182766779E00E54093 /* ShazamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F172766779E00E54093 /* ShazamController.swift */; };
 		57CA8F1A276678A500E54093 /* ShazamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F19276678A500E54093 /* ShazamModel.swift */; };
 		57CA8F1C2771015500E54093 /* SongMatchStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F1B2771015500E54093 /* SongMatchStateType.swift */; };
+		57CA8F1F277242EC00E54093 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F1E277242EC00E54093 /* Extensions.swift */; };
 		D66ACBDCC6D5A98ED8BD7A1F /* Pods_PocketSong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FB5EA06A3F0C60186FB9ED /* Pods_PocketSong.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		57CA8F172766779E00E54093 /* ShazamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamController.swift; sourceTree = "<group>"; };
 		57CA8F19276678A500E54093 /* ShazamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamModel.swift; sourceTree = "<group>"; };
 		57CA8F1B2771015500E54093 /* SongMatchStateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMatchStateType.swift; sourceTree = "<group>"; };
+		57CA8F1E277242EC00E54093 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C8908642AE917357CBED719E /* Pods-PocketSong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSong.release.xcconfig"; path = "Target Support Files/Pods-PocketSong/Pods-PocketSong.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 		571600E527147134002E53B9 /* PocketSong */ = {
 			isa = PBXGroup;
 			children = (
+				57CA8F1D277242D900E54093 /* Utils */,
 				57CA8F162766776F00E54093 /* Data */,
 				57077A4E273F099700713534 /* Resources */,
 				571600FF271486AC002E53B9 /* VC */,
@@ -177,6 +180,14 @@
 				57CA8F1B2771015500E54093 /* SongMatchStateType.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		57CA8F1D277242D900E54093 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				57CA8F1E277242EC00E54093 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		B2254D9F6605FFA1ED845274 /* Pods */ = {
@@ -323,6 +334,7 @@
 				57CA8F15275D2DC600E54093 /* SongsVC.swift in Sources */,
 				571600E727147134002E53B9 /* AppDelegate.swift in Sources */,
 				57CA8F13275CF0D600E54093 /* MainTabBarVC.swift in Sources */,
+				57CA8F1F277242EC00E54093 /* Extensions.swift in Sources */,
 				57CA8F182766779E00E54093 /* ShazamController.swift in Sources */,
 				57CA8F1A276678A500E54093 /* ShazamModel.swift in Sources */,
 				571600E927147134002E53B9 /* SceneDelegate.swift in Sources */,

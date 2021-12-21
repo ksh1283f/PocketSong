@@ -67,15 +67,19 @@
                                     <action selector="onClickedBtnCatch:" destination="EQr-w7-DTl" eventType="touchUpInside" id="sMA-fz-Zwz"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="robot_note.png" translatesAutoresizingMaskIntoConstraints="NO" id="SKP-i8-KxY">
+                                <rect key="frame" x="44" y="286" width="327" height="325"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's start catch your memory!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3K-Mg-54S">
-                                <rect key="frame" x="44" y="138" width="327" height="117"/>
+                                <rect key="frame" x="73" y="144" width="268" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="robot_note.png" translatesAutoresizingMaskIntoConstraints="NO" id="SKP-i8-KxY">
-                                <rect key="frame" x="44" y="286" width="327" height="325"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ChatBubble" translatesAutoresizingMaskIntoConstraints="NO" id="w2w-R2-igh">
+                                <rect key="frame" x="50" y="131" width="315" height="165"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -168,6 +172,7 @@
     </scenes>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="ChatBubble" width="283" height="161"/>
         <image name="Group.png" width="224" height="194"/>
         <image name="TabBarIcons_catch" width="25" height="21.5"/>
         <image name="TabBarIcons_collections" width="25" height="21.5"/>
