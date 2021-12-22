@@ -15,6 +15,7 @@ class CatchSongVC: UIViewController {
     @IBOutlet weak var btnCatch: UIButton!
     
     var shazamController:ShazamController?
+    var shazamData:ShazamModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +76,26 @@ class CatchSongVC: UIViewController {
             // matched?.subtitle
             // matched?.artist
             // matched?.artworkURL
+            if let mediaItem = matched{
+//                shazamData = ShazamModel(coverUrl: <#T##URL?#>, artist: <#T##String?#>, artworkURL: <#T##URL?#>, title: <#T##String?#>, appleMusicURL: <#T##URL?#>, letitude: <#T##Float?#>, longitude: <#T##Float?#>)
+            }
+            
+            performSegue(withIdentifier: "CatchedSongDetail", sender: self)
         }
     }
     
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if let catchedSongVC = segue.destination as? CatchedSongDetailVC{
+            // todo initilize catchedSongData
+            if let songData = shazamData{
+                
+            }
+        }
+        
+        
+    }
 }
 

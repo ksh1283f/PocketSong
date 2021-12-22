@@ -16,6 +16,7 @@ class ShazamController:NSObject { // that's required by any class that conforms 
     
     private var matchHandler: ((SHMatchedMediaItem?, Error?)-> Void)? // a handler block the app views will implement.it's called when the identification process finished.
     
+    
     init(matchHandler handler: ((SHMatchedMediaItem?, Error?)->Void)?) {
         matchHandler = handler
     }
