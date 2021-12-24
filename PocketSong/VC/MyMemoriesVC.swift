@@ -11,7 +11,7 @@ import CoreLocation // to get the user's locations
 
 class MyMemoriesVC: UIViewController{
     
-    var locManager = CLLocationManager()
+//    var locManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
@@ -31,8 +31,7 @@ class MyMemoriesVC: UIViewController{
     }
     
     func setupLocationManager(){
-        locManager.delegate = self
-        locManager.desiredAccuracy = kCLLocationAccuracyBest
+        LocationController.shared.setupLocationManager(delegate: self)
     }
     
     func checkLocationServices(){
@@ -47,10 +46,10 @@ class MyMemoriesVC: UIViewController{
     }
     
     func checkLocationAuthorization() {
-        switch locManager.authorizationStatus{
+        switch LocationController.shared.locManager.authorizationStatus{
         case .authorizedAlways:
             mapView.showsUserLocation = true
-            if let presentLocation = locManager.location{
+            if let presentLocation = LocationController.shared.locManager.location{
                 setupMapViewWithCurrentPosition(presentLocation)
             }else{
                 // show alert this situation is invalid
@@ -60,7 +59,7 @@ class MyMemoriesVC: UIViewController{
         case .authorizedWhenInUse:
             // do map stuff
             mapView.showsUserLocation = true
-            if let presentLocation = locManager.location{
+            if let presentLocation = LocationController.shared.locManager.location{
                 setupMapViewWithCurrentPosition(presentLocation)
             }else{
                 // show alert this situation is invalid
@@ -73,7 +72,7 @@ class MyMemoriesVC: UIViewController{
             break
             
         case .notDetermined:
-            locManager.requestWhenInUseAuthorization()
+            LocationController.shared.locManager.requestWhenInUseAuthorization()
             break
             
         case .restricted:
@@ -122,7 +121,7 @@ extension UIView {
 extension MyMemoriesVC : CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location  = locations.first{
-            locManager.stopUpdatingLocation()
+            LocationController.shared.locManager.stopUpdatingLocation()
             
             setupMapViewWithCurrentPosition(location)
         }
@@ -141,7 +140,7 @@ extension MyMemoriesVC : CLLocationManagerDelegate{
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        switch locManager.authorizationStatus{
+        switch LocationController.shared.locManager.authorizationStatus{
         case .authorizedAlways:
             print("authorizedAlways")
             setupLocationManager()

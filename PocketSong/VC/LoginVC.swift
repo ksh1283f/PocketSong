@@ -12,10 +12,10 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // check if user is already logined
+        // if so, show next view directly
+        // if not, show login button
     }
-    
-
     
     // MARK: - Navigation
 

@@ -7,6 +7,7 @@
 
 import UIKit
 import ShazamKit
+import CoreLocation
 
 class CatchSongVC: UIViewController {
     
@@ -16,6 +17,7 @@ class CatchSongVC: UIViewController {
     
     var shazamController:ShazamController?
     var shazamData:ShazamModel?
+    var locationData:LocationModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,15 +74,46 @@ class CatchSongVC: UIViewController {
         if error != nil {
             print(error.debugDescription)
         }else{
+            // get location info
+            let geoCoder = CLGeocoder()
+            if let location = LocationController.shared.locManager.location {
+                geoCoder.reverseGeocodeLocation(location){ [weak self] (placemarks, error) in
+                    
+                    // maybe below code will be useless
+                    guard let self = self else { return }
+                    
+                    if let _error = error{
+                        //todo show alert informing the user
+                        print("\(_error)")
+                        return
+                    }
+                    
+                    guard let placemark = placemarks?.first else{
+                        // todo show alert informing the user
+                        print("place mark is nil");
+                        return
+                    }
+                    
+                    let streetNumber:String = placemark.subThoroughfare ?? ""
+                    let streetName:String = placemark.subThoroughfare ?? ""
+                    let country:String = placemark.country ?? ""
+                    let locality:String = placemark.locality ?? ""
+                    let time:Date = Date()
+                    
+                    self.locationData = LocationModel(streetNumber: streetNumber, streetName: streetName, country: country, locality: locality, createdTimeData: time)
+                }
+            }
+            
             // matched?.title
             // matched?.subtitle
             // matched?.artist
             // matched?.artworkURL
+        
             if let mediaItem = matched{
-//                shazamData = ShazamModel(coverUrl: <#T##URL?#>, artist: <#T##String?#>, artworkURL: <#T##URL?#>, title: <#T##String?#>, appleMusicURL: <#T##URL?#>, letitude: <#T##Float?#>, longitude: <#T##Float?#>)
+                self.shazamData = ShazamModel(coverUrl: nil, artist: matched?.artist, artworkURL: matched?.artworkURL, title: matched?.title, appleMusicURL: matched?.appleMusicURL, letitude: nil, longitude: nil)
             }
             
-            performSegue(withIdentifier: "CatchedSongDetail", sender: self)
+            performSegue(withIdentifier: "ShowCatchedSongDetail", sender: self)
         }
     }
     
@@ -88,14 +121,15 @@ class CatchSongVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        print("CatchSongVC -> CatchedSongDetailVC(prepare)")
         if let catchedSongVC = segue.destination as? CatchedSongDetailVC{
             // todo initilize catchedSongData
             if let songData = shazamData{
-                
+                catchedSongVC.shazamData = songData
+            }else {
+                catchedSongVC.locationData = locationData
             }
         }
-        
-        
     }
 }
 

@@ -16,7 +16,6 @@ class ShazamController:NSObject { // that's required by any class that conforms 
     
     private var matchHandler: ((SHMatchedMediaItem?, Error?)-> Void)? // a handler block the app views will implement.it's called when the identification process finished.
     
-    
     init(matchHandler handler: ((SHMatchedMediaItem?, Error?)->Void)?) {
         matchHandler = handler
     }
@@ -34,6 +33,7 @@ class ShazamController:NSObject { // that's required by any class that conforms 
         session?.delegate = self
         
         // 3. Prepare to capture audio
+        // todo edit when user input twice
         let audioFormat = AVAudioFormat(
             standardFormatWithSampleRate: audioEngine.inputNode.outputFormat(forBus: 0).sampleRate, channels: 1
         )

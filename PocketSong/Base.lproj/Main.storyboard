@@ -145,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xf-vL-Po4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1184" y="-246"/>
+            <point key="canvasLocation" x="-1509" y="-331"/>
         </scene>
         <!--Main Tab BarVC-->
         <scene sceneID="qJI-vN-Dyh">
@@ -222,6 +222,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                <connections>
+                                                    <action selector="onClickedBtnRecord:" destination="55M-YI-dH8" eventType="touchUpInside" id="Deq-0m-jBE"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIN-TU-beD">
                                                 <rect key="frame" x="48" y="669" width="130" height="34"/>
@@ -264,6 +267,13 @@
                             <constraint firstItem="kt4-tz-ujN" firstAttribute="leading" secondItem="Pvc-gV-qyy" secondAttribute="leading" id="pIe-PE-nwR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="commetTextField" destination="E04-mz-0fX" id="UvJ-H3-xwt"/>
+                        <outlet property="locationLabel" destination="fql-tu-Zps" id="9Ig-dr-k0V"/>
+                        <outlet property="songArtistLabel" destination="yf1-qA-Yzd" id="txN-T4-lFQ"/>
+                        <outlet property="songImageView" destination="eaO-c0-mx0" id="dfh-sJ-VF4"/>
+                        <outlet property="songTitleLabel" destination="C7K-9O-n7L" id="qdl-DI-sGL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2Q-Ye-a5p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

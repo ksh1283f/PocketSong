@@ -15,8 +15,7 @@ struct ShazamModel{
     let appleMusicURL : URL?
     
     // below variables: if it could get..
-    let letitude:Float?
-    let longitude:Float?
+    
     
     init(coverUrl:URL?, artist:String?, artworkURL:URL?, title: String?, appleMusicURL: URL?, letitude:Float?, longitude: Float?){
         self.coverUrl = coverUrl
@@ -24,7 +23,5 @@ struct ShazamModel{
         self.artworkURL = artworkURL
         self.title = title
         self.appleMusicURL = appleMusicURL
-        self.letitude = letitude
-        self.longitude = longitude
     }
 }
