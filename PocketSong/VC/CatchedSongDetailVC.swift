@@ -34,8 +34,10 @@ class CatchedSongDetailVC: UIViewController {
             var artistText:String?
             
             // cover image
-            if let coverUrl = catchedShazamData.coverUrl{
-                if let coverImageData = try? Data(contentsOf: coverUrl){
+//            if let coverUrl = catchedShazamData.coverUrl{
+            if let artworkUrl = catchedShazamData.artworkURL{
+                if let coverImageData = try? Data(contentsOf: artworkUrl){
+                        print("\(artworkUrl)")
                         coverImage = coverImageData
                 }
             }

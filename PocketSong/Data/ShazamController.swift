@@ -8,6 +8,7 @@
 import Foundation
 import ShazamKit
 import AVFAudio
+import UIKit
 
 // helper class that controls the microphone and uses ShazamKit to identify audio
 class ShazamController:NSObject { // that's required by any class that conforms to SHSessionDelegate
@@ -30,7 +31,9 @@ class ShazamController:NSObject { // that's required by any class that conforms 
         }
         
         // 2. Set SHSession delegate
-        session?.delegate = self
+        if session?.delegate == nil {
+            session?.delegate = self
+        }
         
         // 3. Prepare to capture audio
         // todo edit when user input twice
@@ -57,6 +60,7 @@ class ShazamController:NSObject { // that's required by any class that conforms 
                     print("microphone request is denied!")
                     
                     // todo show alert why you approve this permission and how to approve it
+//                    let alert = UIAlertController
                     return
                 }
                 try? self.audioEngine.start()   // start recording
@@ -67,9 +71,9 @@ class ShazamController:NSObject { // that's required by any class that conforms 
     func stopListening(){
         audioEngine.stop()
         audioEngine.inputNode.removeTap(onBus: 0)
+        
+        print("[ShazamController] stoplistening")
     }
-    
-    
 }
 
 extension ShazamController: SHSessionDelegate{

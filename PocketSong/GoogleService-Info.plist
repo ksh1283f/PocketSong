@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>416198983570-ijmgeh5dqjcv48go6d3ch09aok7jdgck.apps.googleusercontent.com</string>
+	<string>416198983570-3eifbrhrbrhait2qptbkbsuracaabrk8.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.416198983570-ijmgeh5dqjcv48go6d3ch09aok7jdgck</string>
+	<string>com.googleusercontent.apps.416198983570-3eifbrhrbrhait2qptbkbsuracaabrk8</string>
 	<key>API_KEY</key>
 	<string>AIzaSyC76Y2dyyXxIwQsbu7Gc7fmDQ-BEB_j31w</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ShKang.PocketSong</string>
+	<string>com.seunghyeonKang.PocketSong</string>
 	<key>PROJECT_ID</key>
 	<string>pocketsong-15a3e</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:416198983570:ios:2f3ecd24c22d16b1ed0b4b</string>
+	<string>1:416198983570:ios:732d4a0ddeac42fced0b4b</string>
 </dict>
 </plist>

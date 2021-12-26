@@ -29,36 +29,42 @@ class CatchSongVC: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        btnCatch.isUserInteractionEnabled = false
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
         startImageInitAnimation()
     }
     
     func startImageInitAnimation() {
         //todo effect
         // 1. label typing effect
-        InfomationLabel.playTypingEffect(textValue: "Let's start catch your memory!")
+        InfomationLabel.playTypingEffect(textValue: "Let's start catch your memory!",
+                                         onEnd: {() -> () in self.btnCatch.isUserInteractionEnabled = true })
         
         // 2. robot image animation(jumping or moving left and right)
         
         // => looping
+        
     }
     
-    func startImageShazamAnimation(){
+    func startRecognizeAnimation(){
         // todo effect
-        // 1. play a symbol likes wifi
+        //// 1. play a symbol likes wifi
+        InfomationLabel.playTypingEffectMultiple(textValue: "I'm recognizing....", onEnd: {() -> () in self.btnCatch.isUserInteractionEnabled = false})
     }
     
     @IBAction func onClickedBtnCatch(_ sender: Any) {
-        startImageShazamAnimation()
-        
+        startRecognizeAnimation()
+        btnCatch.isUserInteractionEnabled = false;
         
         // start shazam
         do{
             // the app doesn't use custom catalog, so parameter value is nil.
             try shazamController?.match(catalog: nil)
-            
-            
             
         } catch{
             print("shazamController's match handler is not handled.")
