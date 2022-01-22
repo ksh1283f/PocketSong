@@ -8,5 +8,5 @@ target 'PocketSong' do
   # Pods for PocketSong
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
-
+  pod 'CLTypingLabel'
 end

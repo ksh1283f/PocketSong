@@ -89,12 +89,15 @@
                                 <rect key="frame" x="50" y="131" width="315" height="165"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's start catch your memory!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3K-Mg-54S">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="jjj" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3K-Mg-54S" userLabel="Information Label" customClass="CLTypingLabel" customModule="CLTypingLabel">
                                 <rect key="frame" x="73" y="144" width="268" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="centerText" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="robot_note.png" translatesAutoresizingMaskIntoConstraints="NO" id="SKP-i8-KxY">
                                 <rect key="frame" x="44" y="286" width="327" height="325"/>
@@ -108,8 +111,8 @@
                         <color key="badgeColor" systemColor="labelColor"/>
                     </tabBarItem>
                     <connections>
-                        <outlet property="InfomationLabel" destination="M3K-Mg-54S" id="TP9-fG-arZ"/>
                         <outlet property="btnCatch" destination="V8w-Q7-uWe" id="xAo-qO-5gi"/>
+                        <outlet property="informationLabel" destination="M3K-Mg-54S" id="lD1-so-xJJ"/>
                         <outlet property="robotImage" destination="SKP-i8-KxY" id="pBL-vI-F2H"/>
                         <segue destination="55M-YI-dH8" kind="showDetail" identifier="ShowCatchedSongDetail" id="GXM-Fu-LuZ"/>
                     </connections>

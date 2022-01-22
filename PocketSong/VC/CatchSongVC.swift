@@ -8,16 +8,19 @@
 import UIKit
 import ShazamKit
 import CoreLocation
+import CLTypingLabel
 
 class CatchSongVC: UIViewController {
     
-    @IBOutlet weak var InfomationLabel: UILabel!
+
+    @IBOutlet weak var informationLabel: CLTypingLabel!
     @IBOutlet weak var robotImage: UIImageView!
     @IBOutlet weak var btnCatch: UIButton!
     
     var shazamController:ShazamController?
     var shazamData:ShazamModel?
     var locationData:LocationModel?
+    var timer:Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,7 @@ class CatchSongVC: UIViewController {
             shazamController = ShazamController(matchHandler: onShazamed)
         }
         
+        informationLabel.charInterval = 0.05
         
     }
     
@@ -35,15 +39,25 @@ class CatchSongVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         startImageInitAnimation()
+    
+    }
+    
+    override func didMove(toParent parent: UIViewController?) {
+        print("[catchSongVC] didMove")
     }
     
     func startImageInitAnimation() {
         //todo effect
         // 1. label typing effect
-        InfomationLabel.playTypingEffect(textValue: "Let's start catch your memory!",
-                                         onEnd: {() -> () in self.btnCatch.isUserInteractionEnabled = true })
+//        InfomationLabel.playTypingEffect(textValue: "Let's start catch your memory!",
+//                                         onEnd: {() -> () in self.btnCatch.isUserInteractionEnabled = true })
+        informationLabel.onTypingAnimationFinished = {
+            self.btnCatch.isUserInteractionEnabled = true
+        }
+        informationLabel.text = "Let's start catch your memory!"
+        
         
         // 2. robot image animation(jumping or moving left and right)
         
@@ -51,14 +65,26 @@ class CatchSongVC: UIViewController {
         
     }
     
-    func startRecognizeAnimation(){
+    @objc func startRecognizeAnimation(){
         // todo effect
         //// 1. play a symbol likes wifi
-        InfomationLabel.playTypingEffectMultiple(textValue: "I'm recognizing....", onEnd: {() -> () in self.btnCatch.isUserInteractionEnabled = false})
+//        InfomationLabel.playTypingEffectMultiple(textValue: "I'm recognizing....", onEnd: {() -> () in self.btnCatch.isUserInteractionEnabled = false})
+    
+        
+        informationLabel.onTypingAnimationFinished = {
+            self.btnCatch.isUserInteractionEnabled = true
+        }
+        
+        informationLabel.text = "I'm recognizing...."
+        
     }
     
+    
+    
     @IBAction func onClickedBtnCatch(_ sender: Any) {
-        startRecognizeAnimation()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("startRecognizeAnimation"), userInfo: nil, repeats: true)
+        
+//        startRecognizeAnimation()
         btnCatch.isUserInteractionEnabled = false;
         
         // start shazam
@@ -73,6 +99,9 @@ class CatchSongVC: UIViewController {
     }
     
     func onShazamed(matched:SHMatchedMediaItem?, error:Error?){
+        if let _timer = timer{
+            _timer.invalidate()
+        }
         
         // todo end shazam animation
         
@@ -116,7 +145,7 @@ class CatchSongVC: UIViewController {
             // matched?.artworkURL
         
             if let mediaItem = matched{
-                self.shazamData = ShazamModel(coverUrl: nil, artist: matched?.artist, artworkURL: matched?.artworkURL, title: matched?.title, appleMusicURL: matched?.appleMusicURL, letitude: nil, longitude: nil)
+                self.shazamData = ShazamModel(coverUrl: nil, artist: mediaItem.artist, artworkURL: mediaItem.artworkURL, title: mediaItem.title, appleMusicURL: mediaItem.appleMusicURL, letitude: nil, longitude: nil)
             }
             
             performSegue(withIdentifier: "ShowCatchedSongDetail", sender: self)
