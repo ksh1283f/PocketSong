@@ -14,14 +14,17 @@ struct ShazamModel{
     let title: String?
     let appleMusicURL : URL?
     
+    let addressInfo:String?
+    
     // below variables: if it could get..
     
     
-    init(coverUrl:URL?, artist:String?, artworkURL:URL?, title: String?, appleMusicURL: URL?, letitude:Float?, longitude: Float?){
+    init(coverUrl:URL?, artist:String?, artworkURL:URL?, title: String?, appleMusicURL: URL?, addressInfo:String?){
         self.coverUrl = coverUrl
         self.artist = artist
         self.artworkURL = artworkURL
         self.title = title
         self.appleMusicURL = appleMusicURL
+        self.addressInfo = addressInfo
     }
 }

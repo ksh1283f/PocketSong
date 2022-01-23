@@ -19,7 +19,8 @@ class MainTabBarVC: UITabBarController  {
 
 extension MainTabBarVC:UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
+        print("[tabBarController] didSelect \(viewController)")
     }
+    
 }
 

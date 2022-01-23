@@ -105,6 +105,7 @@ extension ShazamController: SHSessionDelegate{
                 return
             }
             
+            print("[ShazamController] didNotFindMatchFor")
             if let handler = self.matchHandler {
                 handler(nil, error)
                 

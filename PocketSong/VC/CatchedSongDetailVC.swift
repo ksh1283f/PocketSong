@@ -7,11 +7,12 @@
 
 import UIKit
 
-class CatchedSongDetailVC: UIViewController {
+class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
     
     var shazamData:ShazamModel?
     var locationData:LocationModel?
     
+    @IBOutlet weak var btnRecord: UIButton!
     @IBOutlet weak var songImageView: UIImageView!
     @IBOutlet weak var songTitleLabel: UILabel!
     @IBOutlet weak var songArtistLabel: UILabel!
@@ -21,7 +22,13 @@ class CatchedSongDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        commetTextField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        btnRecord.setTitle("Record", for: .normal)
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,7 +126,7 @@ class CatchedSongDetailVC: UIViewController {
                 
             DispatchQueue.main.async {
                 
-                
+                locationLabel.text =
             }
         }
     }
@@ -129,8 +136,34 @@ class CatchedSongDetailVC: UIViewController {
         locationData = nil
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("[CatchedSongDetailVC] touchesBegan")
+        self.view.endEditing(true)
+    }
+    
     @IBAction func onClickedBtnRecord(_ sender: Any) {
         // todo save data into the database
         // todo createMarker on the MyMemoryVC
+    }
+    
+    @objc func keyboardWillShow(_ sender: Notification){
+        self.view.frame.origin.y = -300
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification){
+        self.view.frame.origin.y = 0
+        
+    }
+}
+
+extension CatchedSongDetailVC{
+    func hideKeyboardWhenTappedAround(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard(){
+        view.endEditing(true)
     }
 }

@@ -17,6 +17,10 @@ class CatchSongVC: UIViewController {
     @IBOutlet weak var robotImage: UIImageView!
     @IBOutlet weak var btnCatch: UIButton!
     
+    let initText = "Let's start catch your memory!"
+    let recognizeText = "I'm recognizing...."
+    let charInterval = 0.05
+    
     var shazamController:ShazamController?
     var shazamData:ShazamModel?
     var locationData:LocationModel?
@@ -29,12 +33,25 @@ class CatchSongVC: UIViewController {
             shazamController = ShazamController(matchHandler: onShazamed)
         }
         
-        informationLabel.charInterval = 0.05
+        btnCatch.titleLabel?.font = UIFont(name: "Feather-Bold", size: 24)
+        informationLabel.font = UIFont(name: "Feather-Bold", size: 24)
         
+        informationLabel.charInterval = charInterval
     }
     
     override func viewWillAppear(_ animated: Bool) {
         btnCatch.isUserInteractionEnabled = false
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // todo implement init process which is typing animation or shazam process
+        shazamController?.stopListening()
+        shazamData = nil
+        locationData = nil
+        timer = nil
+        setInformationLabelWithoutAnimation(text: initText, resetCharInterval: charInterval)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,7 +73,7 @@ class CatchSongVC: UIViewController {
         informationLabel.onTypingAnimationFinished = {
             self.btnCatch.isUserInteractionEnabled = true
         }
-        informationLabel.text = "Let's start catch your memory!"
+        informationLabel.text = self.initText
         
         
         // 2. robot image animation(jumping or moving left and right)
@@ -68,21 +85,16 @@ class CatchSongVC: UIViewController {
     @objc func startRecognizeAnimation(){
         // todo effect
         //// 1. play a symbol likes wifi
-//        InfomationLabel.playTypingEffectMultiple(textValue: "I'm recognizing....", onEnd: {() -> () in self.btnCatch.isUserInteractionEnabled = false})
     
-        
         informationLabel.onTypingAnimationFinished = {
             self.btnCatch.isUserInteractionEnabled = true
         }
         
-        informationLabel.text = "I'm recognizing...."
-        
+        informationLabel.text = recognizeText
     }
     
-    
-    
     @IBAction func onClickedBtnCatch(_ sender: Any) {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: Selector("startRecognizeAnimation"), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.startRecognizeAnimation), userInfo: nil, repeats: true)
         
 //        startRecognizeAnimation()
         btnCatch.isUserInteractionEnabled = false;
@@ -107,7 +119,9 @@ class CatchSongVC: UIViewController {
         
         // isListening = false
         if error != nil {
-            print(error.debugDescription)
+            print("[CatchSongVC] \(error.debugDescription)")
+            let alert = UIAlertController(title: "Recognizing failed!", message: "Time out recognizing, check the around music is playing..", preferredStyle: .alert)
+            return
         }else{
             // get location info
             let geoCoder = CLGeocoder()
@@ -125,6 +139,7 @@ class CatchSongVC: UIViewController {
                     
                     guard let placemark = placemarks?.first else{
                         // todo show alert informing the user
+//                        UIAlertController
                         print("place mark is nil");
                         return
                     }
@@ -133,9 +148,14 @@ class CatchSongVC: UIViewController {
                     let streetName:String = placemark.subThoroughfare ?? ""
                     let country:String = placemark.country ?? ""
                     let locality:String = placemark.locality ?? ""
-                    let time:Date = Date()
+                    let city:String = placemark.administrativeArea ?? ""
+                    let street:String = placemark.name ?? ""
+                    let timeData = Date()
                     
-                    self.locationData = LocationModel(streetNumber: streetNumber, streetName: streetName, country: country, locality: locality, createdTimeData: time)
+                    let recordAddress:String = "\(country) \(city) \(locality) \(street) \(time)"
+                    print("[CatchSongVC] streetNumber: \(streetNumber) streetName: \(streetName) country: \(country) locality: \(locality) city: \(city) time: \(time)")
+                    print("[custom] \(recordAddress)")
+                    self.locationData = LocationModel(streetNumber: streetNumber, streetName: streetName, country: country, locality: locality, createdTimeData: timeData)
                 }
             }
             
@@ -145,7 +165,14 @@ class CatchSongVC: UIViewController {
             // matched?.artworkURL
         
             if let mediaItem = matched{
-                self.shazamData = ShazamModel(coverUrl: nil, artist: mediaItem.artist, artworkURL: mediaItem.artworkURL, title: mediaItem.title, appleMusicURL: mediaItem.appleMusicURL, letitude: nil, longitude: nil)
+                self.shazamData = ShazamModel(coverUrl: nil, artist: mediaItem.artist, artworkURL: mediaItem.artworkURL, title: mediaItem.title, appleMusicURL: mediaItem.appleMusicURL, addressInfo: nil)
+            }else {
+                print("[CatchSongVC] \(error.debugDescription)")
+                let alert = UIAlertController(title: "Recognizing failed!", message: "Time out recognizing, check the around music is playing..", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                    return
+                })
+                self.present(alert, animated: true, completion: nil)
             }
             
             performSegue(withIdentifier: "ShowCatchedSongDetail", sender: self)
@@ -167,4 +194,3 @@ class CatchSongVC: UIViewController {
         }
     }
 }
-

@@ -13,8 +13,10 @@ class LocationModel {
     let country:String?
     let locality:String?
     let createdTimeString:String?
-    
     private let createdTimeData: Date?
+    
+    let addressInfo:String?
+    
     
     init(streetNumber:String, streetName:String, country:String, locality:String, createdTimeData:Date){
         self.streetNumber = streetNumber
@@ -23,12 +25,25 @@ class LocationModel {
         self.locality = locality
         self.createdTimeData = createdTimeData
         
+//        let streetNumber:String = placemark.subThoroughfare ?? ""
+//        let streetName:String = placemark.subThoroughfare ?? ""
+//        let country:String = placemark.country ?? ""
+//        let locality:String = placemark.locality ?? ""
+//        let city:String = placemark.administrativeArea ?? ""
+//        let street:String = placemark.name ?? ""
+//        let timeData = Date()
+        
+//        let recordAddress:String = "\(country) \(city) \(locality) \(street) \(time)"
+        
         if let timeData = self.createdTimeData{
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd a hh:mm"
+            dateFormatter.timeZone = TimeZone.autoupdatingCurrent
             createdTimeString = dateFormatter.string(from: timeData)
         }else{
             createdTimeString = ""
         }
+        
+        addressInfo = "\(self.country) \(self.c)"
     }
 }

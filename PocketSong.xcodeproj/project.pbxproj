@@ -21,6 +21,9 @@
 		571600FE2714737B002E53B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571600FD2714737B002E53B9 /* GoogleService-Info.plist */; };
 		5716010327148745002E53B9 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716010227148745002E53B9 /* SignInVC.swift */; };
 		578F72DF274180DD00E61F8B /* CatchSongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F72DE274180DD00E61F8B /* CatchSongVC.swift */; };
+		57C8B22E279D8F4D0015291C /* FeatherBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C8B22D279D8F4A0015291C /* FeatherBold.ttf */; };
+		57C8B231279D90330015291C /* JandaManateeBubble.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C8B22F279D90330015291C /* JandaManateeBubble.ttf */; };
+		57C8B232279D90330015291C /* JandaManateeSolid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C8B230279D90330015291C /* JandaManateeSolid.ttf */; };
 		57CA8F13275CF0D600E54093 /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F12275CF0D600E54093 /* MainTabBarVC.swift */; };
 		57CA8F15275D2DC600E54093 /* SongsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F14275D2DC600E54093 /* SongsVC.swift */; };
 		57CA8F182766779E00E54093 /* ShazamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F172766779E00E54093 /* ShazamController.swift */; };
@@ -67,6 +70,9 @@
 		571600FD2714737B002E53B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5716010227148745002E53B9 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		578F72DE274180DD00E61F8B /* CatchSongVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchSongVC.swift; sourceTree = "<group>"; };
+		57C8B22D279D8F4A0015291C /* FeatherBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FeatherBold.ttf; path = PocketSong/FeatherBold.ttf; sourceTree = SOURCE_ROOT; };
+		57C8B22F279D90330015291C /* JandaManateeBubble.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JandaManateeBubble.ttf; sourceTree = "<group>"; };
+		57C8B230279D90330015291C /* JandaManateeSolid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JandaManateeSolid.ttf; sourceTree = "<group>"; };
 		57CA8F12275CF0D600E54093 /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		57CA8F14275D2DC600E54093 /* SongsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsVC.swift; sourceTree = "<group>"; };
 		57CA8F172766779E00E54093 /* ShazamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamController.swift; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 		57077A4E273F099700713534 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				576B3F96279D87B20098513D /* Fonts */,
 				57077A5D273F0C1900713534 /* images */,
 				57077A5C273F0A8700713534 /* AppIcons */,
 			);
@@ -154,6 +161,9 @@
 		571600E527147134002E53B9 /* PocketSong */ = {
 			isa = PBXGroup;
 			children = (
+				57C8B22F279D90330015291C /* JandaManateeBubble.ttf */,
+				57C8B230279D90330015291C /* JandaManateeSolid.ttf */,
+				57C8B22D279D8F4A0015291C /* FeatherBold.ttf */,
 				57CA8F1D277242D900E54093 /* Utils */,
 				57CA8F162766776F00E54093 /* Data */,
 				57077A4E273F099700713534 /* Resources */,
@@ -182,6 +192,13 @@
 				57CA8F222773934A00E54093 /* CatchedSongDetailVC.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		576B3F96279D87B20098513D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		57CA8F162766776F00E54093 /* Data */ = {
@@ -284,8 +301,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				57077A60273F0C7000713534 /* robot_note.png in Resources */,
+				57C8B231279D90330015291C /* JandaManateeBubble.ttf in Resources */,
 				57077A61273F0C7000713534 /* Group.png in Resources */,
 				571600F62714713B002E53B9 /* LaunchScreen.storyboard in Resources */,
+				57C8B22E279D8F4D0015291C /* FeatherBold.ttf in Resources */,
+				57C8B232279D90330015291C /* JandaManateeSolid.ttf in Resources */,
 				571600FE2714737B002E53B9 /* GoogleService-Info.plist in Resources */,
 				57077A692741653A00713534 /* memories.png in Resources */,
 				571600F32714713B002E53B9 /* Assets.xcassets in Resources */,
