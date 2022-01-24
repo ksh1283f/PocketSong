@@ -9,4 +9,6 @@ target 'PocketSong' do
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
   pod 'CLTypingLabel'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 end

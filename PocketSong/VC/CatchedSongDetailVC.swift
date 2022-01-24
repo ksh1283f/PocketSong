@@ -86,47 +86,11 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
         }
         
         if let catchedLocationData = locationData{
-            var presentStreetNumber:String?
-            var presentStreetName:String?
-            var presentCountry:String?
-            var presentLocality:String?
-            var presentCreatedTimeString:String?
-            
-            if let streetNumber = catchedLocationData.streetNumber{
-                presentStreetNumber = streetNumber
-            } else {
-                presentStreetNumber = ""
-            }
-            
-            if let streetName = catchedLocationData.streetName{
-                presentStreetName = streetName
-            } else {
-                presentStreetName = ""
-            }
-            
-            if let country = catchedLocationData.country{
-                presentCountry = country
-            } else {
-                presentCountry = ""
-            }
-            
-            if let locality = catchedLocationData.locality{
-                presentLocality = locality
-            } else {
-                presentLocality = ""
-            }
-            
-            if let time = catchedLocationData.createdTimeString{
-                presentCreatedTimeString = time
-            } else {
-                presentCreatedTimeString = ""
-            }
-            
-            //todo create location text
-                
             DispatchQueue.main.async {
-                
-                locationLabel.text =
+                // country, city, locality,
+                if let addressInfo = catchedLocationData.addressInfo{
+                    self.locationLabel.text = addressInfo
+                }
             }
         }
     }

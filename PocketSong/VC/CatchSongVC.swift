@@ -102,6 +102,40 @@ class CatchSongVC: UIViewController {
         // start shazam
         do{
             // the app doesn't use custom catalog, so parameter value is nil.
+            
+            // get location info
+            let geoCoder = CLGeocoder()
+            if let location = LocationController.shared.locManager.location {
+                geoCoder.reverseGeocodeLocation(location){ [weak self] (placemarks, error) in
+                    
+                    // maybe below code will be useless
+                    guard let self = self else { return }
+                    
+                    if let _error = error{
+                        //todo show alert informing the user
+                        print("\(_error)")
+                        return
+                    }
+                    
+                    guard let placemark = placemarks?.first else{
+                        print("place mark is nil");
+                        return
+                    }
+                    
+                    let streetNumber:String = placemark.subThoroughfare ?? ""
+                    let streetName:String = placemark.subThoroughfare ?? ""
+                    let country:String = placemark.country ?? ""
+                    let locality:String = placemark.locality ?? ""
+                    let city:String = placemark.administrativeArea ?? ""
+                    let street:String = placemark.name ?? ""
+                    let timeData = Date()
+                    
+//                    self.locationData = LocationModel(streetNumber: streetNumber, streetName: streetName, country: country, locality: locality, createdTimeData: timeData)
+                    self.locationData = LocationModel(country: country, administrativeArea: city, locality: locality, street: street, timeData: timeData)
+                    print("street data")
+                }
+            }
+            
             try shazamController?.match(catalog: nil)
             
         } catch{
@@ -123,47 +157,6 @@ class CatchSongVC: UIViewController {
             let alert = UIAlertController(title: "Recognizing failed!", message: "Time out recognizing, check the around music is playing..", preferredStyle: .alert)
             return
         }else{
-            // get location info
-            let geoCoder = CLGeocoder()
-            if let location = LocationController.shared.locManager.location {
-                geoCoder.reverseGeocodeLocation(location){ [weak self] (placemarks, error) in
-                    
-                    // maybe below code will be useless
-                    guard let self = self else { return }
-                    
-                    if let _error = error{
-                        //todo show alert informing the user
-                        print("\(_error)")
-                        return
-                    }
-                    
-                    guard let placemark = placemarks?.first else{
-                        // todo show alert informing the user
-//                        UIAlertController
-                        print("place mark is nil");
-                        return
-                    }
-                    
-                    let streetNumber:String = placemark.subThoroughfare ?? ""
-                    let streetName:String = placemark.subThoroughfare ?? ""
-                    let country:String = placemark.country ?? ""
-                    let locality:String = placemark.locality ?? ""
-                    let city:String = placemark.administrativeArea ?? ""
-                    let street:String = placemark.name ?? ""
-                    let timeData = Date()
-                    
-                    let recordAddress:String = "\(country) \(city) \(locality) \(street) \(time)"
-                    print("[CatchSongVC] streetNumber: \(streetNumber) streetName: \(streetName) country: \(country) locality: \(locality) city: \(city) time: \(time)")
-                    print("[custom] \(recordAddress)")
-                    self.locationData = LocationModel(streetNumber: streetNumber, streetName: streetName, country: country, locality: locality, createdTimeData: timeData)
-                }
-            }
-            
-            // matched?.title
-            // matched?.subtitle
-            // matched?.artist
-            // matched?.artworkURL
-        
             if let mediaItem = matched{
                 self.shazamData = ShazamModel(coverUrl: nil, artist: mediaItem.artist, artworkURL: mediaItem.artworkURL, title: mediaItem.title, appleMusicURL: mediaItem.appleMusicURL, addressInfo: nil)
             }else {
@@ -186,11 +179,16 @@ class CatchSongVC: UIViewController {
         print("CatchSongVC -> CatchedSongDetailVC(prepare)")
         if let catchedSongVC = segue.destination as? CatchedSongDetailVC{
             // todo initilize catchedSongData
-            if let songData = shazamData{
-                catchedSongVC.shazamData = songData
-            }else {
+            if let locationData = locationData {
                 catchedSongVC.locationData = locationData
+            }else {
+                print("locationData is nil")
             }
+            if let songData = shazamData {
+                catchedSongVC.shazamData = songData
+            }
+            
+            
         }
     }
 }
