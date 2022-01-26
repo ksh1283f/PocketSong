@@ -68,3 +68,12 @@ extension CatchSongVC {
         informationLabel.charInterval = resetCharInterval
     }
 }
+
+extension UIViewController{
+    func alertDefault(title:String, message:String, alertType:UIAlertController.Style = .alert ){
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: alertType)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default))
+        
+        self.present(alertController, animated: true)   // todo add completion
+    }
+}

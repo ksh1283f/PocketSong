@@ -15,14 +15,20 @@ class LocationModel {
     let street:String?
     private let createdTimeData: Date?
     
+    let latitude:Double?
+    let longitude:Double?
+    
     let addressInfo:String?
     
-    init(country:String, administrativeArea:String, locality:String, street:String, timeData:Date){
+    init(country:String, administrativeArea:String, locality:String, street:String, timeData:Date, latitude:Double, longitude:Double){
         self.country = country
         self.administrativeArea = administrativeArea
         self.locality = locality
         self.street = street
         self.createdTimeData = timeData
+        
+        self.latitude = latitude
+        self.longitude = longitude
         
         if let timeData = self.createdTimeData{
             let dateFormatter = DateFormatter()

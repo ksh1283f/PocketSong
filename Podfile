@@ -6,6 +6,7 @@ target 'PocketSong' do
   use_frameworks!
 
   # Pods for PocketSong
+  pod 'FirebaseCore'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
   pod 'CLTypingLabel'

@@ -9,6 +9,7 @@ import UIKit
 import ShazamKit
 import CoreLocation
 import CLTypingLabel
+import AVFoundation
 
 class CatchSongVC: UIViewController {
     
@@ -87,7 +88,7 @@ class CatchSongVC: UIViewController {
         //// 1. play a symbol likes wifi
     
         informationLabel.onTypingAnimationFinished = {
-            self.btnCatch.isUserInteractionEnabled = true
+
         }
         
         informationLabel.text = recognizeText
@@ -122,16 +123,13 @@ class CatchSongVC: UIViewController {
                         return
                     }
                     
-                    let streetNumber:String = placemark.subThoroughfare ?? ""
-                    let streetName:String = placemark.subThoroughfare ?? ""
                     let country:String = placemark.country ?? ""
                     let locality:String = placemark.locality ?? ""
                     let city:String = placemark.administrativeArea ?? ""
                     let street:String = placemark.name ?? ""
                     let timeData = Date()
-                    
-//                    self.locationData = LocationModel(streetNumber: streetNumber, streetName: streetName, country: country, locality: locality, createdTimeData: timeData)
-                    self.locationData = LocationModel(country: country, administrativeArea: city, locality: locality, street: street, timeData: timeData)
+                
+                    self.locationData = LocationModel(country: country, administrativeArea: city, locality: locality, street: street, timeData: timeData, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
                     print("street data")
                 }
             }
@@ -168,6 +166,8 @@ class CatchSongVC: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             }
             
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
             performSegue(withIdentifier: "ShowCatchedSongDetail", sender: self)
         }
     }

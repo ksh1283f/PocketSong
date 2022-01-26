@@ -19,6 +19,8 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var commetTextField: UITextField!
     
+    var isRecorded = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +36,8 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         
         print("CatchedSongDetailVC is will Appear")
-
+        isRecorded = false
+        
         if let catchedShazamData = shazamData {
             var coverImage:Data?
             var titleText:String?
@@ -107,7 +110,17 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func onClickedBtnRecord(_ sender: Any) {
         // todo save data into the database
+        if isRecorded{
+            self.alertDefault(title: "Already recorded", message: "already your music was recorded!")
+            return
+        }
+        
+        if let presentLocation = self.locationData, let presentShazam = self.shazamData {
+            DataController.shared.onRecordMusic(locationData: presentLocation, shazamData: presentShazam, comment: commetTextField.text ?? "")
+        }
+        
         // todo createMarker on the MyMemoryVC
+        self.alertDefault(title: "Record success!", message: "Record the music successfully")
     }
     
     @objc func keyboardWillShow(_ sender: Notification){
