@@ -14,22 +14,29 @@ class DataController{
     var dataList:[RecordData] = []
     
     var db : OpaquePointer?
+    let TABLE_NAME = "UserRecord"
     
     private init() {}
     
     func initDB(){
-        let path:String = {
-            let fm = FileManager.default
-            return fm.urls(for: .libraryDirectory, in: .userDomainMask).last!
-                .appendingPathComponent("UserRecord.db").path
-        }()
+        let fileUrl = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("UserRecordDB.sqlite")
         
-        let createTableString = """
-            CREATE TABLE IF NOT EXISTS UserRecord(
-            Id INTEGER PRIMARY KEY AUTOINCREMENT,
-            MusicTitle CHAR(255),
-            Done INT);
-            """
+        if sqlite3_open(fileUrl.path, &db) == SQLITE_OK{
+            print("[DataController] Database table is not exist")
+        }
+        
+        let createQuery = "CREATE TABLE IF NOT EXISTS \(TABLE_NAME) (id INTEGER PRIMARY KEY AUTOINCREMENT, Comment TEXT, CoverURL TEXT Artist TEXT, ArtworkURL TEXT, Title TEXT, AppleMusicURL TEXT, Country TEXT, Locality TEXT, AdministrativeArea TEXT, Street TEXT, CreatedTimeData TEXT, Latitude REAL, Longitude REAL, AddressInfo TEXT)"
+        print(fileUrl)
+        if sqlite3_exec(db, createQuery, nil, nil, nil) != SQLITE_OK{
+            let errMsg = String(cString: sqlite3_errmsg(db))
+            print("[DataController] creating db table was failed")
+        }
+    }
+    
+    func insertDataIntoUserRecordTable(locationModel:LocationModel?, shazamModel: ShazamModel?){
+        var stmt: OpaquePointer?
+        
+        let insertQuery:String = "INSERT INTO \(TABLE_NAME) ()"
     }
     
     func onRecordMusic(locationData:LocationModel, shazamData:ShazamModel, comment:String){
