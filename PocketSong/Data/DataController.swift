@@ -33,10 +33,12 @@ class DataController{
         }
     }
     
-    func insertDataIntoUserRecordTable(locationModel:LocationModel?, shazamModel: ShazamModel?){
+    func insertDataIntoUserRecordTable(recordData:RecordData?){
         var stmt: OpaquePointer?
+        if let targetRecordData = recordData, let targetLocationModel = targetRecordData.locationData, let targetShazamModel = targetRecordData.shazamData {
+            let insertQuery:String = "INSERT INTO \(TABLE_NAME) (Comment, CoverURL, ArtworkURL, Title, AppleMusicURL, Country, Locality, AdministrativeArea, Street, CreatedTimeData, Latitude, Longitude, AddressInfo) VALUES(\(targetRecordData.comment), \(targetShazamModel.coverUrl), \(targetShazamModel.artworkURL), \(targetShazamModel.title), \(targetShazamModel.appleMusicURL), \(targetShazamModel)"
+        }
         
-        let insertQuery:String = "INSERT INTO \(TABLE_NAME) ()"
     }
     
     func onRecordMusic(locationData:LocationModel, shazamData:ShazamModel, comment:String){
