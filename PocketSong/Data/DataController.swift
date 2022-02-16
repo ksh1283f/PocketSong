@@ -9,7 +9,7 @@ import Foundation
 import SQLite3
 import CoreLocation
 
-class DataController{
+class DataController {
     static let shared = DataController()
     var dataList:[RecordData] = []
     
@@ -36,7 +36,9 @@ class DataController{
     func insertDataIntoUserRecordTable(recordData:RecordData?){
         var stmt: OpaquePointer?
         if let targetRecordData = recordData, let targetLocationModel = targetRecordData.locationData, let targetShazamModel = targetRecordData.shazamData {
-            let insertQuery:String = "INSERT INTO \(TABLE_NAME) (Comment, CoverURL, ArtworkURL, Title, AppleMusicURL, Country, Locality, AdministrativeArea, Street, CreatedTimeData, Latitude, Longitude, AddressInfo) VALUES(\(targetRecordData.comment), \(targetShazamModel.coverUrl), \(targetShazamModel.artworkURL), \(targetShazamModel.title), \(targetShazamModel.appleMusicURL), \(targetShazamModel)"
+            // let insertQuery:String = "INSERT INTO \(TABLE_NAME) (Comment, CoverURL, ArtworkURL, Title, AppleMusicURL, Country, Locality, AdministrativeArea, Street, CreatedTimeData, Latitude, Longitude, AddressInfo) 
+            // VALUES(\(targetRecordData.comment), \(targetShazamModel.coverUrl), \(targetShazamModel.artworkURL), \(targetShazamModel.title), \(targetShazamModel.appleMusicURL), \(targetLocationModel.Country) \(targetLocationModel.Locality) \(targetLocationModel.AdministrativeArea) \(targetLocationModel.Street) \(targetLocationModel.createdTimeString) \(targetLocationModel.latitude) \(targetLocationModel.longitude) \(targetLocationModel.addressInfo)"
+            let insertQuery:String = "INSERT INTO \(TABLE_NAME) (Comment, CoverURL, ArtworkURL, Title, ApplieMusicURL, Country, Locality, AdministrativeArea, Street, CreatedTimeData, Latitude, Longitude, AddressInfo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         }
         
     }
