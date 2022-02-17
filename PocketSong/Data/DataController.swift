@@ -71,8 +71,6 @@ class DataController {
             
             var insertStatement: OpaquePointer?
             
-            
-            
             if sqlite3_prepare_v2(_db, insertQuery, -1, &insertStatement, nil) == SQLITE_OK{
                 sqlite3_bind_text(insertStatement, 1, targetRecordData.comment, -1, nil)
                 sqlite3_bind_text(insertStatement, 2, targetShazamModel.coverUrl?.absoluteString, -1, nil)
@@ -89,11 +87,25 @@ class DataController {
                 sqlite3_bind_text(insertStatement, 13, targetLocationModel.addressInfo, -1, nil)
                 
             }
-        }
-        
+
+            sqlite3_finalize(insertStatement)
+        }       
     }
-    
-    
+
+    func selectData(){
+        var queryStatement: OpaquePointer?
+        let selectQueryString = "SELECT * FROM \(TABLE_NAME)"
+         guard let _db = openDatabase() else {
+            print("[DataController] db open failed")
+            return
+        }
+
+        if sqlite3_prepare_v2(_db, selectQueryString, -1, &queryStatement, nil) == SQLITE_OK{
+            if sqlite3_step(queryStatement) == SQLITE_ROW{
+                
+            }
+        }
+    }
     
     func onRecordMusic(locationData:LocationModel, shazamData:ShazamModel, comment:String){
         // latitude, longitude
