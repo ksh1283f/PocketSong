@@ -31,14 +31,23 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
         
         // check data controller has some recordData
         // if it has, get the data and convert it to CLLocationCoordinate2D data
-        for item in DataController.shared.dataList {
-            if let locationData = item.locationData{
-                let location2d = CLLocationCoordinate2D(latitude: locationData.latitude!, longitude: locationData.longitude!)
-                if let shazamData = item.shazamData{
-                    self.mapView.makePin(targetCoordinate: location2d
-                                         , title: shazamData.title!, subTitle: shazamData.artist!)
+        do {
+            let dataController = try DataController.open()
+            for item in dataController.dataList {
+                if let locationData = item.locationData{
+                    let location2d = CLLocationCoordinate2D(latitude: locationData.latitude!, longitude: locationData.longitude!)
+                    if let shazamData = item.shazamData{
+                        self.mapView.makePin(targetCoordinate: location2d
+                                             , title: shazamData.title!, subTitle: shazamData.artist!)
+                    }
                 }
             }
+        } catch SQLiteError.OpenDatabase(_){
+            print("[MyMemoriesVC] DataController open failed")
+        } catch SQLiteError.Step(_){
+            print("[MyMemoriesVC] DataController step failed")
+        } catch{
+            print("[MyMemoriesVC] DataController failed")
         }
     }
     

@@ -25,6 +25,7 @@
 		5776EA3027A1215E00898387 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5776EA2F27A1215E00898387 /* AVFoundation.framework */; };
 		5776EA3227A12F3100898387 /* RecordAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5776EA3127A12F3100898387 /* RecordAnnotation.swift */; };
 		578F72DF274180DD00E61F8B /* CatchSongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F72DE274180DD00E61F8B /* CatchSongVC.swift */; };
+		57AF2D9D27CBF5320082F1BF /* UserRecordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF2D9C27CBF5320082F1BF /* UserRecordTable.swift */; };
 		57C8B22E279D8F4D0015291C /* FeatherBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C8B22D279D8F4A0015291C /* FeatherBold.ttf */; };
 		57C8B231279D90330015291C /* JandaManateeBubble.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C8B22F279D90330015291C /* JandaManateeBubble.ttf */; };
 		57C8B232279D90330015291C /* JandaManateeSolid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C8B230279D90330015291C /* JandaManateeSolid.ttf */; };
@@ -78,6 +79,7 @@
 		5776EA2F27A1215E00898387 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5776EA3127A12F3100898387 /* RecordAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAnnotation.swift; sourceTree = "<group>"; };
 		578F72DE274180DD00E61F8B /* CatchSongVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchSongVC.swift; sourceTree = "<group>"; };
+		57AF2D9C27CBF5320082F1BF /* UserRecordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecordTable.swift; sourceTree = "<group>"; };
 		57C8B22D279D8F4A0015291C /* FeatherBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FeatherBold.ttf; path = PocketSong/FeatherBold.ttf; sourceTree = SOURCE_ROOT; };
 		57C8B22F279D90330015291C /* JandaManateeBubble.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JandaManateeBubble.ttf; sourceTree = "<group>"; };
 		57C8B230279D90330015291C /* JandaManateeSolid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JandaManateeSolid.ttf; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				57CA8F2727761FEF00E54093 /* LocationModel.swift */,
 				5776EA2D27A11D8700898387 /* RecordData.swift */,
 				5776EA3127A12F3100898387 /* RecordAnnotation.swift */,
+				57AF2D9C27CBF5320082F1BF /* UserRecordTable.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57CA8F1C2771015500E54093 /* SongMatchStateType.swift in Sources */,
+				57AF2D9D27CBF5320082F1BF /* UserRecordTable.swift in Sources */,
 				57CA8F232773934A00E54093 /* CatchedSongDetailVC.swift in Sources */,
 				5776EA2E27A11D8700898387 /* RecordData.swift in Sources */,
 				57077A63274086C100713534 /* MyMemoriesVC.swift in Sources */,

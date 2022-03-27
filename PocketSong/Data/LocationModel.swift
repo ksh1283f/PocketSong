@@ -44,3 +44,13 @@ class LocationModel {
     
     }
 }
+
+extension LocationModel{
+    static func ToString(date:String) -> Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd a hh:mm"
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        
+        return try dateFormatter.date(from: date)
+    }
+}

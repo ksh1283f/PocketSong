@@ -116,7 +116,15 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
         }
         
         if let presentLocation = self.locationData, let presentShazam = self.shazamData {
-            DataController.shared.onRecordMusic(locationData: presentLocation, shazamData: presentShazam, comment: commetTextField.text ?? "")
+            do{
+                let dataController = try DataController.open()  // UserRecord table
+                let newRecordTable = UserRecordTable(createdTimeData: presentLocation.createdTimeString ?? "Unknown", comment: commetTextField.text ?? "Unknown", coverURL: presentShazam.coverUrl?.description ?? "Unknown", artist: presentShazam.artist ?? "Unknown", artworkURL: presentShazam.artworkURL?.description ?? "Unknown", title: presentShazam.title ?? "Unknown", appleMusicURL: presentShazam.appleMusicURL?.absoluteString ?? "Unknown", country: presentLocation.country ?? "Unknown", locality: presentLocation.locality ?? "Unknown", administrativeArea: presentLocation.administrativeArea ?? "Unknown", street: presentLocation.street ?? "Unknown", latitude: Float(presentLocation.latitude ?? -1), longitude: Float(presentLocation.longitude ?? -1), addressInfo: presentLocation.addressInfo ?? "Unknown")
+                
+                try dataController.insertData(userRecordTable: newRecordTable)
+            } catch{
+                print("[CatchedSongDetailVC] INSERT DATA FAILED!")
+            }
+            
         }
         
         // todo createMarker on the MyMemoryVC
@@ -143,4 +151,5 @@ extension CatchedSongDetailVC{
     @objc func dismissKeyboard(){
         view.endEditing(true)
     }
+    
 }

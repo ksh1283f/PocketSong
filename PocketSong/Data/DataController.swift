@@ -9,101 +9,86 @@ import Foundation
 import SQLite3
 import CoreLocation
 
+enum SQLiteError: Error{
+    case OpenDatabase(message: String)
+    case Prepare(message: String)
+    case Step(message: String)
+    case Bind(message: String)
+}
+
 class DataController {
-    static let shared = DataController()
-    var dataList:[RecordData] = []
-    
-    var db : OpaquePointer?
+    private let db : OpaquePointer?
     let TABLE_NAME = "UserRecord"
-    
-    private init() {}
-    
-    func openDatabase() -> OpaquePointer?{
-        let fileUrl = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("UserRecordDB.sqlite")
-        
-        if sqlite3_open(fileUrl.path, &db) == SQLITE_OK{
-            print("[DataController] Database is opened successfully")
-            return db
-        }else {
-            print("[DataController] Database open failed")
-            return nil
+    var dataList:[RecordData] {
+        get {
+                if let allUsers = getAllUserRecord() {
+                    return allUsers
+            }
+            
+            return [RecordData]()
+        }
+        set{
+            dataList = newValue
         }
     }
     
-    func createTable(){
-        guard let _db = openDatabase() else {
-            print("[DataController] db open failed")
-            return
-        }
+    static let dbInitPath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    static let dbFinalPath = dbInitPath?.appendingPathComponent("UserRecord.sqlite").relativePath
+    
+    private init(dbPointer:OpaquePointer?) {
+        self.db = dbPointer
+    }
+    deinit{
+        sqlite3_close(self.db)
+    }
+    
+    static func open() throws -> DataController{
+        var db:OpaquePointer?
         
-        let createQuery = "CREATE TABLE IF NOT EXISTS \(TABLE_NAME) (id INTEGER PRIMARY KEY AUTOINCREMENT, Comment TEXT, CoverURL TEXT Artist TEXT, ArtworkURL TEXT, Title TEXT, AppleMusicURL TEXT, Country TEXT, Locality TEXT, AdministrativeArea TEXT, Street TEXT, CreatedTimeData TEXT, Latitude REAL, Longitude REAL, AddressInfo TEXT)"
-        
-        if sqlite3_exec(_db, createQuery, nil, nil, nil) != SQLITE_OK{
-            let errMsg = String(cString: sqlite3_errmsg(db))
-            print("[DataController] creating db table was failed")
-        }
-        
-        var createTableStatement: OpaquePointer?
-        
-        if sqlite3_prepare(_db, createQuery, -1, &createTableStatement, nil) == SQLITE_OK{
-            if sqlite3_step(createTableStatement) == SQLITE_DONE{
-                print("[DataController] tabel created successfully")
-            }else{
-                print("[DataController] failed table create")
-            }
+        if sqlite3_open(dbFinalPath, &db) == SQLITE_OK{
+            return DataController(dbPointer: db)
         }else{
-            print("[DataController] CREATE TABLE statement is not prepared")
+            defer{
+                if db != nil{
+                    sqlite3_close(db)
+                }
+            }
+            if let errorPointer = sqlite3_errmsg(db){
+                let message = String(cString: errorPointer)
+                throw SQLiteError.OpenDatabase(message: message)
+            }else{
+                throw SQLiteError.OpenDatabase(message: "No error message provided from sqlite")
+            }
         }
-        // prevent resource leaks
-        sqlite3_finalize(createTableStatement)
     }
     
-    func insertDataIntoUserRecordTable(recordData:RecordData?){
-        guard let _db = openDatabase() else {
-            print("[DataController] db open failed")
-            return
-        }
+    static func open(path:String) throws -> DataController{
+        var db:OpaquePointer?
         
-        if let targetRecordData = recordData, let targetLocationModel = targetRecordData.locationData, let targetShazamModel = targetRecordData.shazamData {
-            // let insertQuery:String = "INSERT INTO \(TABLE_NAME) (Comment, CoverURL, ArtworkURL, Title, AppleMusicURL, Country, Locality, AdministrativeArea, Street, CreatedTimeData, Latitude, Longitude, AddressInfo) c
-            // VALUES(\(targetRecordData.comment), \(targetShazamModel.coverUrl), \(targetShazamModel.artworkURL), \(targetShazamModel.title), \(targetShazamModel.appleMusicURL), \(targetLocationModel.Country) \(targetLocationModel.Locality) \(targetLocationModel.AdministrativeArea) \(targetLocationModel.Street) \(targetLocationModel.createdTimeString) \(targetLocationModel.latitude) \(targetLocationModel.longitude) \(targetLocationModel.addressInfo)"
-            let insertQuery:String = "INSERT INTO \(TABLE_NAME) (Comment, CoverURL, ArtworkURL, Title, ApplieMusicURL, Country, Locality, AdministrativeArea, Street, CreatedTimeData, Latitude, Longitude, AddressInfo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        if sqlite3_open(path, &db) == SQLITE_OK{
             
-            var insertStatement: OpaquePointer?
-            
-            if sqlite3_prepare_v2(_db, insertQuery, -1, &insertStatement, nil) == SQLITE_OK{
-                sqlite3_bind_text(insertStatement, 1, targetRecordData.comment, -1, nil)
-                sqlite3_bind_text(insertStatement, 2, targetShazamModel.coverUrl?.absoluteString, -1, nil)
-                sqlite3_bind_text(insertStatement, 3, targetShazamModel.artworkURL?.absoluteString, -1, nil)
-                sqlite3_bind_text(insertStatement, 4, targetShazamModel.title, -1, nil)
-                sqlite3_bind_text(insertStatement, 5, targetShazamModel.appleMusicURL?.absoluteString, -1, nil)
-                sqlite3_bind_text(insertStatement, 6, targetLocationModel.country, -1, nil)
-                sqlite3_bind_text(insertStatement, 7, targetLocationModel.locality, -1, nil)
-                sqlite3_bind_text(insertStatement, 8, targetLocationModel.administrativeArea, -1, nil)
-                sqlite3_bind_text(insertStatement, 9, targetLocationModel.street, -1, nil)
-                sqlite3_bind_text(insertStatement, 10, targetLocationModel.createdTimeString, -1, nil)
-                sqlite3_bind_text(insertStatement, 11, targetLocationModel.latitude, -1, nil)
-                sqlite3_bind_text(insertStatement, 12, targetLocationModel.longitude, -1, nil)
-                sqlite3_bind_text(insertStatement, 13, targetLocationModel.addressInfo, -1, nil)
-                
+            return DataController(dbPointer: db)
+        }else{
+            defer{
+                if db != nil{
+                    sqlite3_close(db)
+                }
             }
-
-            sqlite3_finalize(insertStatement)
-        }       
-    }
-
-    func selectData(){
-        var queryStatement: OpaquePointer?
-        let selectQueryString = "SELECT * FROM \(TABLE_NAME)"
-         guard let _db = openDatabase() else {
-            print("[DataController] db open failed")
-            return
+            if let errorPointer = sqlite3_errmsg(db){
+                let message = String(cString: errorPointer)
+                throw SQLiteError.OpenDatabase(message: message)
+            }else{
+                throw SQLiteError.OpenDatabase(message: "No error message provided from sqlite")
+            }
         }
-
-        if sqlite3_prepare_v2(_db, selectQueryString, -1, &queryStatement, nil) == SQLITE_OK{
-            if sqlite3_step(queryStatement) == SQLITE_ROW{
-                
-            }
+    }
+    
+    fileprivate var errorMessage:String{
+        if let errorPointer = sqlite3_errmsg(self.db){
+            let errorMessage = String(cString: errorPointer)
+            return errorMessage
+        } else{
+            return "No error message provided from sqlite"
         }
     }
     
@@ -112,4 +97,159 @@ class DataController {
         let recordData = RecordData(locationData: locationData, shazamData: shazamData, comment: comment)
         dataList.append(recordData)
     }
+    
 }
+
+extension DataController{
+    func prepareStatement(sql: String) throws -> OpaquePointer?{
+        var statement: OpaquePointer?
+        guard sqlite3_prepare_v2(db, sql, -1, &statement, nil) == SQLITE_OK else{
+            throw SQLiteError.Prepare(message: errorMessage)
+        }
+        return statement
+    }
+    
+    func createTable(table: SQLTable.Type) throws {
+        let createTableStatement = try prepareStatement(sql: table.createStatement)
+        
+        defer{
+            sqlite3_finalize(createTableStatement)
+        }
+        
+        guard sqlite3_step(createTableStatement) == SQLITE_DONE else{
+            throw SQLiteError.Step(message: errorMessage)
+        }
+        print("[DataController] \(table) table created")
+    }
+    
+    func insertData(userRecordTable:UserRecordTable) throws{
+        let insertSql = UserRecordTable.insertStatement
+        let insertStatement = try prepareStatement(sql: insertSql)
+        defer{
+            sqlite3_finalize(insertStatement)
+        }
+        
+        let createdTimeData = userRecordTable.createdTimeData ?? ""
+        let comment = userRecordTable.comment ?? ""
+        let coverUrl = userRecordTable.coverURL ?? ""
+        let artist = userRecordTable.artist ?? ""
+        let artworkUrl = userRecordTable.artworkURL ?? ""
+        let title = userRecordTable.title ?? ""
+        let appleMusicUrl = userRecordTable.appleMusicURL ?? ""
+        let country = userRecordTable.country ?? ""
+        let locality = userRecordTable.locality ?? ""
+        let administrativeArea = userRecordTable.administrativeArea ?? ""
+        let street = userRecordTable.street ?? ""
+        let latitude = userRecordTable.latitude ?? 0.0
+        let longitude = userRecordTable.longitude ?? 0.0
+        let addressInfo = userRecordTable.addressInfo ?? ""
+        
+        guard
+            sqlite3_bind_text(insertStatement, 1, NSString(string: createdTimeData).utf8String,-1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 2, NSString(string: comment).utf8String, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 3, NSString(string: coverUrl).utf8String, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 4, NSString(string: artist).utf8String, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 5, NSString(string: artworkUrl).utf8String, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 6, NSString(string: title).utf8String, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 7, NSString(string: appleMusicUrl).utf8String, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 8, NSString(string: country).utf8String, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 9, NSString(string: locality).utf8String, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 10, NSString(string: administrativeArea).utf8String, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 11, NSString(string: street).utf8String, -1, nil) == SQLITE_OK &&
+            sqlite3_bind_double(insertStatement, 12, Double(latitude)) == SQLITE_OK &&
+            sqlite3_bind_double(insertStatement, 13, Double(longitude)) == SQLITE_OK &&
+            sqlite3_bind_text(insertStatement, 14, NSString(string: addressInfo).utf8String, -1, nil) == SQLITE_OK
+        else{
+            throw SQLiteError.Bind(message: errorMessage)
+        }
+        
+        guard sqlite3_step(insertStatement) == SQLITE_DONE else {
+            throw SQLiteError.Step(message: errorMessage)
+        }
+        
+        print("[DataController] Successfully inserted data")
+    }
+    
+    private func getAllUserRecord() -> [RecordData]? {
+        var result:[RecordData] = []
+        let sql  = "SELECT * FROM \(self.TABLE_NAME);"
+        guard let queryStatement = try? prepareStatement(sql: sql) else {
+            return nil
+        }
+        defer {
+            sqlite3_finalize(queryStatement)
+        }
+        
+        guard sqlite3_step(queryStatement) == SQLITE_ROW else {
+            return nil
+        }
+        
+        while sqlite3_step(queryStatement) == SQLITE_ROW {
+            guard let createdTime = sqlite3_column_text(queryStatement, 0) else {
+                print("[DataController:sqlite3_step] createdTime is nil")
+                return nil}
+            print("[DataController:sqlite3_step] createdTime is \(String(cString: createdTime))")
+            guard let comment = sqlite3_column_text(queryStatement, 1) else {
+                print("[DataController:sqlite3_step] comment is nil")
+                return nil }
+            print("[DataController:sqlite3_step] comment is \(String(cString: comment))")
+            guard let coverUrl = sqlite3_column_text(queryStatement, 2) else {
+                print("[DataController:sqlite3_step] coverUrl is nil")
+                return nil }
+            print("[DataController:sqlite3_step] coverUrl is \(String(cString: coverUrl))")
+            guard let artist = sqlite3_column_text(queryStatement, 3) else {
+                print("[DataController:sqlite3_step] artist is nil")
+                return nil }
+            guard let artworkUrl = sqlite3_column_text(queryStatement, 4) else {
+                print("[DataController:sqlite3_step] artworkUrl is nil")
+                return nil }
+            
+            guard let title = sqlite3_column_text(queryStatement, 5) else {
+                print("[DataController:sqlite3_step] artworkUrl is nil")
+                return nil }
+            guard let appleMusicUrl = sqlite3_column_text(queryStatement, 6) else {
+                print("[DataController:sqlite3_step] appleMusicUrl is nil")
+                return nil }
+            guard let country = sqlite3_column_text(queryStatement, 7) else {
+                print("[DataController:sqlite3_step] country is nil")
+                return nil }
+            guard let locality = sqlite3_column_text(queryStatement, 8) else {
+                print("[DataController:sqlite3_step] locality is nil")
+                return nil }
+            guard let administrativeArea = sqlite3_column_text(queryStatement, 9) else {
+                print("[DataController:sqlite3_step] administrativeArea is nil")
+                return nil }
+            guard let street = sqlite3_column_text(queryStatement, 10) else {
+                print("[DataController:sqlite3_step] street is nil")
+                return nil }
+            let latitude = sqlite3_column_double(queryStatement, 11)
+            let longitude  = sqlite3_column_double(queryStatement, 12)
+            
+            guard let addressInfo = sqlite3_column_text(queryStatement, 13) else {
+                print("[DataController:sqlite3_step] addressInfo is nil")
+                return nil }
+            
+            // 1. create locationData
+            let timeData = LocationModel.ToString(date: String(cString: createdTime)) ?? Date()
+            let locationData = LocationModel(country: String(cString: country), administrativeArea: String(cString: coverUrl), locality: String(cString: locality), street: String(cString: street), timeData: timeData, latitude: latitude, longitude: longitude)
+
+            // 2. create shazamData
+            let shazamData = ShazamModel(coverUrl: URL(string: String(cString: coverUrl)), artist: String(cString: artist), artworkURL: URL(string: String(cString: artworkUrl)), title: String(cString: title), appleMusicURL: URL(string: String(cString:appleMusicUrl)), addressInfo: String(cString: addressInfo))
+            
+            let recordData = RecordData(locationData: locationData, shazamData: shazamData, comment: String(cString: comment))
+            
+            result.append(recordData)
+        }
+        
+        return result
+    }
+    
+}
+
+//let db: DataController
+//do {
+//    db = try DataController.open(path: "UserRecordDB.sqlite")
+//    print("open successfully")
+//} catch SQLiteError.OpenDatabase(_){
+//    print("unable to open database")
+//}

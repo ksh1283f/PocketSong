@@ -21,6 +21,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("start launchScreen")
         FirebaseApp.configure()
         
+        // database initialize
+        let dbInitPath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        let dbFinalPath = dbInitPath?.appendingPathComponent("UserRecord.sqlite").relativePath
+        if let path = dbFinalPath{
+//            let db = DataController.open(path: path)
+            do{
+                let db = try DataController.open(path: path)
+                print("[AppDelegate] db open success")
+                
+                try db.createTable(table: UserRecordTable.self)
+                print("[AppDelegate] db table create success")
+                
+            } catch SQLiteError.OpenDatabase(_) {
+                print("[AppDelegate] db open failed ")
+            } catch SQLiteError.Step(_){
+                print("[AppDelegate] db step failed ")
+            } catch {
+                print("[AppDelegate] ??")
+            }
+        }
+        
         sleep(3)
         print("end launchScreen")
         return true
