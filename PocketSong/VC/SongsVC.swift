@@ -7,8 +7,17 @@
 
 import UIKit
 
-class SongsVC: UIViewController {
+class SongsVC: UIViewController, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let db = DataController.open()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
 
+    @IBOutlet weak var songCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 

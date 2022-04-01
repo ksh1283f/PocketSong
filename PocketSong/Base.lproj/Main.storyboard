@@ -101,6 +101,9 @@
                     <tabBarItem key="tabBarItem" title="Songs" image="TabBarIcons_inactiveCollections" selectedImage="TabBarIcons_collections" id="pHA-Mg-j8l">
                         <color key="badgeColor" systemColor="labelColor"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="songCollectionView" destination="4B5-lV-Ey0" id="r8U-wf-CLT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0k-5k-OXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -313,7 +316,7 @@
                                                             <constraint firstAttribute="height" constant="2" id="mAE-qK-caF"/>
                                                         </constraints>
                                                     </view>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ssefsgrargaeg" borderStyle="roundedRect" textAlignment="justified" clearsOnBeginEditing="YES" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="E04-mz-0fX">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert comment.." textAlignment="justified" clearsOnBeginEditing="YES" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="E04-mz-0fX">
                                                         <rect key="frame" x="33" y="43" width="301" height="34"/>
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" allowsDirectInteraction="YES"/>
@@ -422,7 +425,9 @@
         </scene>
     </scenes>
     <designables>
-        <designable name="M3K-Mg-54S"/>
+        <designable name="M3K-Mg-54S">
+            <size key="intrinsicContentSize" width="235.5" height="29"/>
+        </designable>
     </designables>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

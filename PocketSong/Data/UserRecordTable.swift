@@ -85,7 +85,7 @@ extension UserRecordTable{
                     Longitude,
                     AddressInfo
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
-"""
+        """
     }
 }
 

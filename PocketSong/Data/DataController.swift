@@ -244,6 +244,31 @@ extension DataController{
         return result
     }
     
+    func updateData(dataKey:String, column:String, newValue:String,condition: String) throws{
+        let sql = "UPDATE UserRecord SET \(column) = \(newValue) WHERE = \(condition);"
+        let queryStatement = try prepareStatement(sql: sql)
+        defer{
+            sqlite3_finalize(queryStatement)
+        }
+        
+        guard sqlite3_step(queryStatement) == SQLITE_DONE else{
+            throw SQLiteError.Step(message: errorMessage)
+        }
+    }
+    
+    func deleteData(dataKey:String, condition:String) throws {
+        let sql = "DELETE FROM UserRecord WHERE=\(condition);"
+        let queryStatement = try? prepareStatement(sql: sql)
+        defer {
+            sqlite3_finalize(queryStatement)
+        }
+        
+        guard sqlite3_step(queryStatement) == SQLITE_DONE else{
+            throw SQLiteError.Step(message: errorMessage)
+        }
+        
+    }
+    
 }
 
 //let db: DataController
