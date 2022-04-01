@@ -62,7 +62,14 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
             checkLocationAuthorization()
         }else{
             // show alert letting the user know they have to turn this on.
-            
+            let alert = UIAlertController(title: "Request location permission", message:"Please go to 'Settings -> PocketSong -> Allow location access'", preferredStyle: UIAlertController.style.alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in 
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+
+            alert.addAction(okAction)
         }
     }
     
