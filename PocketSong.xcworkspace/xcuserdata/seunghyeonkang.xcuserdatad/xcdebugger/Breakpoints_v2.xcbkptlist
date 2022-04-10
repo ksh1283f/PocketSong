@@ -7,32 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0258D01C-4904-4760-9965-9106070A7D6D"
+            uuid = "D1FC27FC-E68F-4109-8AF4-01FFD94D0FD7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PocketSong/Data/DataController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "dataList"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8A005E17-FC94-4C2D-8DC7-211E61A96B0D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PocketSong/Data/DataController.swift"
+            filePath = "PocketSong/VC/MyMemoriesVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "244"
             endingLineNumber = "244"
-            landmarkName = "getAllUserRecord()"
+            landmarkName = "locationManagerDidChangeAuthorization(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

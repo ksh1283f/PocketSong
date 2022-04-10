@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 import CoreLocation // to get the user's locations
+import Network
 
 class MyMemoriesVC: UIViewController, MKMapViewDelegate{
     
@@ -58,18 +59,12 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
     func checkLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
             // setup our location manager
+            print("[MyMemories:checkLocationServices]")
             setupLocationManager()
             checkLocationAuthorization()
         }else{
             // show alert letting the user know they have to turn this on.
-            let alert = UIAlertController(title: "Request location permission", message:"Please go to 'Settings -> PocketSong -> Allow location access'", preferredStyle: UIAlertController.style.alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in 
-                if let url = URL(string: UIApplication.openSettingsURLString) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
-            }
-
-            alert.addAction(okAction)
+           
         }
     }
     
@@ -107,11 +102,12 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
             
         case .denied:
             // show alert instructing them how to on permissions
-            let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
-                exit(0)
-            })
-            self.present(alert, animated: true, completion: nil)
+//            let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+//                exit(0)
+//            })
+//            self.present(alert, animated: true, completion: nil)
+            print("[MyMemories: checkLocationAuthorization] denied")
             break
             
         case .notDetermined:
@@ -212,19 +208,60 @@ extension MyMemoriesVC : CLLocationManagerDelegate{
             setupLocationManager()
             checkLocationAuthorization()
             break
+            
         case .authorizedWhenInUse:
             print("authorizedWhenInUse")
             setupLocationManager()
             checkLocationAuthorization()
             break
+            
         case .restricted:
             print("restricted")
+            let alert = UIAlertController(title: "Request location permission", message:"Please go to 'Settings -> PocketSong -> Allow location access'", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "Allow", style: .default) { (action) in
+                if let url = URL(string: "App-prefs:") {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+            
+            let cancelAction = UIAlertAction(title: "Don't allow", style: .cancel){ (action) in
+                UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+                    exit(0)
+                }
+            }
+            
+            alert.addAction(cancelAction)
+            alert.addAction(okAction)
+            present(alert, animated: false, completion: nil)
             break
+            
         case .notDetermined:
             print("notDetermined")
             break
+            
         case .denied:
             print("denied")
+            let alert = UIAlertController(title: "Request location permission", message:"Please go to 'Settings -> PocketSong -> Allow location access'", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+                if let url = URL(string: "App-prefs:"){
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+            
+            let cancelAction = UIAlertAction(title: "Don't Allow", style: .cancel) { (action) in
+                if let url = URL(string: "App-prefs:"){
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+
+            alert.addAction(cancelAction)
+            alert.addAction(okAction)
+            
+            present(alert, animated: false, completion: nil)
+            if let url = URL(string: "App-Prefs:root=Privacy&path=com.seunghyeonKang.PocketSong"){
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
             break
         }
     }
