@@ -42,6 +42,7 @@ class CatchSongVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         btnCatch.isUserInteractionEnabled = false
+        btnCatch.alpha = 1.0
         
     }
     
@@ -73,6 +74,7 @@ class CatchSongVC: UIViewController {
 //                                         onEnd: {() -> () in self.btnCatch.isUserInteractionEnabled = true })
         informationLabel.onTypingAnimationFinished = {
             self.btnCatch.isUserInteractionEnabled = true
+            self.btnCatch.alpha = 1.0
         }
         informationLabel.text = self.initText
         
@@ -99,6 +101,7 @@ class CatchSongVC: UIViewController {
         
 //        startRecognizeAnimation()
         btnCatch.isUserInteractionEnabled = false;
+        btnCatch.alpha = 0.0
         
         // start shazam
         do{

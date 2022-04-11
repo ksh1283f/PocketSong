@@ -67,7 +67,7 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
            
         }
     }
-    
+
     func checkLocationAuthorization() {
         switch LocationController.shared.locManager.authorizationStatus{
         case .authorizedAlways:
@@ -197,8 +197,6 @@ extension MyMemoriesVC : CLLocationManagerDelegate{
         if #available(iOS 15, *){
             return
         }
-        
-        
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -243,15 +241,16 @@ extension MyMemoriesVC : CLLocationManagerDelegate{
         case .denied:
             print("denied")
             let alert = UIAlertController(title: "Request location permission", message:"Please go to 'Settings -> PocketSong -> Allow location access'", preferredStyle: UIAlertController.Style.alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+            let okAction = UIAlertAction(title: "Allow", style: .default) { (action) in
                 if let url = URL(string: "App-prefs:"){
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
             }
             
-            let cancelAction = UIAlertAction(title: "Don't Allow", style: .cancel) { (action) in
-                if let url = URL(string: "App-prefs:"){
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            let cancelAction = UIAlertAction(title: "Don't allow", style: .cancel) { (action) in
+                UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                    exit(0)
                 }
             }
 
@@ -259,12 +258,10 @@ extension MyMemoriesVC : CLLocationManagerDelegate{
             alert.addAction(okAction)
             
             present(alert, animated: false, completion: nil)
-            if let url = URL(string: "App-Prefs:root=Privacy&path=com.seunghyeonKang.PocketSong"){
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
+            // if let url = URL(string: "App-Prefs:root=Privacy&path=com.seunghyeonKang.PocketSong"){
+            //     UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            // }
             break
         }
     }
-    
-    
 }
