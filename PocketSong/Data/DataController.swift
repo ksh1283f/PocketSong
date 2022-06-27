@@ -271,6 +271,21 @@ extension DataController{
     
 }
 
+extension DataController{
+    public static func dbOpen(caller:String, process:([RecordData]) -> Void){
+        do{
+            let dataController = try open()
+            process(dataController.dataList)
+        }catch SQLiteError.OpenDatabase(_){
+            print("\(caller) DataController open Failed")
+        }catch SQLiteError.Step(_){
+            print("\(caller) DataController step Failed")
+        }catch{
+            print("\(caller) DataController failed")
+        }
+    }
+}
+
 //let db: DataController
 //do {
 //    db = try DataController.open(path: "UserRecordDB.sqlite")

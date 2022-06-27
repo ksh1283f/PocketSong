@@ -8,32 +8,47 @@
 import UIKit
 
 class SongsVC: UIViewController {
-//class SongsVC: UIViewController, UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        let db = DataController.open()
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        <#code#>
-//    }
     
-
-    @IBOutlet weak var songCollectionView: UICollectionView!
+    @IBOutlet weak var recordSongTableView: UITableView!
+    var recordDataDic:[String:RecordData]=[:]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        recordSongTableView.delegate = self
+        recordSongTableView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
-    */
+    
+    func getRecordDataPerDaily(){
+        
+    }
+}
 
+extension SongsVC : UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DailyRecordCell") as? DailyRecordCell else { return DailyRecordCell() }
+//
+        cell.titleLabel.text = "ss \(indexPath.item)"
+        cell.testImageView.image = UIImage(systemName: "pencil")
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let dataCount = 3
+        return dataCount
+    }
+
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        return nil
+//    }
+
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        <#code#>
+//    }
 }

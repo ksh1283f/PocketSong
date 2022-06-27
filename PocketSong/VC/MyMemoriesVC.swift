@@ -18,6 +18,37 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
+        
+        // test
+        self.mapView.mapType = .standard
+        self.mapView.showsBuildings = true
+        self.mapView.showsScale = true
+        self.mapView.showsCompass = true
+        self.mapView.showsTraffic = true
+        
+        self.mapView.showsLargeContentViewer = true
+        
+        let testButton = UIButton()
+        testButton.frame = CGRect(x: 10, y: 100, width: 200, height: 100)
+        testButton.layer.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
+        testButton.addTarget(self, action: #selector(onClickedTestButton), for: .touchUpInside)
+        
+        self.view.addSubview(testButton)
+    }
+    
+    /// for test
+    @objc private func onClickedTestButton(sender: UIButton!){
+        print("[onClickedTestButton] started")
+        for anno in mapView.annotations(in: mapView.visibleMapRect){
+            print("[onClickedTestButton] \(anno.description)")
+            
+        }
+        
+        for anno in mapView.annotations{
+            
+        }
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,23 +63,13 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
         
         // check data controller has some recordData
         // if it has, get the data and convert it to CLLocationCoordinate2D data
-        do {
-            let dataController = try DataController.open()
-            for item in dataController.dataList {
-                if let locationData = item.locationData{
+        DataController.dbOpen(caller: String(describing: self)){
+            for item in $0 {
+                if let locationData = item.locationData, let shazamData = item.shazamData{
                     let location2d = CLLocationCoordinate2D(latitude: locationData.latitude!, longitude: locationData.longitude!)
-                    if let shazamData = item.shazamData{
-                        self.mapView.makePin(targetCoordinate: location2d
-                                             , title: shazamData.title!, subTitle: shazamData.artist!)
-                    }
+                    self.mapView.makePin(targetCoordinate: location2d, title: shazamData.title!, subTitle: shazamData.artist!)
                 }
             }
-        } catch SQLiteError.OpenDatabase(_){
-            print("[MyMemoriesVC] DataController open failed")
-        } catch SQLiteError.Step(_){
-            print("[MyMemoriesVC] DataController step failed")
-        } catch{
-            print("[MyMemoriesVC] DataController failed")
         }
     }
     
@@ -101,12 +122,12 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
             break
             
         case .denied:
-            // show alert instructing them how to on permissions
-//            let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
-//                exit(0)
-//            })
-//            self.present(alert, animated: true, completion: nil)
+//             show alert instructing them how to on permissions
+            let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                exit(0)
+            })
+            self.present(alert, animated: true, completion: nil)
             print("[MyMemories: checkLocationAuthorization] denied")
             break
             
@@ -140,6 +161,21 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
         }
         
         // todo show detailView about the song
+        let descView = UIView()
+        descView.frame = self.mapView.bounds
+        // image
+        // title
+        // desc
+        // created time
+        // coordinate
+        
+        
+        var coverImage = UIImage()  // tood show default image if it doesn't exist
+        var title = view.annotation?.title
+        var desc = view.annotation?.subtitle
+        var createdTime:String?
+        var latitude = view.annotation?.coordinate.latitude
+        var longitude = view.annotation?.coordinate.longitude
     }
 }
 
@@ -258,9 +294,6 @@ extension MyMemoriesVC : CLLocationManagerDelegate{
             alert.addAction(okAction)
             
             present(alert, animated: false, completion: nil)
-            // if let url = URL(string: "App-Prefs:root=Privacy&path=com.seunghyeonKang.PocketSong"){
-            //     UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            // }
             break
         }
     }

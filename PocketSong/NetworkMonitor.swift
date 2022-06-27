@@ -7,8 +7,30 @@ final class NetworkMonitor{
     private let queue = DispatchQueue.global()
     private let monitor: NWPathMonitor
     public private(set) var isConnected = false
-    public private(set) var connectionType:ConnectionType = .unknown
+    private var _connectionType:ConnectionType = .unknown
+    public var connectionType:ConnectionType {
+        get{
+            return _connectionType
+        }
+        
+        set(newValue) {
+            if _connectionType == newValue{
+                return
+            }
+            
+            _connectionType = newValue
+            
+            switch _connectionType {
+            case .unknown:
+                notify(message:"disconnected")
+            default:
+                notify(message: "connected")
+            }
+        }
+    }
 
+    var observers: [Observer]
+    
     enum ConnectionType {
         case wifi
         case cellular
@@ -19,6 +41,7 @@ final class NetworkMonitor{
     private init() {
         print("[NetworkMonitor] init")
         monitor = NWPathMonitor()
+        self.observers = []
     }
 
     public func startMonitoring(){
@@ -54,11 +77,27 @@ final class NetworkMonitor{
         }else if path.usesInterfaceType(.wiredEthernet){
             connectionType = .ethernet
             print("[NetworkMonitor] connected ethernet..")
-            )
         }else {
             connectionType = .unknown
             print("unknown...")
         }
     }
+}
 
+extension NetworkMonitor : Subject {
+    func subscribe(observer: Observer) {
+        self.observers.append(observer)
+    }
+    
+    func unSubscribe(observer: Observer) {
+        if let idx = self.observers.firstIndex(where: {$0.id == observer.id}){
+            self.observers.remove(at: idx)
+        }
+    }
+    
+    func notify(message: String) {
+        for observer in observers{
+            observer.update(message: message)
+        }
+    }
 }

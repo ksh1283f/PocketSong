@@ -24,6 +24,9 @@
 		5776EA2E27A11D8700898387 /* RecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5776EA2D27A11D8700898387 /* RecordData.swift */; };
 		5776EA3027A1215E00898387 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5776EA2F27A1215E00898387 /* AVFoundation.framework */; };
 		5776EA3227A12F3100898387 /* RecordAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5776EA3127A12F3100898387 /* RecordAnnotation.swift */; };
+		577CBD8D280B494C003B3864 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577CBD8C280B494C003B3864 /* NetworkMonitor.swift */; };
+		577CBD8F280DC45F003B3864 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577CBD8E280DC45F003B3864 /* Protocols.swift */; };
+		577CBD91280DCD80003B3864 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577CBD90280DCD7F003B3864 /* Types.swift */; };
 		578F72DF274180DD00E61F8B /* CatchSongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F72DE274180DD00E61F8B /* CatchSongVC.swift */; };
 		57AF2D9D27CBF5320082F1BF /* UserRecordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AF2D9C27CBF5320082F1BF /* UserRecordTable.swift */; };
 		57C8B22E279D8F4D0015291C /* FeatherBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57C8B22D279D8F4A0015291C /* FeatherBold.ttf */; };
@@ -40,6 +43,8 @@
 		57CA8F262774E95900E54093 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F252774E95900E54093 /* LocationController.swift */; };
 		57CA8F2827761FEF00E54093 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F2727761FEF00E54093 /* LocationModel.swift */; };
 		57CA8F2A27762FA700E54093 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F2927762FA700E54093 /* LoginController.swift */; };
+		57FF115D285EB2B60004675C /* DailyRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FF115C285EB2B60004675C /* DailyRecordCell.swift */; };
+		57FF115F285EB2CF0004675C /* RecordSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FF115E285EB2CF0004675C /* RecordSongCell.swift */; };
 		D66ACBDCC6D5A98ED8BD7A1F /* Pods_PocketSong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FB5EA06A3F0C60186FB9ED /* Pods_PocketSong.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +83,9 @@
 		5776EA2D27A11D8700898387 /* RecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordData.swift; sourceTree = "<group>"; };
 		5776EA2F27A1215E00898387 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5776EA3127A12F3100898387 /* RecordAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAnnotation.swift; sourceTree = "<group>"; };
+		577CBD8C280B494C003B3864 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		577CBD8E280DC45F003B3864 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		577CBD90280DCD7F003B3864 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		578F72DE274180DD00E61F8B /* CatchSongVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchSongVC.swift; sourceTree = "<group>"; };
 		57AF2D9C27CBF5320082F1BF /* UserRecordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecordTable.swift; sourceTree = "<group>"; };
 		57C8B22D279D8F4A0015291C /* FeatherBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FeatherBold.ttf; path = PocketSong/FeatherBold.ttf; sourceTree = SOURCE_ROOT; };
@@ -94,6 +102,8 @@
 		57CA8F252774E95900E54093 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		57CA8F2727761FEF00E54093 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		57CA8F2927762FA700E54093 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		57FF115C285EB2B60004675C /* DailyRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecordCell.swift; sourceTree = "<group>"; };
+		57FF115E285EB2CF0004675C /* RecordSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSongCell.swift; sourceTree = "<group>"; };
 		C8908642AE917357CBED719E /* Pods-PocketSong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSong.release.xcconfig"; path = "Target Support Files/Pods-PocketSong/Pods-PocketSong.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +182,7 @@
 		571600E527147134002E53B9 /* PocketSong */ = {
 			isa = PBXGroup;
 			children = (
+				57FF1159285EAD5D0004675C /* Cells */,
 				57C8B22F279D90330015291C /* JandaManateeBubble.ttf */,
 				57C8B230279D90330015291C /* JandaManateeSolid.ttf */,
 				57C8B22D279D8F4A0015291C /* FeatherBold.ttf */,
@@ -182,6 +193,7 @@
 				571600FD2714737B002E53B9 /* GoogleService-Info.plist */,
 				571600E627147134002E53B9 /* AppDelegate.swift */,
 				571600E827147134002E53B9 /* SceneDelegate.swift */,
+				577CBD8C280B494C003B3864 /* NetworkMonitor.swift */,
 				571600EC27147134002E53B9 /* Main.storyboard */,
 				571600F22714713B002E53B9 /* Assets.xcassets */,
 				571600F42714713B002E53B9 /* LaunchScreen.storyboard */,
@@ -233,8 +245,19 @@
 				57CA8F1E277242EC00E54093 /* Extensions.swift */,
 				57CA8F252774E95900E54093 /* LocationController.swift */,
 				57CA8F2927762FA700E54093 /* LoginController.swift */,
+				577CBD8E280DC45F003B3864 /* Protocols.swift */,
+				577CBD90280DCD7F003B3864 /* Types.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		57FF1159285EAD5D0004675C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				57FF115C285EB2B60004675C /* DailyRecordCell.swift */,
+				57FF115E285EB2CF0004675C /* RecordSongCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		B2254D9F6605FFA1ED845274 /* Pods */ = {
@@ -379,22 +402,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				57CA8F1C2771015500E54093 /* SongMatchStateType.swift in Sources */,
+				577CBD8F280DC45F003B3864 /* Protocols.swift in Sources */,
 				57AF2D9D27CBF5320082F1BF /* UserRecordTable.swift in Sources */,
+				577CBD91280DCD80003B3864 /* Types.swift in Sources */,
 				57CA8F232773934A00E54093 /* CatchedSongDetailVC.swift in Sources */,
 				5776EA2E27A11D8700898387 /* RecordData.swift in Sources */,
 				57077A63274086C100713534 /* MyMemoriesVC.swift in Sources */,
 				578F72DF274180DD00E61F8B /* CatchSongVC.swift in Sources */,
 				571600F127147134002E53B9 /* PocketSong.xcdatamodeld in Sources */,
+				57FF115F285EB2CF0004675C /* RecordSongCell.swift in Sources */,
 				57CA8F15275D2DC600E54093 /* SongsVC.swift in Sources */,
 				571600E727147134002E53B9 /* AppDelegate.swift in Sources */,
 				57CA8F13275CF0D600E54093 /* MainTabBarVC.swift in Sources */,
 				57CA8F2827761FEF00E54093 /* LocationModel.swift in Sources */,
+				577CBD8D280B494C003B3864 /* NetworkMonitor.swift in Sources */,
 				57CA8F1F277242EC00E54093 /* Extensions.swift in Sources */,
 				57CA8F182766779E00E54093 /* ShazamController.swift in Sources */,
 				57CA8F2A27762FA700E54093 /* LoginController.swift in Sources */,
 				57CA8F21277381AF00E54093 /* LoginVC.swift in Sources */,
 				5776EA2C279F160600898387 /* DataController.swift in Sources */,
 				5776EA3227A12F3100898387 /* RecordAnnotation.swift in Sources */,
+				57FF115D285EB2B60004675C /* DailyRecordCell.swift in Sources */,
 				57CA8F1A276678A500E54093 /* ShazamModel.swift in Sources */,
 				571600E927147134002E53B9 /* SceneDelegate.swift in Sources */,
 				57CA8F262774E95900E54093 /* LocationController.swift in Sources */,

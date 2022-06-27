@@ -27,6 +27,8 @@ class CatchSongVC: UIViewController {
     var locationData:LocationModel?
     var timer:Timer?
     
+    var id: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +40,8 @@ class CatchSongVC: UIViewController {
         informationLabel.font = UIFont(name: "Feather-Bold", size: 24)
         
         informationLabel.charInterval = charInterval
+        id = "CatchSongVC"
+        NetworkMonitor.shared.subscribe(observer: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +55,8 @@ class CatchSongVC: UIViewController {
         shazamController?.stopListening()
         shazamData = nil
         locationData = nil
-        timer = nil
+        print("[CatchSongVC] viewWillDisappear")
+        timer?.invalidate()
         setInformationLabelWithoutAnimation(text: initText, resetCharInterval: charInterval)
         
     }
@@ -185,13 +190,50 @@ class CatchSongVC: UIViewController {
             if let locationData = locationData {
                 catchedSongVC.locationData = locationData
             }else {
-                print("locationData is nil")
+                print("[CatchSongVC] locationData is nil")
             }
             if let songData = shazamData {
                 catchedSongVC.shazamData = songData
+            }else{
+                print("[CatchSongVC] shazamData is nil")
             }
-            
-            
         }
     }
+}
+
+extension CatchSongVC : Observer {
+    func update(message: String) {
+        print("[CatchSongVC] \(id) -> \(message)")
+        switch message {
+        case "disconnected":
+            if let _timer = timer{
+                _timer.invalidate()
+            }
+            try?shazamController?.stopListening()
+            
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "network is disconnected!", message: "Please check your network state and connect cellular or wifi", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                    return
+                })
+                
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+        default:
+//            if let _timer = timer{
+//                _timer.invalidate()
+//            }
+//            try?shazamController?.stopListening()
+//
+//            let alert = UIAlertController(title: "network is disconnected!", message: "Please check your network state and connect cellular or wifi", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+//                return
+//            })
+//            self.present(alert, animated: true, completion: nil)
+            print("connected")
+        }
+    }
+    
+    
 }

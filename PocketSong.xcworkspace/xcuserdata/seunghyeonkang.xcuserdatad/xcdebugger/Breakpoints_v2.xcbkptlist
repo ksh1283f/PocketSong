@@ -7,17 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D1FC27FC-E68F-4109-8AF4-01FFD94D0FD7"
-            shouldBeEnabled = "Yes"
+            uuid = "86D7F663-EA45-4185-B2F3-5974043F4911"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PocketSong/VC/MyMemoriesVC.swift"
+            filePath = "PocketSong/VC/CatchSongVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
-            landmarkName = "locationManagerDidChangeAuthorization(_:)"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "update(message:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "86D7F663-EA45-4185-B2F3-5974043F4911 - 551a0743c1032581"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PocketSong.CatchSongVC.update(message: Swift.String) -&gt; ()"
+                  moduleName = "PocketSong"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seunghyeonkang/Downloads/XcodeProjects/PocketSong/PocketSong/VC/CatchSongVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "209"
+                  endingLineNumber = "209"
+                  offsetFromSymbolStart = "1120">
+               </Location>
+               <Location
+                  uuid = "86D7F663-EA45-4185-B2F3-5974043F4911 - 551a0743c1032581"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PocketSong.CatchSongVC.update(message: Swift.String) -&gt; ()"
+                  moduleName = "PocketSong"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/seunghyeonkang/Downloads/XcodeProjects/PocketSong/PocketSong/VC/CatchSongVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "209"
+                  endingLineNumber = "209"
+                  offsetFromSymbolStart = "1176">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

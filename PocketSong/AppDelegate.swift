@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         sleep(3)
         print("end launchScreen")
+        NetworkMonitor.shared.startMonitoring()
         return true
     }
     

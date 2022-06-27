@@ -26,7 +26,6 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
 
         commetTextField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         btnRecord.setTitle("Record", for: .normal)
@@ -85,7 +84,7 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
                 
             }
         } else {
-            print("catchedShazamData is nil")
+            print("[CatchedSongDetailVC] catchedShazamData is nil")
         }
         
         if let catchedLocationData = locationData{
@@ -121,6 +120,11 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
                 let newRecordTable = UserRecordTable(createdTimeData: presentLocation.createdTimeString ?? "Unknown", comment: commetTextField.text ?? "Unknown", coverURL: presentShazam.coverUrl?.description ?? "Unknown", artist: presentShazam.artist ?? "Unknown", artworkURL: presentShazam.artworkURL?.description ?? "Unknown", title: presentShazam.title ?? "Unknown", appleMusicURL: presentShazam.appleMusicURL?.absoluteString ?? "Unknown", country: presentLocation.country ?? "Unknown", locality: presentLocation.locality ?? "Unknown", administrativeArea: presentLocation.administrativeArea ?? "Unknown", street: presentLocation.street ?? "Unknown", latitude: Float(presentLocation.latitude ?? -1), longitude: Float(presentLocation.longitude ?? -1), addressInfo: presentLocation.addressInfo ?? "Unknown")
                 
                 try dataController.insertData(userRecordTable: newRecordTable)
+                
+                // todo convert this view to myMemoryView
+                self.navigationController?.popViewController(animated: true)
+                self.tabBarController?.selectedIndex = 0;
+                
             } catch{
                 print("[CatchedSongDetailVC] INSERT DATA FAILED!")
             }
