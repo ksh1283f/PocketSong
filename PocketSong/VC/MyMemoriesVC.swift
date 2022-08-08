@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation // to get the user's locations
 import Network
+import FlyoverKit
 
 class MyMemoriesVC: UIViewController, MKMapViewDelegate{
     
@@ -28,12 +29,13 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
         
         self.mapView.showsLargeContentViewer = true
         
-        let testButton = UIButton()
-        testButton.frame = CGRect(x: 10, y: 100, width: 200, height: 100)
-        testButton.layer.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
-        testButton.addTarget(self, action: #selector(onClickedTestButton), for: .touchUpInside)
+//        let testButton = UIButton()
+//        testButton.frame = CGRect(x: 10, y: 100, width: 200, height: 100)
+//        testButton.layer.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
+//        testButton.addTarget(self, action: #selector(onClickedTestButton), for: .touchUpInside)
+//
+//        self.view.addSubview(testButton)
         
-        self.view.addSubview(testButton)
     }
     
     /// for test
@@ -72,6 +74,43 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
             }
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tabBarController?.navigationItem.title = ""
+        
+        // test flyover kit
+        StartFlyoverMapViewController()
+        }
+    
+    // Test method Start
+    func StartFlyOverCamera(){
+        let eiffelTower = CLLocationCoordinate2D(latitude: 48.858370, longitude: 2.294481)
+        let camConfig = FlyoverCamera.Configuration(duration: 100.0, altitude: 600.0, pitch: 45.0, headingStep: 20.0, regionChangeAnimation: .animated(duration: 1.5, curve: .easeIn))
+//        let camConfig = FlyoverCamera.Configuration(duration: 10.0, altitude: 600.0, pitch: 45.0, headingStep: 20.0)
+        let flyoverCam = FlyoverCamera(mapView: self.mapView, configuration: camConfig)
+//        let flyoverCam = FlyoverCamera(mapView: self.mapView)
+
+        flyoverCam.start(flyover: eiffelTower)
+
+    }
+    
+    func StartFlyOverMapView(){
+        let flyoverMapView = FlyoverMapView()
+        let eiffelTower = CLLocation(latitude: 48.858370, longitude: 2.294481)
+        self.view.addSubview(flyoverMapView)
+        
+        flyoverMapView.start(flyover: eiffelTower)
+    }
+    
+    func StartFlyoverMapViewController(){
+        let eiffelTower = FlyoverAwesomePlace.sydneyOperaHouse
+        let controller = FlyoverMapViewController(flyover: eiffelTower)
+        
+        self.present(controller, animated: true)
+    }
+     
+    // Test method End
     
     func setupLocationManager(){
         LocationController.shared.setupLocationManager(delegate: self)
@@ -196,6 +235,7 @@ private extension MKMapView{
         pin.coordinate = targetCoordinate
         pin.title = title
         pin.subtitle = subTitle
+//        pin.
         // todo add click event when it is clicked show the description view
         
         self.addAnnotation(pin)

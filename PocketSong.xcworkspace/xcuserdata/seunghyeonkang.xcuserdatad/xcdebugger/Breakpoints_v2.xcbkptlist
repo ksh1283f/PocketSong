@@ -7,49 +7,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "86D7F663-EA45-4185-B2F3-5974043F4911"
+            uuid = "49F0E7F1-E2A3-4458-A9BC-C4C909691DE3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PocketSong/VC/SongsVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "getRecordDataPerDaily()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A45FB8EA-1A10-4692-A730-17A0E7DD3819"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PocketSong/VC/CatchSongVC.swift"
+            filePath = "PocketSong/Data/DataController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "update(message:)"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "getAllUserRecord()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "86D7F663-EA45-4185-B2F3-5974043F4911 - 551a0743c1032581"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PocketSong.CatchSongVC.update(message: Swift.String) -&gt; ()"
-                  moduleName = "PocketSong"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seunghyeonkang/Downloads/XcodeProjects/PocketSong/PocketSong/VC/CatchSongVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "209"
-                  endingLineNumber = "209"
-                  offsetFromSymbolStart = "1120">
-               </Location>
-               <Location
-                  uuid = "86D7F663-EA45-4185-B2F3-5974043F4911 - 551a0743c1032581"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PocketSong.CatchSongVC.update(message: Swift.String) -&gt; ()"
-                  moduleName = "PocketSong"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/seunghyeonkang/Downloads/XcodeProjects/PocketSong/PocketSong/VC/CatchSongVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "209"
-                  endingLineNumber = "209"
-                  offsetFromSymbolStart = "1176">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9BE5993A-1934-46F2-A6E4-DE0230CBFAFD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PocketSong/Data/LocationModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "ToString(date:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9992993D-5FF5-4C01-8BDA-E047C6D7ABD1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PocketSong/Data/LocationModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "ToString(date:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

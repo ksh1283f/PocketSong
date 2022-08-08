@@ -2,11 +2,13 @@ ${PODS_ROOT}/Target Support Files/Pods-PocketSong/Pods-PocketSong-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework
 ${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework
 ${BUILT_PRODUCTS_DIR}/CLTypingLabel/CLTypingLabel.framework
+${BUILT_PRODUCTS_DIR}/FlyoverKit/FlyoverKit.framework
 ${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework
 ${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework
 ${BUILT_PRODUCTS_DIR}/GoogleSignIn/GoogleSignIn.framework
 ${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework
 ${BUILT_PRODUCTS_DIR}/Hero/Hero.framework
+${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework
 ${BUILT_PRODUCTS_DIR}/abseil/absl.framework
 ${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework

@@ -63,6 +63,7 @@ class CatchSongVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.tabBarController?.navigationItem.title = self.title
         
         startImageInitAnimation()
     

@@ -44,7 +44,7 @@ class DataController {
     
     static func open() throws -> DataController{
         var db:OpaquePointer?
-        
+        print("[dataController] \(dbFinalPath)")
         if sqlite3_open(dbFinalPath, &db) == SQLITE_OK{
             return DataController(dbPointer: db)
         }else{
