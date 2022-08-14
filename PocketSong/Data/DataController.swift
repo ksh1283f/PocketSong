@@ -180,10 +180,6 @@ extension DataController{
             sqlite3_finalize(queryStatement)
         }
         
-        guard sqlite3_step(queryStatement) == SQLITE_ROW else {
-            return nil
-        }
-        
         while sqlite3_step(queryStatement) == SQLITE_ROW {
             guard let createdTime = sqlite3_column_text(queryStatement, 0) else {
                 print("[DataController:sqlite3_step] createdTime is nil")
@@ -231,7 +227,7 @@ extension DataController{
             
             // 1. create locationData
             let timeData = LocationModel.ToString(date: String(cString: createdTime)) ?? Date()
-            let locationData = LocationModel(country: String(cString: country), administrativeArea: String(cString: coverUrl), locality: String(cString: locality), street: String(cString: street), timeData: timeData, latitude: latitude, longitude: longitude)
+            let locationData = LocationModel(country: String(cString: country), administrativeArea: String(cString: administrativeArea), locality: String(cString: locality), street: String(cString: street), timeData: timeData, latitude: latitude, longitude: longitude)
 
             // 2. create shazamData
             let shazamData = ShazamModel(coverUrl: URL(string: String(cString: coverUrl)), artist: String(cString: artist), artworkURL: URL(string: String(cString: artworkUrl)), title: String(cString: title), appleMusicURL: URL(string: String(cString:appleMusicUrl)), addressInfo: String(cString: addressInfo))
