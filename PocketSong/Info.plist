@@ -4,12 +4,6 @@
 <dict>
 	<key>ATSApplicationFontsPath</key>
 	<string></string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>FeatherBold.ttf</string>
-		<string>JandaManateeBubble.ttf</string>
-		<string>JandaManateeSolid.ttf</string>
-	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -23,6 +17,12 @@
 	</array>
 	<key>MKDirectionsApplicationSupportedModes</key>
 	<array/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FeatherBold.ttf</string>
+		<string>JandaManateeBubble.ttf</string>
+		<string>JandaManateeSolid.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

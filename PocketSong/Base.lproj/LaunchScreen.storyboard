@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,34 +17,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="robot_note.png" translatesAutoresizingMaskIntoConstraints="NO" id="5jq-Pu-nNE">
-                                <rect key="frame" x="117" y="358" width="180" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="66F-bM-BYL"/>
-                                    <constraint firstAttribute="width" constant="180" id="aXu-8y-Mb1"/>
-                                </constraints>
+                                <rect key="frame" x="118" y="287" width="180" height="322"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CatchSongs!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oe-zN-tdT">
-                                <rect key="frame" x="85" y="536" width="245" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="GAY-at-XFz"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="245" id="u6e-Oc-yRg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <rect key="frame" x="120.5" y="555" width="177.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <color key="highlightedColor" systemColor="systemBackgroundColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5oe-zN-tdT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="492" id="65u-m0-e8j"/>
-                            <constraint firstItem="5jq-Pu-nNE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="117" id="9mn-Q0-gqC"/>
-                            <constraint firstItem="5jq-Pu-nNE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="314" id="Eew-uQ-Mf6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5oe-zN-tdT" secondAttribute="bottom" constant="290" id="Gt7-ht-jDT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5oe-zN-tdT" secondAttribute="trailing" constant="84" id="QEt-SJ-fUg"/>
-                            <constraint firstItem="5oe-zN-tdT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="Rrh-38-Fby"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5jq-Pu-nNE" secondAttribute="bottom" constant="324" id="nTj-fS-OFF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5jq-Pu-nNE" secondAttribute="trailing" constant="117" id="tnq-MU-Uj7"/>
+                            <constraint firstItem="5jq-Pu-nNE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="1" id="5v0-Op-RmX"/>
+                            <constraint firstItem="5jq-Pu-nNE" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="45:224" id="UkB-S8-83v"/>
+                            <constraint firstItem="5jq-Pu-nNE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gXV-bd-t7e"/>
+                            <constraint firstItem="5oe-zN-tdT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="2.25" id="kde-g0-ZtP"/>
+                            <constraint firstItem="5oe-zN-tdT" firstAttribute="top" secondItem="5jq-Pu-nNE" secondAttribute="bottom" constant="-54" id="p6b-h5-udH"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -53,6 +42,7 @@
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="robot_note.png" width="336" height="322"/>
         <systemColor name="systemBackgroundColor">
