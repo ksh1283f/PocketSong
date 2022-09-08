@@ -12,13 +12,14 @@ class SongsVC: UIViewController {
     @IBOutlet weak var recordSongTableView: UITableView!
     // todo convert dic's type [String:RecordData] to [String:[RecordData]]
     var recordDataDic:[String:[RecordData]]=[:]
+    var dayList:[String] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         recordSongTableView.delegate = self
         recordSongTableView.dataSource = self
-        // Do any additional setup after loading the view.
+        self.navigationItem.title = self.title
         
 //        let appearance = UITabBarAppearance()
 //        appearance.configureWithOpaqueBackground()
@@ -29,14 +30,13 @@ class SongsVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("[SongVC] viewWillAppear")
+//        recordSongTableView.
         getRecordDataPerDaily()
-
+        dayList = recordDataDic.keys.sorted(by: <)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.navigationItem.title = self.title
-       
+        
     }
     
     func getRecordDataPerDaily(){
@@ -45,7 +45,9 @@ class SongsVC: UIViewController {
                 recordDataDic.removeAll()
             }
             
-            let createdTimeDataSet = Set(dataList.map{$0.locationData!}.map{$0.createdTimeString!.split(separator: " ")[0]})
+            // todo check values
+            let createdTimeDataSet = Set(dataList.map{$0.locationData!}
+                .map{$0.createdTimeString!.split(separator: " ")[0]})
             
             let unwrappedLocationData = dataList.map{$0.locationData!}
             
@@ -53,6 +55,7 @@ class SongsVC: UIViewController {
                 // 1. 키에 맞는 값을 로케이션에서 찾고
                 // 2. 찾은 값을 기준으로 다른 모든 값들을 조립해서
                 // 3. 새로운 레코드 데이터 생성 및 삽입
+                
                 let mainKey = String(key)
                 let newRecordData = dataList.filter{$0.locationData!.createdTimeString!.contains(mainKey)}
 //                print("------------------------")
@@ -76,20 +79,19 @@ class SongsVC: UIViewController {
 
 extension SongsVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DailyRecordCell") as? DailyRecordCell else { return DailyRecordCell() }
-
-        let dayList = recordDataDic.keys.sorted(by: <)
-
-        let title = dayList[indexPath.item]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "DailyRecordCell") as? DailyRecordCell else {
+            return DailyRecordCell()
+        }
+        cell.backgroundColor = UIColor(hex: 0x009051)
+        let title = dayList[indexPath.row]
         let recordDataList = recordDataDic[title] ?? []
+        
         cell.setCell(title: title, data: recordDataList)
-        print("[SongVC] cellForRowAt: \(title)")
+        cell.songItemCollectionView.scrollToItem(at: IndexPath(item: -1, section: 0), at: .init(rawValue: 0), animated: false)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("[SongVC] numberOfRowInSection \(recordDataDic.count)")
         return recordDataDic.count
     }
 }

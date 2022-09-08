@@ -32,7 +32,7 @@ class LocationModel {
         
         if let timeData = self.createdTimeData{
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd a hh:mm"
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             dateFormatter.timeZone = TimeZone.autoupdatingCurrent
             self.createdTimeString = dateFormatter.string(from: timeData)
         }else {
@@ -48,7 +48,7 @@ class LocationModel {
 extension LocationModel{
     static func ToString(date:String) -> Date?{
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         dateFormatter.timeZone = TimeZone.autoupdatingCurrent
         
         let result = try dateFormatter.date(from: date)

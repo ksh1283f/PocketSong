@@ -47,11 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkMonitor.shared.startMonitoring()
         return true
     }
-    
-//    func application(_ application: UIApplication, open url: URL,
-//                     options:[UIApplication.OpenURLOptionsKey: Any]) -> Bool{
-//        return GIDSignIn.sharedInstance.handle(url)
-//    }
 
     // MARK: UISceneSession Lifecycle
 

@@ -12,8 +12,6 @@ class MainTabBarVC: UITabBarController  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.setViewControllers(<#T##viewControllers: [UIViewController]?##[UIViewController]?#>, animated: <#T##Bool#>)
     }
 }
 

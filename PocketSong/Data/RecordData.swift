@@ -18,4 +18,10 @@ struct RecordData{
         self.shazamData = shazamData
         self.comment = comment
     }
+    
+    init(){
+        locationData = nil
+        shazamData = nil
+        comment = ""
+    }
 }

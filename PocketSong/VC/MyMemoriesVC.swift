@@ -10,14 +10,23 @@ import MapKit
 import CoreLocation // to get the user's locations
 import Network
 import FlyoverKit
+import Kingfisher
 
-class MyMemoriesVC: UIViewController, MKMapViewDelegate{
+
+
+class MyMemoriesVC: UIViewController{
     
 //    var locManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
     
+    var selectedAnnotation:MKAnnotation?
+    var pinDic:[String:RecordData] = [:]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.mapView.register(MyMemoryAnnotationView.self, forAnnotationViewWithReuseIdentifier: MyMemoryAnnotationView.identifier)
+        self.mapView.register(LocationDataMapClusterView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
         self.mapView.delegate = self
         
         // test
@@ -35,24 +44,14 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
 //        testButton.addTarget(self, action: #selector(onClickedTestButton), for: .touchUpInside)
 //
 //        self.view.addSubview(testButton)
-        
     }
     
-    /// for test
-    @objc private func onClickedTestButton(sender: UIButton!){
-        print("[onClickedTestButton] started")
-        for anno in mapView.annotations(in: mapView.visibleMapRect){
-            print("[onClickedTestButton] \(anno.description)")
-            
-        }
-        
-        for anno in mapView.annotations{
-            
-        }
-        
-        
+    @objc func onClickedTestButton(){
+        let cache = ImageCache.default
+        cache.clearMemoryCache()
+        cache.clearDiskCache()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -67,10 +66,7 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
         // if it has, get the data and convert it to CLLocationCoordinate2D data
         DataController.dbOpen(caller: String(describing: self)){
             for item in $0 {
-                if let locationData = item.locationData, let shazamData = item.shazamData{
-                    let location2d = CLLocationCoordinate2D(latitude: locationData.latitude!, longitude: locationData.longitude!)
-                    self.mapView.makePin(targetCoordinate: location2d, title: shazamData.title!, subTitle: shazamData.artist!)
-                }
+                updatePinWithData(recordData: item)
             }
         }
     }
@@ -79,38 +75,7 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
         super.viewDidAppear(animated)
         self.tabBarController?.navigationItem.title = ""
         
-        // test flyover kit
-        StartFlyoverMapViewController()
         }
-    
-    // Test method Start
-    func StartFlyOverCamera(){
-        let eiffelTower = CLLocationCoordinate2D(latitude: 48.858370, longitude: 2.294481)
-        let camConfig = FlyoverCamera.Configuration(duration: 100.0, altitude: 600.0, pitch: 45.0, headingStep: 20.0, regionChangeAnimation: .animated(duration: 1.5, curve: .easeIn))
-//        let camConfig = FlyoverCamera.Configuration(duration: 10.0, altitude: 600.0, pitch: 45.0, headingStep: 20.0)
-        let flyoverCam = FlyoverCamera(mapView: self.mapView, configuration: camConfig)
-//        let flyoverCam = FlyoverCamera(mapView: self.mapView)
-
-        flyoverCam.start(flyover: eiffelTower)
-
-    }
-    
-    func StartFlyOverMapView(){
-        let flyoverMapView = FlyoverMapView()
-        let eiffelTower = CLLocation(latitude: 48.858370, longitude: 2.294481)
-        self.view.addSubview(flyoverMapView)
-        
-        flyoverMapView.start(flyover: eiffelTower)
-    }
-    
-    func StartFlyoverMapViewController(){
-        let eiffelTower = FlyoverAwesomePlace.sydneyOperaHouse
-        let controller = FlyoverMapViewController(flyover: eiffelTower)
-        
-        self.present(controller, animated: true)
-    }
-     
-    // Test method End
     
     func setupLocationManager(){
         LocationController.shared.setupLocationManager(delegate: self)
@@ -189,70 +154,41 @@ class MyMemoriesVC: UIViewController, MKMapViewDelegate{
         mapView.centerToLocation(location)
     }
     
-    func updateMyMemoriInfo(){
-        
+    func updatePinWithData(recordData:RecordData){
+        if let ld = recordData.locationData, let createdTime = ld.createdTimeString {
+            if pinDic.keys.contains(createdTime) {
+                return
+            }
+            
+            pinDic[createdTime] = recordData
+            self.mapView.makePin(recordData: recordData)
+        }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView)
     {
-        if let annotationTitle = view.annotation?.title{
+        self.selectedAnnotation = view.annotation
+        if let annotationTitle = view.annotation?.title {
             print("User tapped on annotation with title: \(annotationTitle!)")
         }
         
-        // todo show detailView about the song
-        let descView = UIView()
-        descView.frame = self.mapView.bounds
-        // image
-        // title
-        // desc
-        // created time
-        // coordinate
-        
-        
-        var coverImage = UIImage()  // tood show default image if it doesn't exist
-        var title = view.annotation?.title
-        var desc = view.annotation?.subtitle
-        var createdTime:String?
-        var latitude = view.annotation?.coordinate.latitude
-        var longitude = view.annotation?.coordinate.longitude
-    }
-}
-
-private extension MKMapView{
-    func centerToLocation(_ location: CLLocation, regionRadius: CLLocationDistance = 1000){
-        let coordinateRegion = MKCoordinateRegion(
-            center: location.coordinate,
-            latitudinalMeters: regionRadius,
-            longitudinalMeters: regionRadius)
-        setRegion(coordinateRegion, animated: true)
-        
-        // for test function
-        //makePin(targetCoordinate: location.coordinate)
+        if let annotation = view.annotation as? MyMemoryAnnotation, let recordData = annotation.recordData {
+            self.performSegue(withIdentifier: "segueToMyMemoryDetail", sender: recordData)
+        } else if let annotation = view.annotation as? MKClusterAnnotation {
+            print("---[MyMemoriesVC] Clicked cluster annotation \(annotation.memberAnnotations.count)")
+            // todo segue or half modal
+        }
     }
     
-    func makePin( targetCoordinate: CLLocationCoordinate2D, title:String, subTitle:String){
-        let pin = MKPointAnnotation()
-        pin.coordinate = targetCoordinate
-        pin.title = title
-        pin.subtitle = subTitle
-//        pin.
-        // todo add click event when it is clicked show the description view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        self.addAnnotation(pin)
-    }
-    
-   
-    
-//    func mapView(){
-//
-//    }
-}
-extension UIView {
-    // make corner rounded shape
-    func roundCorners(cornerRadius:CGFloat, maskedCorners:CACornerMask) {
-        clipsToBounds = true
-        layer.cornerRadius = cornerRadius
-        layer.maskedCorners = CACornerMask(arrayLiteral: maskedCorners)
+        guard let recordData = sender as? RecordData else { return }
+        if let id = segue.identifier, id == "segueToMyMemoryDetail"{
+            if let detailVC = segue.destination as? MyInformationDetailVC{
+                detailVC.setRecordData(recordData: recordData)
+                detailVC.removalDelegate = self
+            }
+        }
     }
 }
 
@@ -335,6 +271,97 @@ extension MyMemoriesVC : CLLocationManagerDelegate{
             
             present(alert, animated: false, completion: nil)
             break
+        }
+    }
+}
+
+extension MyMemoriesVC : MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        switch annotation {
+        case is MyMemoryAnnotation:
+            // dequeue
+            guard let annotation = annotation as? MyMemoryAnnotation else{ return nil}
+
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MyMemoryAnnotationView.identifier)
+            if annotationView == nil {
+                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MyMemoryAnnotationView.identifier)
+                annotationView?.canShowCallout = true
+                annotationView?.contentMode = .scaleAspectFit
+
+            }else{
+                annotationView?.annotation = annotation
+            }
+
+           annotationView?.clusteringIdentifier = String(describing: MyMemoryAnnotationView.self)
+            
+            if let recordData = annotation.recordData, let shazamData = recordData.shazamData, let artwork = shazamData.artworkURL{
+                let scale = UIScreen.main.scale
+                let resizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: annotationView!.bounds.width*scale*0.5, height: annotationView!.bounds.height*scale*0.5)) |> RoundCornerImageProcessor(cornerRadius: 30)
+                //print("[MyMemoriesVC] annotationView boundsSize: \(annotationView!.bounds.size.width), \(annotationView!.bounds.size.height)")
+                
+                ImageCache.default.retrieveImage(forKey: artwork.path, options: [.processor(resizeProcessor), .cacheSerializer(FormatIndicatedCacheSerializer.png), .scaleFactor(2.0)]){ result in
+                    switch result {
+                    case .success(let value):
+                        if let image = value.image{
+                                annotationView?.image = image
+                            print("--- [MyMemoriesVC] ImageCache image received ---")
+                        } else {
+                            let resource = ImageResource(downloadURL: artwork, cacheKey: artwork.path)
+                            KingfisherManager.shared.retrieveImage(with: resource, options: [.processor(resizeProcessor),.cacheSerializer(FormatIndicatedCacheSerializer.png),.scaleFactor(2.0)], progressBlock: nil, downloadTaskUpdated: nil) { result in
+                                switch result {
+                                case .success(let value):
+                                    annotationView?.image = value.image
+                                    print("--- [MyMemoriesVC] new image received ---")
+
+                                case .failure(let error):
+                                    print("retrieve image failed from url : \(error)")
+                                    annotationView?.image = UIImage(systemName: "music.note")
+                                }
+                            }
+                        }
+
+                    case .failure(let error):
+                        annotationView?.image = UIImage(systemName: "music.note")
+                    }
+                }
+
+                annotationView?.layer.cornerRadius = 20
+            }
+            
+            return annotationView
+
+        case is MKClusterAnnotation:
+            guard let clusterAnnotation = annotation as? MKClusterAnnotation else { return nil }
+
+            if let clusterAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier, for: clusterAnnotation) as? LocationDataMapClusterView{
+                clusterAnnotationView.annotation = clusterAnnotation
+                return clusterAnnotationView
+            }else{
+                
+                print("--- [MyMemoriesVC] viewFor created new location data map cluster view---")
+                return LocationDataMapClusterView(annotation: clusterAnnotation, reuseIdentifier: MKMapViewDefaultClusterAnnotationViewReuseIdentifier)
+            }
+            
+        default:
+            return nil
+        }
+    }
+}
+
+extension MyMemoriesVC:PostProcessOfRemoveRecord{
+    func updateRemoval(isRemoval:Bool) {
+        if isRemoval{
+            if let selected = self.selectedAnnotation {
+                
+                self.mapView.removeAnnotation(selected)
+                if let selectedMyMemoriesAnnotation = selected as? MyMemoryAnnotation, let record = selectedMyMemoriesAnnotation.recordData, let ld = record.locationData{
+                    if let createdTime = ld.createdTimeString{
+                        let result = self.pinDic.removeValue(forKey: createdTime)
+                        print("[MyMemoriesVC] updateRemoval \(result != nil)")
+                    }
+                }
+                
+            }
         }
     }
 }

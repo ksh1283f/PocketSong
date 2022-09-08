@@ -226,8 +226,16 @@ extension DataController{
                 return nil }
             
             // 1. create locationData
-            let timeData = LocationModel.ToString(date: String(cString: createdTime)) ?? Date()
-            let locationData = LocationModel(country: String(cString: country), administrativeArea: String(cString: administrativeArea), locality: String(cString: locality), street: String(cString: street), timeData: timeData, latitude: latitude, longitude: longitude)
+//            let timeData = LocationModel.ToString(date: String(cString: createdTime)) ?? Date()
+            
+            var timeData = LocationModel.ToString(date: String(cString: createdTime))
+            if  timeData == nil{
+                timeData = Date()
+                print("timeData is nil. so it will be initialized present date")
+            }
+            
+            
+            let locationData = LocationModel(country: String(cString: country), administrativeArea: String(cString: administrativeArea), locality: String(cString: locality), street: String(cString: street), timeData: timeData!, latitude: latitude, longitude: longitude)
 
             // 2. create shazamData
             let shazamData = ShazamModel(coverUrl: URL(string: String(cString: coverUrl)), artist: String(cString: artist), artworkURL: URL(string: String(cString: artworkUrl)), title: String(cString: title), appleMusicURL: URL(string: String(cString:appleMusicUrl)), addressInfo: String(cString: addressInfo))
@@ -253,7 +261,7 @@ extension DataController{
     }
     
     func deleteData(dataKey:String, condition:String) throws {
-        let sql = "DELETE FROM UserRecord WHERE=\(condition);"
+        let sql = "DELETE FROM UserRecord WHERE \(dataKey) == \'\(condition)\';"
         let queryStatement = try? prepareStatement(sql: sql)
         defer {
             sqlite3_finalize(queryStatement)

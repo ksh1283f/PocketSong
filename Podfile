@@ -1,4 +1,4 @@
-# Uncomment the next line to define a global platform for your project
+#Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 platform :ios, '12.0'
 target 'PocketSong' do
@@ -15,4 +15,6 @@ target 'PocketSong' do
   pod 'FirebaseFirestoreSwift'
   pod 'FlyoverKit'
   pod 'Kingfisher', '~> 7.0'
+  pod 'lottie-ios'
+  pod 'SnapKit'
 end

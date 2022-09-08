@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import MapKit
+import Kingfisher
 
 class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
     
@@ -19,17 +21,25 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var commetTextField: UITextField!
     
+    @IBOutlet weak var locationMapView: MKMapView!
+    
     var isRecorded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         commetTextField.delegate = self
+        locationMapView.delegate = self
+        self.locationMapView.register(MyMemoryAnnotationView.self, forAnnotationViewWithReuseIdentifier: MyMemoryAnnotationView.identifier)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+       
+        
         btnRecord.setTitle("Record", for: .normal)
         self.hideKeyboardWhenTappedAround()
+        commetTextField.keyboardType = .namePhonePad
+        self.locationMapView.isUserInteractionEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,13 +72,14 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
             }
             
             // Update ui elements
+            guard let artworkUrl = catchedShazamData.artworkURL else{ return }
+            let scale = UIScreen.main.scale
+            let resizeProcesspr = ResizingImageProcessor(referenceSize: CGSize(width: songImageView.bounds.width*scale, height: songImageView.bounds.height * scale), mode: .aspectFit) |> RoundCornerImageProcessor(cornerRadius: 20)
+            self.songImageView.kf.setImage(with: artworkUrl, placeholder: nil, options: [.transition(.fade(0.5)), .forceTransition, .processor(resizeProcesspr), .cacheSerializer(FormatIndicatedCacheSerializer.png)]){ result in
+               
+            }
+            
             DispatchQueue.main.async {
-                if let cover = coverImage{
-                    self.songImageView.image = UIImage(data: cover)
-                } else {
-                    // todo show default image
-                }
-                
                 if let title = titleText{
                     self.songTitleLabel.text = title
                 } else {
@@ -87,6 +98,11 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
             print("[CatchedSongDetailVC] catchedShazamData is nil")
         }
         
+        // MARK:- make pin
+        if let ld = locationData, let sd = shazamData{
+            locationMapView.makePin(recordData: RecordData(locationData: ld, shazamData: sd))
+        }
+        
         if let catchedLocationData = locationData{
             DispatchQueue.main.async {
                 // country, city, locality,
@@ -94,6 +110,11 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
                     self.locationLabel.text = addressInfo
                 }
             }
+        }
+        
+        if CLLocationManager.locationServicesEnabled(){
+            LocationController.shared.setupLocationManager(delegate: self)
+            checkLocationAuthorization()
         }
     }
     
@@ -156,4 +177,139 @@ extension CatchedSongDetailVC{
         view.endEditing(true)
     }
     
+    func checkLocationAuthorization() {
+        switch LocationController.shared.locManager.authorizationStatus{
+        case .authorizedAlways:
+            locationMapView.showsUserLocation = true
+            if let presentLocation = LocationController.shared.locManager.location{
+                setupMapViewWithCurrentPosition(presentLocation)
+            }else{
+                // show alert this situation is invalid
+                let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                    exit(0)
+                })
+                self.present(alert, animated: true, completion: nil)
+            }
+            break
+
+        case .authorizedWhenInUse:
+            // do map stuff
+            locationMapView.showsUserLocation = true
+            if let presentLocation = LocationController.shared.locManager.location{
+                setupMapViewWithCurrentPosition(presentLocation)
+            }else{
+                // show alert this situation is invalid
+                let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                    exit(0)
+                })
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            break
+            
+        case .denied:
+//             show alert instructing them how to on permissions
+            let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                exit(0)
+            })
+            self.present(alert, animated: true, completion: nil)
+            print("[MyMemories: checkLocationAuthorization] denied")
+            break
+            
+        case .notDetermined:
+            LocationController.shared.locManager.requestWhenInUseAuthorization()
+            break
+            
+        case .restricted:
+            // show an alert letting them know what's up
+            let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                exit(0)
+            })
+            self.present(alert, animated: true, completion: nil)
+            break
+        }
+    }
+    
+    func setupMapViewWithCurrentPosition(_ location:CLLocation){
+        locationMapView.centerToLocation(location)
+    }
+}
+
+extension CatchedSongDetailVC : MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard let annotation = annotation as? MyMemoryAnnotation else { return nil}
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MyMemoryAnnotationView.identifier)
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: MyMemoryAnnotationView.identifier)
+            annotationView?.canShowCallout = true
+            annotationView?.contentMode = .scaleAspectFit
+        } else{
+            annotationView?.annotation = annotation
+        }
+        
+        print("---[CatchedSongDetailVC] AnnotationView bounds \(annotationView?.bounds.width) \(annotationView?.bounds.height)")
+        
+        if let sd = shazamData, let ld = locationData{
+            let scale = UIScreen.main.scale
+            let resizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: annotationView!.bounds.width*scale*0.5, height: annotationView!.bounds.height*scale*0.5)) |> RoundCornerImageProcessor(cornerRadius: 30)
+            
+            guard let artwork = sd.artworkURL else{return nil}
+            
+            
+            
+            ImageCache.default.retrieveImage(forKey: artwork.absoluteString
+                                             , options: [.processor(resizeProcessor), .cacheSerializer(FormatIndicatedCacheSerializer.png), .scaleFactor(2.0)]){ result in
+                switch result {
+                case .success(let value):
+                    if let image = value.image {
+                        annotationView?.image = image
+                        
+                    } else {
+                        let resource = ImageResource(downloadURL: artwork, cacheKey: artwork.absoluteString)
+                        KingfisherManager.shared.retrieveImage(with: resource, options: [.processor(resizeProcessor), .cacheSerializer(FormatIndicatedCacheSerializer.png), .scaleFactor(2.0)], progressBlock: nil,  downloadTaskUpdated:  nil) { result in
+                            switch result {
+                            case .success(let value):
+                                annotationView?.image = value.image
+                                
+                            case .failure(let error):
+                                annotationView?.image = UIImage(systemName: "music.note")
+                            }
+                            
+                        }
+                    }
+                    
+                case .failure(let error):
+                    annotationView?.image = UIImage(systemName: "music.note")
+                        
+                }
+            }
+            //annotationView?.clipsToBounds = true
+            annotationView?.layer.cornerRadius = 20
+        }
+        
+        return annotationView
+    }
+}
+
+extension CatchedSongDetailVC : CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first{
+            LocationController.shared.locManager.stopUpdatingLocation()
+            setupMapViewWithCurrentPosition(location)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("\(error.localizedDescription)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if #available(iOS 15, *){
+            return
+        }
+    }
 }

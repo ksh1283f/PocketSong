@@ -313,12 +313,14 @@ PODS:
   - Hero (1.6.1)
   - Kingfisher (7.3.1)
   - leveldb-library (1.22.1)
+  - lottie-ios (3.4.1)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
   - PromisesObjC (1.2.12)
+  - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - CLTypingLabel
@@ -330,6 +332,8 @@ DEPENDENCIES:
   - GoogleSignIn
   - Hero
   - Kingfisher (~> 7.0)
+  - lottie-ios
+  - SnapKit
 
 SPEC REPOS:
   trunk:
@@ -354,8 +358,10 @@ SPEC REPOS:
     - Hero
     - Kingfisher
     - leveldb-library
+    - lottie-ios
     - nanopb
     - PromisesObjC
+    - SnapKit
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -379,9 +385,11 @@ SPEC CHECKSUMS:
   Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
   Kingfisher: f411ab4902e733fc0c40522920fb5a236d7a7334
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  lottie-ios: 016449b5d8be0c3dcbcfa0a9988469999cd04c5d
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 8e9fa323a2eabdcf7ed7601fec8e8d10a7e98300
+PODFILE CHECKSUM: e06f746da54dc451eb7e555119cefcba429cbc35
 
 COCOAPODS: 1.11.2
