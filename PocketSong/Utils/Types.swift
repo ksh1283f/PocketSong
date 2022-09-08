@@ -29,3 +29,21 @@ enum E_NetworkStateType:String {
         }
     }
 }
+
+enum EmojiType:String, CaseIterable{
+    case rockAndRoll = "🤟"
+    case sound = "🔊"
+    case control = "🎛"
+    case saxophone = "🎷"
+    case guitar = "🎸"
+    case staff = "🎼"
+    case piano = "🎹"
+    case drum = "🥁"
+    case mic = "🎤"
+    case headPhone = "🎧"
+    
+    static func getRandomEmoji() -> String {
+        let randomIndex = Int.random(in: 0..<EmojiType.allCases.count)
+        return EmojiType.allCases[randomIndex].rawValue
+    }
+}
