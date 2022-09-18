@@ -4,9 +4,10 @@
 
 ---
 
-[https://img.shields.io/badge/Xcode-11.0-blue](https://img.shields.io/badge/Xcode-11.0-blue)
-
-[https://img.shields.io/badge/iOS-13.2-green](https://img.shields.io/badge/iOS-13.2-green)
+<p align="left">
+    <img src="https://img.shields.io/badge/Xcode-11.0-blue">
+    <img src="https://img.shields.io/badge/iOS-13.2-green">
+</p>
 
 ![https://github.com/ksh1283f/ksh1283f.github.io/blob/main/assets/PocketSong/Imgs/PocketSongScreenShot.png?raw=true](https://github.com/ksh1283f/ksh1283f.github.io/blob/main/assets/PocketSong/Imgs/PocketSongScreenShot.png?raw=true)
 
@@ -45,6 +46,8 @@
 ## Onboarding
 
 ---
+
+![https://github.com/ksh1283f/ksh1283f.github.io/blob/06af9a14ad11e44a66657075f4ee78d949d91577/assets/PocketSong/Imgs/PocketSongOnboarding.png?raw=true](https://github.com/ksh1283f/ksh1283f.github.io/blob/06af9a14ad11e44a66657075f4ee78d949d91577/assets/PocketSong/Imgs/PocketSongOnboarding.png?raw=true)
 
 ## ViewControllers
 
