@@ -196,7 +196,9 @@ extension CatchedSongDetailVC{
                 // show alert this situation is invalid
                 let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
-                    exit(0)
+                    if let url = URL(string: "App-prefs:"){
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
                 })
                 self.present(alert, animated: true, completion: nil)
             }
@@ -211,7 +213,9 @@ extension CatchedSongDetailVC{
                 // show alert this situation is invalid
                 let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
-                    exit(0)
+                    if let url = URL(string: "App-prefs:"){
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
                 })
                 self.present(alert, animated: true, completion: nil)
             }
@@ -222,7 +226,9 @@ extension CatchedSongDetailVC{
 //             show alert instructing them how to on permissions
             let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
-                exit(0)
+                if let url = URL(string: "App-prefs:"){
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
             })
             self.present(alert, animated: true, completion: nil)
             print("[MyMemories: checkLocationAuthorization] denied")
@@ -236,7 +242,9 @@ extension CatchedSongDetailVC{
             // show an alert letting them know what's up
             let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
-                exit(0)
+                if let url = URL(string: "App-prefs:"){
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
             })
             self.present(alert, animated: true, completion: nil)
             break
