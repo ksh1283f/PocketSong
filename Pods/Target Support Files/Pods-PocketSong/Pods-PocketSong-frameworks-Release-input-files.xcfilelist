@@ -1,6 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-PocketSong/Pods-PocketSong-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework
 ${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework
+${BUILT_PRODUCTS_DIR}/BottomHalfModal/BottomHalfModal.framework
 ${BUILT_PRODUCTS_DIR}/CLTypingLabel/CLTypingLabel.framework
 ${BUILT_PRODUCTS_DIR}/FlyoverKit/FlyoverKit.framework
 ${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework

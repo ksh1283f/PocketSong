@@ -22,9 +22,9 @@
 		5716010327148745002E53B9 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5716010227148745002E53B9 /* SignInVC.swift */; };
 		571DC06C28AF560A0072B387 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571DC06B28AF560A0072B387 /* TestVC.swift */; };
 		5734FEA628B8AC5D00F6ACB9 /* ObserverMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5734FEA528B8AC5D00F6ACB9 /* ObserverMediator.swift */; };
+		573B0BA528D02F2900CC3022 /* ClusteredSongListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573B0BA428D02F2900CC3022 /* ClusteredSongListVC.swift */; };
 		57428DE028A2C0C300D13ADD /* MyInformationDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57428DDF28A2C0C300D13ADD /* MyInformationDetailVC.swift */; };
 		57428DE328A3A3A200D13ADD /* MyMemoryAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57428DE228A3A3A200D13ADD /* MyMemoryAnnotationView.swift */; };
-		57428DE528A3A90300D13ADD /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57428DE428A3A90300D13ADD /* ImageCacheManager.swift */; };
 		5776EA2C279F160600898387 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5776EA2B279F160600898387 /* DataController.swift */; };
 		5776EA2E27A11D8700898387 /* RecordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5776EA2D27A11D8700898387 /* RecordData.swift */; };
 		5776EA3027A1215E00898387 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5776EA2F27A1215E00898387 /* AVFoundation.framework */; };
@@ -35,7 +35,6 @@
 		578868EA28B5093000D825A5 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578868E928B5093000D825A5 /* Onboarding.storyboard */; };
 		578F72DF274180DD00E61F8B /* CatchSongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F72DE274180DD00E61F8B /* CatchSongVC.swift */; };
 		579276DF28AF540C004473AF /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579276DE28AF540C004473AF /* TestStoryboard.storyboard */; };
-		57A9F6DC28BBAC5800988694 /* PocketSongMyMemories.json in Resources */ = {isa = PBXBuildFile; fileRef = 57A9F6DB28BBAC5800988694 /* PocketSongMyMemories.json */; };
 		57AAE02928B77C130075FD1A /* OnboardContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AAE02828B77C130075FD1A /* OnboardContentsVC.swift */; };
 		57AAE03028B77D9D0075FD1A /* nUGtQvYzrP.json in Resources */ = {isa = PBXBuildFile; fileRef = 57AAE02B28B77D9C0075FD1A /* nUGtQvYzrP.json */; };
 		57AAE03128B77D9D0075FD1A /* BfC3IeHsb3.json in Resources */ = {isa = PBXBuildFile; fileRef = 57AAE02C28B77D9D0075FD1A /* BfC3IeHsb3.json */; };
@@ -49,6 +48,7 @@
 		57B3359F28C776B40030448C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57B3359C28C776B40030448C /* Assets.xcassets */; };
 		57B335A028C776B40030448C /* appstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B3359D28C776B40030448C /* appstore.png */; };
 		57B335A128C776B40030448C /* playstore.png in Resources */ = {isa = PBXBuildFile; fileRef = 57B3359E28C776B40030448C /* playstore.png */; };
+		57B335A328CA3AD10030448C /* PocketsongMyMemories.json in Resources */ = {isa = PBXBuildFile; fileRef = 57B335A228CA3AD00030448C /* PocketsongMyMemories.json */; };
 		57B5695C28C3C0DD00BE6E30 /* PocketsongSongs.json in Resources */ = {isa = PBXBuildFile; fileRef = 57B5695B28C3C0DD00BE6E30 /* PocketsongSongs.json */; };
 		57B5696F28C5CEA800BE6E30 /* PocketsongCatchSongInAppPre.json in Resources */ = {isa = PBXBuildFile; fileRef = 57B5696E28C5CEA800BE6E30 /* PocketsongCatchSongInAppPre.json */; };
 		57B5697128C5CEC500BE6E30 /* PocketsongCatchSongInAppMain.json in Resources */ = {isa = PBXBuildFile; fileRef = 57B5697028C5CEC500BE6E30 /* PocketsongCatchSongInAppMain.json */; };
@@ -62,7 +62,6 @@
 		57CA8F1A276678A500E54093 /* ShazamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F19276678A500E54093 /* ShazamModel.swift */; };
 		57CA8F1C2771015500E54093 /* SongMatchStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F1B2771015500E54093 /* SongMatchStateType.swift */; };
 		57CA8F1F277242EC00E54093 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F1E277242EC00E54093 /* Extensions.swift */; };
-		57CA8F21277381AF00E54093 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F20277381AF00E54093 /* LoginVC.swift */; };
 		57CA8F232773934A00E54093 /* CatchedSongDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F222773934A00E54093 /* CatchedSongDetailVC.swift */; };
 		57CA8F262774E95900E54093 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F252774E95900E54093 /* LocationController.swift */; };
 		57CA8F2827761FEF00E54093 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F2727761FEF00E54093 /* LocationModel.swift */; };
@@ -105,9 +104,9 @@
 		5716010227148745002E53B9 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		571DC06B28AF560A0072B387 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 		5734FEA528B8AC5D00F6ACB9 /* ObserverMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverMediator.swift; sourceTree = "<group>"; };
+		573B0BA428D02F2900CC3022 /* ClusteredSongListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusteredSongListVC.swift; sourceTree = "<group>"; };
 		57428DDF28A2C0C300D13ADD /* MyInformationDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInformationDetailVC.swift; sourceTree = "<group>"; };
 		57428DE228A3A3A200D13ADD /* MyMemoryAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMemoryAnnotationView.swift; sourceTree = "<group>"; };
-		57428DE428A3A90300D13ADD /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		5776EA2B279F160600898387 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		5776EA2D27A11D8700898387 /* RecordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordData.swift; sourceTree = "<group>"; };
 		5776EA2F27A1215E00898387 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -118,7 +117,6 @@
 		578868E928B5093000D825A5 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		578F72DE274180DD00E61F8B /* CatchSongVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchSongVC.swift; sourceTree = "<group>"; };
 		579276DE28AF540C004473AF /* TestStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
-		57A9F6DB28BBAC5800988694 /* PocketSongMyMemories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PocketSongMyMemories.json; sourceTree = "<group>"; };
 		57AAE02828B77C130075FD1A /* OnboardContentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardContentsVC.swift; sourceTree = "<group>"; };
 		57AAE02B28B77D9C0075FD1A /* nUGtQvYzrP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nUGtQvYzrP.json; sourceTree = "<group>"; };
 		57AAE02C28B77D9D0075FD1A /* BfC3IeHsb3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BfC3IeHsb3.json; sourceTree = "<group>"; };
@@ -132,6 +130,7 @@
 		57B3359C28C776B40030448C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57B3359D28C776B40030448C /* appstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appstore.png; sourceTree = "<group>"; };
 		57B3359E28C776B40030448C /* playstore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playstore.png; sourceTree = "<group>"; };
+		57B335A228CA3AD00030448C /* PocketsongMyMemories.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PocketsongMyMemories.json; sourceTree = "<group>"; };
 		57B5695B28C3C0DD00BE6E30 /* PocketsongSongs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PocketsongSongs.json; sourceTree = "<group>"; };
 		57B5696E28C5CEA800BE6E30 /* PocketsongCatchSongInAppPre.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PocketsongCatchSongInAppPre.json; path = ../../../../../PocketsongCatchSongInApp1/PocketsongCatchSongInAppPre.json; sourceTree = "<group>"; };
 		57B5697028C5CEC500BE6E30 /* PocketsongCatchSongInAppMain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PocketsongCatchSongInAppMain.json; path = ../../../../../PocketsongCatchSongInApp2/PocketsongCatchSongInAppMain.json; sourceTree = "<group>"; };
@@ -145,7 +144,6 @@
 		57CA8F19276678A500E54093 /* ShazamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShazamModel.swift; sourceTree = "<group>"; };
 		57CA8F1B2771015500E54093 /* SongMatchStateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongMatchStateType.swift; sourceTree = "<group>"; };
 		57CA8F1E277242EC00E54093 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		57CA8F20277381AF00E54093 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		57CA8F222773934A00E54093 /* CatchedSongDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchedSongDetailVC.swift; sourceTree = "<group>"; };
 		57CA8F252774E95900E54093 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		57CA8F2727761FEF00E54093 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
@@ -265,12 +263,12 @@
 				578F72DE274180DD00E61F8B /* CatchSongVC.swift */,
 				57CA8F12275CF0D600E54093 /* MainTabBarVC.swift */,
 				57CA8F14275D2DC600E54093 /* SongsVC.swift */,
-				57CA8F20277381AF00E54093 /* LoginVC.swift */,
 				57CA8F222773934A00E54093 /* CatchedSongDetailVC.swift */,
 				57428DDF28A2C0C300D13ADD /* MyInformationDetailVC.swift */,
 				57AC2DCB28B666690038234B /* OnboardingVC.swift */,
 				57AAE02828B77C130075FD1A /* OnboardContentsVC.swift */,
 				57AAE03528B7834C0075FD1A /* OnboardPageVC.swift */,
+				573B0BA428D02F2900CC3022 /* ClusteredSongListVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -299,9 +297,9 @@
 				57B7630628C089DC0088293F /* PocketSongCatchSong.json */,
 				57B5697028C5CEC500BE6E30 /* PocketsongCatchSongInAppMain.json */,
 				57B5695B28C3C0DD00BE6E30 /* PocketsongSongs.json */,
+				57B335A228CA3AD00030448C /* PocketsongMyMemories.json */,
 				57B5696E28C5CEA800BE6E30 /* PocketsongCatchSongInAppPre.json */,
 				57AAE02B28B77D9C0075FD1A /* nUGtQvYzrP.json */,
-				57A9F6DB28BBAC5800988694 /* PocketSongMyMemories.json */,
 				57AAE02D28B77D9D0075FD1A /* RdASh8Ngay.json */,
 			);
 			path = LottieAnis;
@@ -340,7 +338,6 @@
 				57CA8F2927762FA700E54093 /* LoginController.swift */,
 				577CBD8E280DC45F003B3864 /* Protocols.swift */,
 				577CBD90280DCD7F003B3864 /* Types.swift */,
-				57428DE428A3A90300D13ADD /* ImageCacheManager.swift */,
 				57AC2DC928B663AA0038234B /* FirstTimeCheck.swift */,
 				5734FEA528B8AC5D00F6ACB9 /* ObserverMediator.swift */,
 			);
@@ -451,8 +448,8 @@
 				57AAE03128B77D9D0075FD1A /* BfC3IeHsb3.json in Resources */,
 				57B335A028C776B40030448C /* appstore.png in Resources */,
 				57C8B232279D90330015291C /* JandaManateeSolid.ttf in Resources */,
+				57B335A328CA3AD10030448C /* PocketsongMyMemories.json in Resources */,
 				571600FE2714737B002E53B9 /* GoogleService-Info.plist in Resources */,
-				57A9F6DC28BBAC5800988694 /* PocketSongMyMemories.json in Resources */,
 				57AAE03328B77D9D0075FD1A /* 3vlC7BCvOZ.json in Resources */,
 				57077A692741653A00713534 /* memories.png in Resources */,
 				57B5695C28C3C0DD00BE6E30 /* PocketsongSongs.json in Resources */,
@@ -519,6 +516,7 @@
 				57CA8F232773934A00E54093 /* CatchedSongDetailVC.swift in Sources */,
 				5776EA2E27A11D8700898387 /* RecordData.swift in Sources */,
 				57077A63274086C100713534 /* MyMemoriesVC.swift in Sources */,
+				573B0BA528D02F2900CC3022 /* ClusteredSongListVC.swift in Sources */,
 				578F72DF274180DD00E61F8B /* CatchSongVC.swift in Sources */,
 				57428DE328A3A3A200D13ADD /* MyMemoryAnnotationView.swift in Sources */,
 				57AC2DCC28B666690038234B /* OnboardingVC.swift in Sources */,
@@ -534,9 +532,7 @@
 				57CA8F1F277242EC00E54093 /* Extensions.swift in Sources */,
 				57428DE028A2C0C300D13ADD /* MyInformationDetailVC.swift in Sources */,
 				57CA8F182766779E00E54093 /* ShazamController.swift in Sources */,
-				57428DE528A3A90300D13ADD /* ImageCacheManager.swift in Sources */,
 				57CA8F2A27762FA700E54093 /* LoginController.swift in Sources */,
-				57CA8F21277381AF00E54093 /* LoginVC.swift in Sources */,
 				57AC2DCA28B663AA0038234B /* FirstTimeCheck.swift in Sources */,
 				5776EA2C279F160600898387 /* DataController.swift in Sources */,
 				5776EA3227A12F3100898387 /* RecordAnnotation.swift in Sources */,
@@ -701,7 +697,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PocketSong/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to Location's Info always for Using Beacon.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Used to Location's Info always for Using Beacon.";
@@ -739,7 +734,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PocketSong/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to Location's Info always for Using Beacon.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Used to Location's Info always for Using Beacon.";

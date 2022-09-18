@@ -16,11 +16,7 @@ class OnboardingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        btnNext.layer.cornerRadius = 15;
-        btnNext.layer.shadowColor = UIColor.gray.cgColor
-        btnNext.layer.shadowOpacity = 1.0
-        btnNext.layer.shadowOffset = CGSize.zero
-        btnNext.layer.shadowRadius = 6
+        
         
         id = String(self.hashValue)
         
@@ -34,6 +30,14 @@ class OnboardingVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        btnNext.layer.masksToBounds = false
+        btnNext.layer.cornerRadius = 15;
+        
+        btnNext.layer.shadowColor = UIColor.black.cgColor
+        btnNext.layer.shadowOpacity = 0.5
+        btnNext.layer.shadowOffset = CGSize(width: 3, height: 3)
+        btnNext.layer.shadowRadius = 5
         
         btnNext.layer.isHidden = true
         btnNext.isUserInteractionEnabled = false

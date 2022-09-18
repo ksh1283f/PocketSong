@@ -17,4 +17,5 @@ target 'PocketSong' do
   pod 'Kingfisher', '~> 7.0'
   pod 'lottie-ios'
   pod 'SnapKit'
+  pod 'BottomHalfModal'
 end

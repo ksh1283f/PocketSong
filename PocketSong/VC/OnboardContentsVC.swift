@@ -72,7 +72,7 @@ extension OnboardContentsVC{
         
         switch index {
         case 0:
-            result += "PocketSongMyMemories"
+            result += "PocketsongMyMemories"
             
         case 1:
             result += "PocketSongCatchSong"

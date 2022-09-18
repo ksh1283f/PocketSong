@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E8Y-Vl-lQF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E8Y-Vl-lQF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -46,7 +47,7 @@
                         </imageReference>
                     </tabBarItem>
                     <navigationBar key="navigationBar" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" largeTitles="YES" id="jOe-wf-4FJ">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="largeTitleTextAttributes">
@@ -96,7 +97,7 @@
                         </imageReference>
                     </tabBarItem>
                     <navigationBar key="navigationBar" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" largeTitles="YES" id="L3Y-V4-oMl">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -145,7 +146,7 @@
                         </imageReference>
                     </tabBarItem>
                     <navigationBar key="navigationBar" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" largeTitles="YES" id="4os-yS-WdK">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.0" green="0.56388121840000005" blue="0.31791135669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="largeTitleTextAttributes">
@@ -172,12 +173,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fDP-sM-9ib">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="718"/>
                                 <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DailyRecordCell" rowHeight="264" id="RlX-bR-wRw" customClass="DailyRecordCell" customModule="PocketSong" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="264"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="264"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RlX-bR-wRw" id="BWB-Sd-Dh6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="264"/>
@@ -265,6 +266,7 @@
                     <navigationItem key="navigationItem" title="sefefe" id="WXK-nP-WOe"/>
                     <connections>
                         <outlet property="recordSongTableView" destination="fDP-sM-9ib" id="4OO-QB-qG3"/>
+                        <segue destination="mLy-YR-VGE" kind="showDetail" identifier="segueToMyMemoryDetail" id="yvH-Id-rUA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0k-5k-OXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -280,7 +282,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8w-Q7-uWe">
-                                <rect key="frame" x="80" y="735" width="254" height="53"/>
+                                <rect key="frame" x="80" y="735.5" width="254" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="zOb-f7-UnV"/>
                                 </constraints>
@@ -311,7 +313,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSG-K8-OwE" userLabel="ContentsView">
-                                <rect key="frame" x="20" y="140" width="374" height="576"/>
+                                <rect key="frame" x="20" y="144" width="374" height="572.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -374,11 +376,11 @@
             <objects>
                 <viewController storyboardIdentifier="MyMemoryDetail" id="mLy-YR-VGE" customClass="MyInformationDetailVC" customModule="PocketSong" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d8T-JC-bay" userLabel="SuperView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ojd-dy-fIh">
-                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="790"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xgf-ym-12O">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1129"/>
@@ -638,7 +640,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kt4-tz-ujN">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IM6-KW-ulM">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1025"/>
@@ -851,7 +853,7 @@
                                             <constraint firstItem="SH4-Nk-YDs" firstAttribute="top" secondItem="IM6-KW-ulM" secondAttribute="top" id="9S2-Rd-8IX"/>
                                             <constraint firstAttribute="trailing" secondItem="SH4-Nk-YDs" secondAttribute="trailing" id="9SM-Sh-gqU"/>
                                             <constraint firstItem="SH4-Nk-YDs" firstAttribute="leading" secondItem="IM6-KW-ulM" secondAttribute="leading" id="PE0-Vz-l3V"/>
-                                            <constraint firstAttribute="height" priority="250" constant="1200" id="ePd-XI-eMn"/>
+                                            <constraint firstAttribute="height" priority="250" constant="1500" id="ePd-XI-eMn"/>
                                             <constraint firstAttribute="bottom" secondItem="SH4-Nk-YDs" secondAttribute="bottom" id="usQ-97-ShX"/>
                                         </constraints>
                                     </view>
@@ -871,7 +873,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pvc-gV-qyy"/>
                         <color key="backgroundColor" red="0.0" green="0.56388121840000005" blue="0.31791135669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
                             <constraint firstItem="kt4-tz-ujN" firstAttribute="top" secondItem="Pvc-gV-qyy" secondAttribute="top" id="17w-b0-XwG"/>
                             <constraint firstItem="Pvc-gV-qyy" firstAttribute="bottom" secondItem="kt4-tz-ujN" secondAttribute="bottom" id="Hva-KQ-OLD"/>
@@ -883,6 +884,8 @@
                     <connections>
                         <outlet property="btnRecord" destination="uOz-WO-fsb" id="BjC-qL-SYS"/>
                         <outlet property="commetTextField" destination="E04-mz-0fX" id="UvJ-H3-xwt"/>
+                        <outlet property="contentsScrollView" destination="kt4-tz-ujN" id="sfk-rC-kKm"/>
+                        <outlet property="contentsView" destination="IM6-KW-ulM" id="3L2-W6-YpC"/>
                         <outlet property="locationLabel" destination="fql-tu-Zps" id="9Ig-dr-k0V"/>
                         <outlet property="locationMapView" destination="lHH-R6-dbS" id="atn-E6-vpW"/>
                         <outlet property="songArtistLabel" destination="yf1-qA-Yzd" id="txN-T4-lFQ"/>
@@ -895,21 +898,21 @@
             <point key="canvasLocation" x="2493.4782608695655" y="1139.7321428571429"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yvH-Id-rUA"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="applelogo" catalog="system" width="103" height="128"/>
-        <image name="arrowshape.turn.up.forward" catalog="system" width="128" height="106"/>
-        <image name="ear.and.waveform" catalog="system" width="101" height="128"/>
-        <image name="music.note.tv" catalog="system" width="128" height="97"/>
-        <image name="music.note.tv.fill" catalog="system" width="128" height="97"/>
-        <image name="note" catalog="system" width="128" height="106"/>
+        <image name="applelogo" catalog="system" width="105" height="128"/>
+        <image name="arrowshape.turn.up.forward" catalog="system" width="128" height="104"/>
+        <image name="ear.and.waveform" catalog="system" width="102" height="128"/>
+        <image name="music.note.tv" catalog="system" width="128" height="95"/>
+        <image name="music.note.tv.fill" catalog="system" width="128" height="95"/>
+        <image name="note" catalog="system" width="128" height="107"/>
         <image name="text.book.closed.fill" catalog="system" width="115" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

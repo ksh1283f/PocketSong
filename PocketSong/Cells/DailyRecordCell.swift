@@ -16,6 +16,8 @@ class DailyRecordCell: UITableViewCell {
     var recordDataList:[RecordData] = []
     var songImageList:[UIImage] = []
     
+    var clickEvent:PostProcessCellClickEvent?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         print("[DailyRecordCell] override init:  \(self.hash)")
@@ -47,10 +49,10 @@ class DailyRecordCell: UITableViewCell {
 //        // Configure the view for the selected state
 //    }
     
-    func setCell(title:String, data:[RecordData]) {
+    func setCell(title:String, data:[RecordData], clickEvent: PostProcessCellClickEvent) {
         // title preprocess
         var resultTitle = getResultTitle(title: title)
-        
+        self.clickEvent = clickEvent
         
         
         titleLabel.text = resultTitle
@@ -98,6 +100,10 @@ extension DailyRecordCell : UICollectionViewDataSource, UICollectionViewDelegate
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let targetRecordData = recordDataList[indexPath.row]
+        clickEvent?.onClickedBtnCell(recordData:targetRecordData)
+    }
     
 }
 

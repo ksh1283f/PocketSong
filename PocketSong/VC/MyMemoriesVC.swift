@@ -11,7 +11,7 @@ import CoreLocation // to get the user's locations
 import Network
 import FlyoverKit
 import Kingfisher
-
+import BottomHalfModal
 
 
 class MyMemoriesVC: UIViewController{
@@ -44,6 +44,16 @@ class MyMemoriesVC: UIViewController{
 //        testButton.addTarget(self, action: #selector(onClickedTestButton), for: .touchUpInside)
 //
 //        self.view.addSubview(testButton)
+//
+//        let testImageView = UIImageView()
+//        testImageView.frame = CGRect(x:215, y:215, width: 100, height:100)
+//        self.view.addSubview(testImageView)
+//
+//        let resource = ImageResource.init(downloadURL:URL(string: "https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/7d/ac/83/7dac83f6-dbb0-b7e9-21a1-b0387a5c8f39/00602537201525.rgb.jpg/800x800bb.jpg")!)
+//        testImageView.kf.indicatorType = .activity
+//        testImageView.kf.setImage(with: resource, options: [.transition(.fade(1.0)), .forceTransition, .keepCurrentImageWhileLoading])
+//        testImageView.layer.masksToBounds = true
+//        testImageView.layer.cornerRadius = 15
     }
     
     @objc func onClickedTestButton(){
@@ -54,7 +64,6 @@ class MyMemoriesVC: UIViewController{
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         checkLocationServices()
         mapView.roundCorners(cornerRadius: 20, maskedCorners: [.layerMinXMinYCorner,
                                                                .layerMinXMaxYCorner,
@@ -65,6 +74,9 @@ class MyMemoriesVC: UIViewController{
         // check data controller has some recordData
         // if it has, get the data and convert it to CLLocationCoordinate2D data
         DataController.dbOpen(caller: String(describing: self)){
+            self.pinDic.removeAll()
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            
             for item in $0 {
                 updatePinWithData(recordData: item)
             }
@@ -103,7 +115,11 @@ class MyMemoriesVC: UIViewController{
                 // show alert this situation is invalid
                 let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
-                    exit(0)
+                    
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
+                    
                 })
                 self.present(alert, animated: true, completion: nil)
             }
@@ -118,7 +134,9 @@ class MyMemoriesVC: UIViewController{
                 // show alert this situation is invalid
                 let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
-                    exit(0)
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                                   UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                               }
                 })
                 self.present(alert, animated: true, completion: nil)
             }
@@ -129,7 +147,9 @@ class MyMemoriesVC: UIViewController{
 //             show alert instructing them how to on permissions
             let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
-                exit(0)
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                               UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                           }
             })
             self.present(alert, animated: true, completion: nil)
             print("[MyMemories: checkLocationAuthorization] denied")
@@ -143,7 +163,9 @@ class MyMemoriesVC: UIViewController{
             // show an alert letting them know what's up
             let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
-                exit(0)
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                               UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                           }
             })
             self.present(alert, animated: true, completion: nil)
             break
@@ -177,7 +199,10 @@ class MyMemoriesVC: UIViewController{
         } else if let annotation = view.annotation as? MKClusterAnnotation {
             print("---[MyMemoriesVC] Clicked cluster annotation \(annotation.memberAnnotations.count)")
             // todo segue or half modal
+            showHalfModalFromClusterAnnotation(annotation: annotation)
         }
+        
+        mapView.deselectAnnotation(view.annotation, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -209,6 +234,7 @@ extension MyMemoriesVC : CLLocationManagerDelegate{
         if #available(iOS 15, *){
             return
         }
+//        checkLocationServices()
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -297,7 +323,7 @@ extension MyMemoriesVC : MKMapViewDelegate{
             if let recordData = annotation.recordData, let shazamData = recordData.shazamData, let artwork = shazamData.artworkURL{
                 let scale = UIScreen.main.scale
                 let resizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: annotationView!.bounds.width*scale*0.5, height: annotationView!.bounds.height*scale*0.5)) |> RoundCornerImageProcessor(cornerRadius: 30)
-                //print("[MyMemoriesVC] annotationView boundsSize: \(annotationView!.bounds.size.width), \(annotationView!.bounds.size.height)")
+
                 
                 ImageCache.default.retrieveImage(forKey: artwork.path, options: [.processor(resizeProcessor), .cacheSerializer(FormatIndicatedCacheSerializer.png), .scaleFactor(2.0)]){ result in
                     switch result {
@@ -363,5 +389,25 @@ extension MyMemoriesVC:PostProcessOfRemoveRecord{
                 
             }
         }
+    }
+}
+
+// MARK:- half modal view present
+extension MyMemoriesVC {
+    func showHalfModalFromClusterAnnotation(annotation: MKClusterAnnotation){
+        let annotations = annotation.memberAnnotations.map{ $0 as? MyMemoryAnnotation }.filter{$0 != nil}
+        let recordDataList = annotations.map{ $0!.recordData }.filter{ $0 != nil }.map{$0!}
+        
+        let csVC = ClusteredSongListVC()
+        csVC.setCellData(recordDataList: recordDataList, clickEvent: self)
+        
+        let nav = BottomHalfModalNavigationController(rootViewController: csVC)
+        self.presentBottomHalfModal(nav, animated: true, completion: nil)
+    }
+}
+
+extension MyMemoriesVC : PostProcessCellClickEvent{
+    func onClickedBtnCell(recordData: RecordData) {
+        self.performSegue(withIdentifier: "segueToMyMemoryDetail", sender: recordData)
     }
 }

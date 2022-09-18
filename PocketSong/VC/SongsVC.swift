@@ -75,6 +75,16 @@ class SongsVC: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let recordData = sender as? RecordData else { return }
+        if let id = segue.identifier, id == "segueToMyMemoryDetail"{
+            if let detailVC = segue.destination as? MyInformationDetailVC{
+                detailVC.setRecordData(recordData: recordData)
+                detailVC.removalDelegate = self
+            }
+        }
+    }
 }
 
 extension SongsVC : UITableViewDelegate, UITableViewDataSource{
@@ -86,12 +96,27 @@ extension SongsVC : UITableViewDelegate, UITableViewDataSource{
         let title = dayList[indexPath.row]
         let recordDataList = recordDataDic[title] ?? []
         
-        cell.setCell(title: title, data: recordDataList)
+        cell.setCell(title: title, data: recordDataList, clickEvent: self)
         cell.songItemCollectionView.scrollToItem(at: IndexPath(item: -1, section: 0), at: .init(rawValue: 0), animated: false)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recordDataDic.count
+    }
+}
+
+extension SongsVC : PostProcessCellClickEvent {
+    func onClickedBtnCell(recordData: RecordData) {
+        self.performSegue(withIdentifier: "segueToMyMemoryDetail", sender: recordData)
+        
+        // todo implement
+    }
+}
+
+extension SongsVC:PostProcessOfRemoveRecord{
+    func updateRemoval(isRemoval:Bool) {
+        getRecordDataPerDaily()
+        dayList = recordDataDic.keys.sorted(by: <)
     }
 }

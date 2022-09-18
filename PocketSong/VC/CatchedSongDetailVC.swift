@@ -14,6 +14,8 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
     var shazamData:ShazamModel?
     var locationData:LocationModel?
     
+    @IBOutlet weak var contentsView: UIView!
+    @IBOutlet weak var contentsScrollView: UIScrollView!
     @IBOutlet weak var btnRecord: UIButton!
     @IBOutlet weak var songImageView: UIImageView!
     @IBOutlet weak var songTitleLabel: UILabel!
@@ -38,7 +40,8 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
         
         btnRecord.setTitle("Record", for: .normal)
         self.hideKeyboardWhenTappedAround()
-        commetTextField.keyboardType = .namePhonePad
+        commetTextField.keyboardType = .default
+        commetTextField.returnKeyType = UIReturnKeyType.done
         self.locationMapView.isUserInteractionEnabled = false
     }
     
@@ -128,6 +131,12 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+        
+    }
+    
     @IBAction func onClickedBtnRecord(_ sender: Any) {
         // todo save data into the database
         if isRecorded{
@@ -157,11 +166,11 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(_ sender: Notification){
-        self.view.frame.origin.y = -300
+        self.contentsView.frame.origin.y = -300
     }
     
     @objc func keyboardWillHide(_ sender: Notification){
-        self.view.frame.origin.y = 0
+        self.contentsView.frame.origin.y = 0
         
     }
 }
