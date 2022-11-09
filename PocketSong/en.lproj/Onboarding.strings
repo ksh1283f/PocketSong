@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "You can see the detail information of songs you recorded!You can see the detail information of songs you recorded!You can see the detail information of songs you recorded!"; ObjectID = "N7J-RW-zdU"; */
+"N7J-RW-zdU.text" = "You can see the detail information of songs you recorded!You can see the detail information of songs you recorded!You can see the detail information of songs you recorded!";
+
+/* Class = "UIButton"; configuration.title = "Next"; ObjectID = "cSt-ty-7rM"; */
+"cSt-ty-7rM.configuration.title" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cSt-ty-7rM"; */
+"cSt-ty-7rM.normalTitle" = "Button";

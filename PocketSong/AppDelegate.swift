@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import Firebase
 import GoogleSignIn
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,9 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        FirebaseApp.configure()
         print("start launchScreen")
-       // FirebaseApp.configure()
+        FirebaseApp.configure()
         
         // database initialize
         let dbInitPath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -46,6 +46,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("end launchScreen")
         NetworkMonitor.shared.startMonitoring()
         return true
+    }
+    
+    @available(iOS 9.0, *)
+    func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool{
+        return GIDSignIn.sharedInstance.handle(url)
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            print("app exit")
+        }catch let signOutError as NSError {
+            print("Error sigining out : \(signOutError)")
+        }
     }
 
     // MARK: UISceneSession Lifecycle

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EXW-Cw-YsA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EXW-Cw-YsA">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BjH-AA-coz">
-                                <rect key="frame" x="0.0" y="44" width="414" height="707"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="703"/>
                                 <connections>
                                     <segue destination="Iol-C8-c7m" kind="embed" id="GGI-Gp-r1b"/>
                                 </connections>
@@ -84,15 +85,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tfn-st-wGQ" userLabel="ContentsView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="741"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="737"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SqN-IV-qqh">
-                                        <rect key="frame" x="26" y="13" width="363" height="519"/>
+                                        <rect key="frame" x="26" y="80" width="363" height="516"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7J-RW-zdU">
-                                        <rect key="frame" x="26" y="595.5" width="363" height="138"/>
-                                        <string key="text">You can see the detail information of songs you recorded!You can see the detail information of songs you recorded!You can see the detail information of songs you recorded!</string>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can see the detail information of songs yo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7J-RW-zdU">
+                                        <rect key="frame" x="25.5" y="656" width="363" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="gzV-Me-60D"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -100,13 +103,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.56470588239999997" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="N7J-RW-zdU" firstAttribute="leading" secondItem="Tfn-st-wGQ" secondAttribute="leading" constant="26" id="63c-0L-M1w"/>
+                                    <constraint firstItem="N7J-RW-zdU" firstAttribute="top" secondItem="SqN-IV-qqh" secondAttribute="bottom" priority="250" constant="60" id="9Kj-oc-tlX"/>
                                     <constraint firstItem="SqN-IV-qqh" firstAttribute="height" secondItem="Tfn-st-wGQ" secondAttribute="height" multiplier="0.700405" id="I4Y-K1-u3n"/>
-                                    <constraint firstItem="SqN-IV-qqh" firstAttribute="top" secondItem="Tfn-st-wGQ" secondAttribute="top" constant="13" id="LcW-RM-ZXS"/>
-                                    <constraint firstItem="N7J-RW-zdU" firstAttribute="firstBaseline" secondItem="SqN-IV-qqh" secondAttribute="bottom" constant="80" id="Mkt-i7-o2l"/>
+                                    <constraint firstItem="SqN-IV-qqh" firstAttribute="top" secondItem="Tfn-st-wGQ" secondAttribute="top" constant="80" id="LcW-RM-ZXS"/>
+                                    <constraint firstItem="N7J-RW-zdU" firstAttribute="centerX" secondItem="Tfn-st-wGQ" secondAttribute="centerX" id="LrL-vr-bk1"/>
                                     <constraint firstAttribute="trailing" secondItem="SqN-IV-qqh" secondAttribute="trailing" constant="25" id="Ooy-Ah-OQy"/>
-                                    <constraint firstAttribute="trailing" secondItem="N7J-RW-zdU" secondAttribute="trailing" constant="25" id="ajy-C6-ECr"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="N7J-RW-zdU" secondAttribute="bottom" constant="7.5" id="oDa-Uy-NEE"/>
+                                    <constraint firstItem="N7J-RW-zdU" firstAttribute="width" secondItem="SqN-IV-qqh" secondAttribute="width" id="g9l-Bq-rtQ"/>
                                     <constraint firstItem="SqN-IV-qqh" firstAttribute="leading" secondItem="Tfn-st-wGQ" secondAttribute="leading" constant="26" id="wE3-Ln-TBv"/>
                                 </constraints>
                             </view>

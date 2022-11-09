@@ -38,6 +38,8 @@ class OnboardPageVC: UIPageViewController {
         let direction: NavigationDirection = index > currentViewControllerIndex ? .forward : .reverse
         setViewControllers([contentsVcList[index]], direction: direction, animated: true)
     }
+    
+
 }
 
 extension OnboardPageVC : UIPageViewControllerDataSource{

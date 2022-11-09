@@ -37,23 +37,6 @@ class MyMemoriesVC: UIViewController{
         self.mapView.showsTraffic = true
         
         self.mapView.showsLargeContentViewer = true
-        
-//        let testButton = UIButton()
-//        testButton.frame = CGRect(x: 10, y: 100, width: 200, height: 100)
-//        testButton.layer.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 1)
-//        testButton.addTarget(self, action: #selector(onClickedTestButton), for: .touchUpInside)
-//
-//        self.view.addSubview(testButton)
-//
-//        let testImageView = UIImageView()
-//        testImageView.frame = CGRect(x:215, y:215, width: 100, height:100)
-//        self.view.addSubview(testImageView)
-//
-//        let resource = ImageResource.init(downloadURL:URL(string: "https://is2-ssl.mzstatic.com/image/thumb/Music125/v4/7d/ac/83/7dac83f6-dbb0-b7e9-21a1-b0387a5c8f39/00602537201525.rgb.jpg/800x800bb.jpg")!)
-//        testImageView.kf.indicatorType = .activity
-//        testImageView.kf.setImage(with: resource, options: [.transition(.fade(1.0)), .forceTransition, .keepCurrentImageWhileLoading])
-//        testImageView.layer.masksToBounds = true
-//        testImageView.layer.cornerRadius = 15
     }
     
     @objc func onClickedTestButton(){
@@ -113,8 +96,8 @@ class MyMemoriesVC: UIViewController{
                 setupMapViewWithCurrentPosition(presentLocation)
             }else{
                 // show alert this situation is invalid
-                let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                let alert = UIAlertController(title: LocalizeText.AuthorizationRequiredTitle, message: LocalizeText.AuthorizationRequiredMsg, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: LocalizeText.Ok, style: .default){ _ in
                     
                     if let url = URL(string: UIApplication.openSettingsURLString) {
                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -132,8 +115,8 @@ class MyMemoriesVC: UIViewController{
                 setupMapViewWithCurrentPosition(presentLocation)
             }else{
                 // show alert this situation is invalid
-                let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                let alert = UIAlertController(title: LocalizeText.AuthorizationRequiredTitle, message: LocalizeText.AuthorizationRequiredMsg, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: LocalizeText.Ok, style: .default){ _ in
                     if let url = URL(string: UIApplication.openSettingsURLString) {
                                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
                                }
@@ -145,8 +128,8 @@ class MyMemoriesVC: UIViewController{
             
         case .denied:
 //             show alert instructing them how to on permissions
-            let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+            let alert = UIAlertController(title: LocalizeText.AuthorizationRequiredTitle, message: LocalizeText.AuthorizationRequiredMsg, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: LocalizeText.Ok, style: .default){ _ in
                 if let url = URL(string: UIApplication.openSettingsURLString) {
                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
                            }
@@ -161,8 +144,8 @@ class MyMemoriesVC: UIViewController{
             
         case .restricted:
             // show an alert letting them know what's up
-            let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+            let alert = UIAlertController(title: LocalizeText.AuthorizationRequiredTitle, message: LocalizeText.AuthorizationRequiredMsg, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: LocalizeText.Ok, style: .default){ _ in
                 if let url = URL(string: UIApplication.openSettingsURLString) {
                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
                            }
@@ -253,14 +236,14 @@ extension MyMemoriesVC : CLLocationManagerDelegate{
             
         case .restricted:
             print("restricted")
-            let alert = UIAlertController(title: "Request location permission", message:"Please go to 'Settings -> PocketSong -> Allow location access'", preferredStyle: UIAlertController.Style.alert)
-            let okAction = UIAlertAction(title: "Allow", style: .default) { (action) in
+            let alert = UIAlertController(title: LocalizeText.LocationPermissionTitle, message: LocalizeText.LocationPermissionMsg, preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: LocalizeText.Allow, style: .default) { (action) in
                 if let url = URL(string: "App-prefs:") {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
             }
             
-            let cancelAction = UIAlertAction(title: "Don't allow", style: .cancel){ (action) in
+            let cancelAction = UIAlertAction(title: LocalizeText.DontAllow, style: .cancel){ (action) in
                 UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
                     exit(0)
@@ -278,14 +261,14 @@ extension MyMemoriesVC : CLLocationManagerDelegate{
             
         case .denied:
             print("denied")
-            let alert = UIAlertController(title: "Request location permission", message:"Please go to 'Settings -> PocketSong -> Allow location access'", preferredStyle: UIAlertController.Style.alert)
-            let okAction = UIAlertAction(title: "Allow", style: .default) { (action) in
+            let alert = UIAlertController(title: LocalizeText.LocationPermissionTitle, message: LocalizeText.LocationPermissionMsg, preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: LocalizeText.Allow, style: .default) { (action) in
                 if let url = URL(string: "App-prefs:"){
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
             }
             
-            let cancelAction = UIAlertAction(title: "Don't allow", style: .cancel) { (action) in
+            let cancelAction = UIAlertAction(title: LocalizeText.DontAllow, style: .cancel) { (action) in
                 UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                     exit(0)

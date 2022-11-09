@@ -7,6 +7,7 @@
 
 import UIKit
 import Lottie
+import FirebaseAuth
 
 class OnboardingVC: UIViewController {
     
@@ -25,7 +26,7 @@ class OnboardingVC: UIViewController {
         print("[OnboardingPagevc] add observerMediate")
         onboardingPageControl.pageIndicatorTintColor = .gray
         onboardingPageControl.currentPageIndicatorTintColor = .white
-        
+        btnNext.setTitle(LocalizeText.Next, for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,8 +50,20 @@ class OnboardingVC: UIViewController {
     }
     
     @IBAction func onClickedBtnNext(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MainTabBarVC")
+        
+        var targetStoryboardName = ""
+        var targetToInstantiateVCId = ""
+        if Auth.auth().currentUser != nil {
+            targetStoryboardName = "Main"
+            targetToInstantiateVCId = "MainTabBarVC"
+        }else{
+            targetStoryboardName = "LoginPage"
+            targetToInstantiateVCId = "SignInVC"
+        }
+        
+        
+        let storyboard = UIStoryboard(name: targetStoryboardName, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: targetToInstantiateVCId)
         vc.modalPresentationStyle = .fullScreen
         
         

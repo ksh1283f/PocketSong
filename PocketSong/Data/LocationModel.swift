@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LocationModel {
+struct LocationModel {
     let country:String?
     let locality:String?
     let administrativeArea:String?

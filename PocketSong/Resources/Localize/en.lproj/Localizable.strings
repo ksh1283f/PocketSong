@@ -1,0 +1,52 @@
+/*
+/*
+  Localizable.strings
+  PocketSong
+
+  Created by Seunghyeon Kang on 9/29/22.
+  
+*/
+// MARK:- Common
+"RecognizingFailedErrMsg" = "Recognizing failed!";
+"Ok" = "Ok";
+"NetworkDisconnectedTitle" = "network is disconnected!";
+"NetworkDisconnectedMsg"="Please check your network state and connect cellular or wifi";
+
+"AuthorizationRequiredTitle" = "Authorization is required!";
+"AuthorizationRequiredMsg" = "Please go to Settings -> Pocketsong then activate location and microphone access";
+
+"LocationPermissionTitle" = "Request location permission";
+"LocationPermissionMsg" = "Please go to 'Settings -> PocketSong -> Allow location access'";
+"Allow" = "Allow";
+"DontAllow" = "Don't allow";
+
+
+// MARK:- Onboarding
+"PocketsongMyMemoriesDesc" = "You can see the detail information of songs you recorded on the map!";
+"PocketSongCatchSong" = "Touch 'Record' button if you want to record a song which is playing around.";
+"PocketsongSongs" = "This view shows all songs list you recorded at once with table.";
+"Next" = "Next";
+
+// MARK:- Main
+"SongInfoTitle" = "Song Info";
+"LocationAndCreatedTimeTitle" = "Location and CreatedTime";
+"CommentTitle" = "Comment";
+"DeleteThisRecordBtnText" = "Delete this record";
+
+"CatchSongNavigationTitle" = "Catch Song";
+"CatchBtnText" = "Catch!";
+
+"SongListNavigationTitle" = "Song List";
+
+"RecognizingFailedTitle" = "Recognizing failed!";
+
+"BtnRecordTitle" = "Record";
+"AlreadyRecordedTitle" = "Already recorded";
+"AlreadyRecordedMsg" = "already your music was recorded!";
+"RecordSuccessTitle" = "Record success!";
+"RecordSuccessMsg" = "Record the music successfully";
+
+"NoMusicUrlTitle" = "No Music URL";
+"AppleMusicUrlMsg" = "AppleMusic URL Data isn't exist!";
+"NoticeTitle" = "Notice";
+"NoticeMsg" = "There is something problem to delete the record";

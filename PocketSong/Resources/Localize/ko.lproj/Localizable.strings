@@ -1,0 +1,52 @@
+/*
+/*
+  Localizable.strings
+  PocketSong
+
+  Created by Seunghyeon Kang on 9/29/22.
+  
+*/
+// MARK:- Common
+"RecognizingFailedErrMsg" = "인식 실패!";
+"Ok" = "확인";
+"NetworkDisconnectedTitle" = "네트워크 연결이 끊어졌습니다!";
+"NetworkDisconnectedMsg"="네트워크 상태를 확인하고 셀룰러 데이터 또는 와이파이에 연결해주세요";
+
+"AuthorizationRequiredTitle" = "권한이 필요합니다!";
+"AuthorizationRequiredMsg" = "설정 -> Pocketsong 으로 이동 후 위치와 마이크 접근을 허용해주세요";
+
+"LocationPermissionTitle" = "위치 권한이 필요합니다.";
+"LocationPermissionMsg" = "설정 -> Pocketsong 으로 이동 후 위치 접근을 허용해주세요";
+"Allow" = "허용";
+"DontAllow" = "허용 안함";
+
+
+// MARK:- Onboarding
+"PocketsongMyMemoriesDesc" = "맵 위에서 기록했던 곡들의 상세정보를 확인할 수 있습니다!";
+"PocketSongCatchSong" = "만약 주위에서 들리는 음악을 기록하고 싶다면 '기록' 버튼을 누르세요.";
+"PocketsongSongs" = "이 화면은 테이블 형식으로 기록했던 음악들을 한번에 보여줍니다.";
+"Next" = "다음";
+
+// MARK:- Main
+"SongInfoTitle" = "곡 정보";
+"LocationAndCreatedTimeTitle" = "위치, 생성시간";
+"CommentTitle" = "코멘트";
+"DeleteThisRecordBtnText" = "이 기록 삭제하기";
+
+"CatchSongNavigationTitle" = "노래 판별";
+"CatchBtnText" = "판별시작!";
+
+"SongListNavigationTitle" = "노래목록";
+
+"RecognizingFailedTitle" = "인식 실패!";
+
+"BtnRecordTitle" = "기록하기";
+"AlreadyRecordedTitle" = "이미 기록되었습니다.";
+"AlreadyRecordedMsg" = "음악이 이미 기록되었습니다!";
+"RecordSuccessTitle" = "기록 성공!";
+"RecordSuccessMsg" = "음악이 성공적으로 기록되었습니다.";
+
+"NoMusicUrlTitle" = "음악 URL이 없음";
+"AppleMusicUrlMsg" = "애플뮤직 URL이 없습니다.";
+"NoticeTitle" = "안내";
+"NoticeMsg" = "해당 기록을 제거하는 과정에서 문제가 생겼습니다.";

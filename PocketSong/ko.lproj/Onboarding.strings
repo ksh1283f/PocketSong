@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "You can see the detail information of songs yo"; ObjectID = "N7J-RW-zdU"; */
+"N7J-RW-zdU.text" = "You can see the detail information of songs yo";
+
+/* Class = "UIButton"; configuration.title = "Next"; ObjectID = "cSt-ty-7rM"; */
+"cSt-ty-7rM.configuration.title" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "cSt-ty-7rM"; */
+"cSt-ty-7rM.normalTitle" = "Button";

@@ -140,7 +140,7 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
     @IBAction func onClickedBtnRecord(_ sender: Any) {
         // todo save data into the database
         if isRecorded{
-            self.alertDefault(title: "Already recorded", message: "already your music was recorded!")
+            self.alertDefault(title: LocalizeText.AlreadyRecordedTitle, message: LocalizeText.AlreadyRecordedMsg)
             return
         }
         
@@ -162,7 +162,7 @@ class CatchedSongDetailVC: UIViewController, UITextFieldDelegate {
         }
         
         // todo createMarker on the MyMemoryVC
-        self.alertDefault(title: "Record success!", message: "Record the music successfully")
+        self.alertDefault(title: LocalizeText.RecordSuccessTitle, message: LocalizeText.RecordSuccessMsg)
     }
     
     @objc func keyboardWillShow(_ sender: Notification){
@@ -194,13 +194,19 @@ extension CatchedSongDetailVC{
                 setupMapViewWithCurrentPosition(presentLocation)
             }else{
                 // show alert this situation is invalid
-                let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                self.alertDefault(title: LocalizeText.AuthorizationRequiredTitle, message: LocalizeText.AuthorizationRequiredMsg){
                     if let url = URL(string: "App-prefs:"){
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     }
-                })
-                self.present(alert, animated: true, completion: nil)
+                }
+                
+//                let alert = UIAlertController(title: LocalizeText.AuthorizationRequiredTitle, message: LocalizeText.AuthorizationRequiredMsg, preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: LocalizeText.Ok, style: .default){ _ in
+//                    if let url = URL(string: "App-prefs:"){
+//                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//                    }
+//                })
+//                self.present(alert, animated: true, completion: nil)
             }
             break
 
@@ -211,26 +217,22 @@ extension CatchedSongDetailVC{
                 setupMapViewWithCurrentPosition(presentLocation)
             }else{
                 // show alert this situation is invalid
-                let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                self.alertDefault(title: LocalizeText.AuthorizationRequiredTitle, message: LocalizeText.AuthorizationRequiredMsg){
                     if let url = URL(string: "App-prefs:"){
                         UIApplication.shared.open(url, options: [:], completionHandler: nil)
                     }
-                })
-                self.present(alert, animated: true, completion: nil)
+                }
             }
             
             break
             
         case .denied:
 //             show alert instructing them how to on permissions
-            let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+            self.alertDefault(title: LocalizeText.AuthorizationRequiredTitle, message: LocalizeText.AuthorizationRequiredMsg){
                 if let url = URL(string: "App-prefs:"){
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
-            })
-            self.present(alert, animated: true, completion: nil)
+            }
             print("[MyMemories: checkLocationAuthorization] denied")
             break
             
@@ -240,13 +242,11 @@ extension CatchedSongDetailVC{
             
         case .restricted:
             // show an alert letting them know what's up
-            let alert = UIAlertController(title: "Authorization is need!", message: "Please go to Settings -> Pocketsong then activate location and microphone access", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+            self.alertDefault(title: LocalizeText.AuthorizationRequiredTitle, message: LocalizeText.AuthorizationRequiredMsg){
                 if let url = URL(string: "App-prefs:"){
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
                 }
-            })
-            self.present(alert, animated: true, completion: nil)
+            }
             break
         }
     }

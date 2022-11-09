@@ -92,13 +92,13 @@ extension OnboardContentsVC{
         var result = ""
         switch index{
         case 0:
-            result = "You can see the detail information of songs you recorded on the map!"
+            result = LocalizeText.PocketsongMyMemoriesDesc
             
         case 1:
-            result = "Touch 'Record' button if you want to record a song which is playing around."
+            result = LocalizeText.PocketSongCatchSong
             
         case 2:
-            result = "This view shows all songs list you recorded at once with table."
+            result = LocalizeText.PocketsongSongs
             
         default:
             result = ""

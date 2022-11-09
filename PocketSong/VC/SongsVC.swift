@@ -20,13 +20,6 @@ class SongsVC: UIViewController {
         recordSongTableView.delegate = self
         recordSongTableView.dataSource = self
         self.navigationItem.title = self.title
-        
-//        let appearance = UITabBarAppearance()
-//        appearance.configureWithOpaqueBackground()
-//        appearance.backgroundColor = UIColor.gray
-//        self.tabBarController?.tabBar.standardAppearance = appearance;
-//        self.tabBarController?.tabBar.scrollEdgeAppearance = self.tabBarController?.tabBar.standardAppearance
-           
     }
     
     override func viewWillAppear(_ animated: Bool) {

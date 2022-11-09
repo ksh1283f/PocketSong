@@ -1,0 +1,75 @@
+
+/* Class = "UIButton"; configuration.title = "Delete this record"; ObjectID = "6Az-k0-kNV"; */
+"6Az-k0-kNV.configuration.title" = "Delete this record";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6Az-k0-kNV"; */
+"6Az-k0-kNV.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "address"; ObjectID = "A7Y-IR-Smc"; */
+"A7Y-IR-Smc.text" = "address";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "C7K-9O-n7L"; */
+"C7K-9O-n7L.text" = "Title";
+
+/* Class = "UILabel"; text = "Artist"; ObjectID = "CLt-ud-cMW"; */
+"CLt-ud-cMW.text" = "Artist";
+
+/* Class = "UITextField"; placeholder = "Insert comment.."; ObjectID = "E04-mz-0fX"; */
+"E04-mz-0fX.placeholder" = "Insert comment..";
+
+/* Class = "UIViewController"; title = "Catch Song"; ObjectID = "EQr-w7-DTl"; */
+"EQr-w7-DTl.title" = "Catch Song";
+
+/* Class = "UIViewController"; title = "Song List"; ObjectID = "FUR-XE-jK2"; */
+"FUR-XE-jK2.title" = "Song List";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "HXR-zE-m5c"; */
+"HXR-zE-m5c.text" = "Title";
+
+/* Class = "UILabel"; text = "Location and CreatedTime"; ObjectID = "MM0-Vz-78F"; */
+"MM0-Vz-78F.text" = "Location and CreatedTime";
+
+/* Class = "UILabel"; text = "comment"; ObjectID = "SnZ-3l-L5G"; */
+"SnZ-3l-L5G.text" = "comment";
+
+/* Class = "UILabel"; text = "Song Info"; ObjectID = "UVO-Sn-ufN"; */
+"UVO-Sn-ufN.text" = "Song Info";
+
+/* Class = "UIButton"; configuration.title = "Catch!"; ObjectID = "V8w-Q7-uWe"; */
+"V8w-Q7-uWe.configuration.title" = "Catch!";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "V8w-Q7-uWe"; */
+"V8w-Q7-uWe.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "sefefe"; ObjectID = "WXK-nP-WOe"; */
+"WXK-nP-WOe.title" = "sefefe";
+
+/* Class = "UILabel"; text = "Comment"; ObjectID = "ZIN-TU-beD"; */
+"ZIN-TU-beD.text" = "Comment";
+
+/* Class = "UIButton"; configuration.title = "  Play this Song"; ObjectID = "dh1-c6-SZ3"; */
+"dh1-c6-SZ3.configuration.title" = "  Play this Song";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "dh1-c6-SZ3"; */
+"dh1-c6-SZ3.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Location where I catched this song: \n(???address)"; ObjectID = "fql-tu-Zps"; */
+"fql-tu-Zps.text" = "Location where I catched this song: \n(???address)";
+
+/* Class = "UILabel"; text = "Song Title"; ObjectID = "h3z-BR-g64"; */
+"h3z-BR-g64.text" = "Song Title";
+
+/* Class = "UILabel"; text = "2022년 6월 19일"; ObjectID = "iCc-Rh-kvy"; */
+"iCc-Rh-kvy.text" = "2022년 6월 19일";
+
+/* Class = "UILabel"; text = "Comment"; ObjectID = "rtp-Pz-P2g"; */
+"rtp-Pz-P2g.text" = "Comment";
+
+/* Class = "UIButton"; configuration.title = "Record"; ObjectID = "uOz-WO-fsb"; */
+"uOz-WO-fsb.configuration.title" = "Record";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "uOz-WO-fsb"; */
+"uOz-WO-fsb.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Artist"; ObjectID = "yf1-qA-Yzd"; */
+"yf1-qA-Yzd.text" = "Artist";

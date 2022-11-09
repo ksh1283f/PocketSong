@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign InVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SignInVC" id="Y6W-OH-hqX" customClass="SignInVC" customModule="PocketSong" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="7FD-AV-g1X">
+                                <rect key="frame" x="47" y="132" width="321" height="634"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJi-1h-NPh">
+                                <rect key="frame" x="63" y="786" width="289" height="46"/>
+                                <color key="tintColor" red="0.094117647058823528" green="0.19607843137254902" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign in Google"/>
+                                <connections>
+                                    <action selector="checkGoogleLogin" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CSF-BV-fr8"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GoogleIcon" translatesAutoresizingMaskIntoConstraints="NO" id="nO6-Y7-qDs">
+                                <rect key="frame" x="74" y="795" width="52" height="28"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" red="0.1417810246" green="0.55246965830000005" blue="0.24445318299999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7FD-AV-g1X" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="84" id="8d3-TD-Ez6"/>
+                            <constraint firstItem="nO6-Y7-qDs" firstAttribute="trailing" secondItem="mJi-1h-NPh" secondAttribute="trailing" constant="-226" id="CUy-qY-2Jp"/>
+                            <constraint firstItem="7FD-AV-g1X" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="47" id="Ed9-wb-G88"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="mJi-1h-NPh" secondAttribute="bottom" constant="30" id="J2j-oi-RBG"/>
+                            <constraint firstItem="mJi-1h-NPh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="63" id="KGK-rZ-VgX"/>
+                            <constraint firstItem="nO6-Y7-qDs" firstAttribute="top" secondItem="mJi-1h-NPh" secondAttribute="top" constant="9" id="KnB-Ls-90S"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7FD-AV-g1X" secondAttribute="trailing" constant="46" id="SGP-w5-F2e"/>
+                            <constraint firstItem="nO6-Y7-qDs" firstAttribute="leading" secondItem="mJi-1h-NPh" secondAttribute="leading" constant="11" id="XS0-df-Lah"/>
+                            <constraint firstItem="nO6-Y7-qDs" firstAttribute="bottom" secondItem="mJi-1h-NPh" secondAttribute="bottom" constant="-9" id="a3b-dh-O5P"/>
+                            <constraint firstItem="mJi-1h-NPh" firstAttribute="top" secondItem="7FD-AV-g1X" secondAttribute="bottom" constant="20" id="cee-m7-Yoc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7FD-AV-g1X" secondAttribute="bottom" constant="96" id="kiS-MC-XJo"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mJi-1h-NPh" secondAttribute="trailing" constant="62" id="wOb-7e-loD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnGoogleLogin" destination="mJi-1h-NPh" id="tnW-0b-Yee"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-63.076923076923073" y="3.5545023696682461"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="GoogleIcon" width="18" height="18"/>
+        <image name="LaunchScreenImage" width="174" height="201"/>
+    </resources>
+</document>

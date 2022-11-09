@@ -32,9 +32,10 @@
 		577CBD8D280B494C003B3864 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577CBD8C280B494C003B3864 /* NetworkMonitor.swift */; };
 		577CBD8F280DC45F003B3864 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577CBD8E280DC45F003B3864 /* Protocols.swift */; };
 		577CBD91280DCD80003B3864 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577CBD90280DCD7F003B3864 /* Types.swift */; };
-		578868EA28B5093000D825A5 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 578868E928B5093000D825A5 /* Onboarding.storyboard */; };
 		578F72DF274180DD00E61F8B /* CatchSongVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578F72DE274180DD00E61F8B /* CatchSongVC.swift */; };
 		579276DF28AF540C004473AF /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 579276DE28AF540C004473AF /* TestStoryboard.storyboard */; };
+		57A4CFC628E4E2460016A6CF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 57A4CFC828E4E2460016A6CF /* Localizable.strings */; };
+		57A4CFCE28E4E7E40016A6CF /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57A4CFD028E4E7E40016A6CF /* Onboarding.storyboard */; };
 		57AAE02928B77C130075FD1A /* OnboardContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AAE02828B77C130075FD1A /* OnboardContentsVC.swift */; };
 		57AAE03028B77D9D0075FD1A /* nUGtQvYzrP.json in Resources */ = {isa = PBXBuildFile; fileRef = 57AAE02B28B77D9C0075FD1A /* nUGtQvYzrP.json */; };
 		57AAE03128B77D9D0075FD1A /* BfC3IeHsb3.json in Resources */ = {isa = PBXBuildFile; fileRef = 57AAE02C28B77D9D0075FD1A /* BfC3IeHsb3.json */; };
@@ -66,6 +67,7 @@
 		57CA8F262774E95900E54093 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F252774E95900E54093 /* LocationController.swift */; };
 		57CA8F2827761FEF00E54093 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F2727761FEF00E54093 /* LocationModel.swift */; };
 		57CA8F2A27762FA700E54093 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CA8F2927762FA700E54093 /* LoginController.swift */; };
+		57EA3218291BB9FA00FCAD8D /* LoginPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57EA3217291BB9FA00FCAD8D /* LoginPage.storyboard */; };
 		57FF115D285EB2B60004675C /* DailyRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FF115C285EB2B60004675C /* DailyRecordCell.swift */; };
 		57FF115F285EB2CF0004675C /* RecordSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FF115E285EB2CF0004675C /* RecordSongCell.swift */; };
 		D66ACBDCC6D5A98ED8BD7A1F /* Pods_PocketSong.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07FB5EA06A3F0C60186FB9ED /* Pods_PocketSong.framework */; };
@@ -114,9 +116,11 @@
 		577CBD8C280B494C003B3864 /* NetworkMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		577CBD8E280DC45F003B3864 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		577CBD90280DCD7F003B3864 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
-		578868E928B5093000D825A5 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		578F72DE274180DD00E61F8B /* CatchSongVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchSongVC.swift; sourceTree = "<group>"; };
 		579276DE28AF540C004473AF /* TestStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
+		57A4CFC728E4E2460016A6CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		57A4CFCF28E4E7E40016A6CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
+		57A4CFD228E4E7ED0016A6CF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		57AAE02828B77C130075FD1A /* OnboardContentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardContentsVC.swift; sourceTree = "<group>"; };
 		57AAE02B28B77D9C0075FD1A /* nUGtQvYzrP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nUGtQvYzrP.json; sourceTree = "<group>"; };
 		57AAE02C28B77D9D0075FD1A /* BfC3IeHsb3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BfC3IeHsb3.json; sourceTree = "<group>"; };
@@ -135,6 +139,10 @@
 		57B5696E28C5CEA800BE6E30 /* PocketsongCatchSongInAppPre.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PocketsongCatchSongInAppPre.json; path = ../../../../../PocketsongCatchSongInApp1/PocketsongCatchSongInAppPre.json; sourceTree = "<group>"; };
 		57B5697028C5CEC500BE6E30 /* PocketsongCatchSongInAppMain.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = PocketsongCatchSongInAppMain.json; path = ../../../../../PocketsongCatchSongInApp2/PocketsongCatchSongInAppMain.json; sourceTree = "<group>"; };
 		57B7630628C089DC0088293F /* PocketSongCatchSong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PocketSongCatchSong.json; sourceTree = "<group>"; };
+		57BAAF2B28E4F29D009F208D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		57BAAF2C28E4F29D009F208D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		57BAAF2D28E4F29E009F208D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Onboarding.strings; sourceTree = "<group>"; };
+		57BAAF2E28E4F29E009F208D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		57C8B22D279D8F4A0015291C /* FeatherBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FeatherBold.ttf; path = PocketSong/FeatherBold.ttf; sourceTree = SOURCE_ROOT; };
 		57C8B22F279D90330015291C /* JandaManateeBubble.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JandaManateeBubble.ttf; sourceTree = "<group>"; };
 		57C8B230279D90330015291C /* JandaManateeSolid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JandaManateeSolid.ttf; sourceTree = "<group>"; };
@@ -148,6 +156,7 @@
 		57CA8F252774E95900E54093 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		57CA8F2727761FEF00E54093 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		57CA8F2927762FA700E54093 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		57EA3217291BB9FA00FCAD8D /* LoginPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginPage.storyboard; sourceTree = "<group>"; };
 		57FF115C285EB2B60004675C /* DailyRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyRecordCell.swift; sourceTree = "<group>"; };
 		57FF115E285EB2CF0004675C /* RecordSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSongCell.swift; sourceTree = "<group>"; };
 		C8908642AE917357CBED719E /* Pods-PocketSong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PocketSong.release.xcconfig"; path = "Target Support Files/Pods-PocketSong/Pods-PocketSong.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				576B3F96279D87B20098513D /* Fonts */,
+				57A4CFC328E4E2010016A6CF /* Localize */,
 				57077A5D273F0C1900713534 /* images */,
 				57077A5C273F0A8700713534 /* AppIcons */,
 			);
@@ -250,7 +260,8 @@
 				571600F72714713B002E53B9 /* Info.plist */,
 				571600EF27147134002E53B9 /* PocketSong.xcdatamodeld */,
 				571DC06B28AF560A0072B387 /* TestVC.swift */,
-				578868E928B5093000D825A5 /* Onboarding.storyboard */,
+				57A4CFD028E4E7E40016A6CF /* Onboarding.storyboard */,
+				57EA3217291BB9FA00FCAD8D /* LoginPage.storyboard */,
 			);
 			path = PocketSong;
 			sourceTree = "<group>";
@@ -286,6 +297,14 @@
 			children = (
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		57A4CFC328E4E2010016A6CF /* Localize */ = {
+			isa = PBXGroup;
+			children = (
+				57A4CFC828E4E2460016A6CF /* Localizable.strings */,
+			);
+			path = Localize;
 			sourceTree = "<group>";
 		};
 		57AAE02A28B77D600075FD1A /* LottieAnis */ = {
@@ -416,6 +435,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 571600DA27147134002E53B9;
 			productRefGroup = 571600E427147134002E53B9 /* Products */;
@@ -440,11 +460,13 @@
 				57B3359F28C776B40030448C /* Assets.xcassets in Resources */,
 				57077A61273F0C7000713534 /* Group.png in Resources */,
 				57B5696F28C5CEA800BE6E30 /* PocketsongCatchSongInAppPre.json in Resources */,
-				578868EA28B5093000D825A5 /* Onboarding.storyboard in Resources */,
+				57A4CFCE28E4E7E40016A6CF /* Onboarding.storyboard in Resources */,
+				57A4CFC628E4E2460016A6CF /* Localizable.strings in Resources */,
 				57AAE03428B77D9D0075FD1A /* mMD7Lj4dOP.json in Resources */,
 				571600F62714713B002E53B9 /* LaunchScreen.storyboard in Resources */,
 				57B7630728C089DC0088293F /* PocketSongCatchSong.json in Resources */,
 				57C8B22E279D8F4D0015291C /* FeatherBold.ttf in Resources */,
+				57EA3218291BB9FA00FCAD8D /* LoginPage.storyboard in Resources */,
 				57AAE03128B77D9D0075FD1A /* BfC3IeHsb3.json in Resources */,
 				57B335A028C776B40030448C /* appstore.png in Resources */,
 				57C8B232279D90330015291C /* JandaManateeSolid.ttf in Resources */,
@@ -553,6 +575,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				571600ED27147134002E53B9 /* Base */,
+				57BAAF2B28E4F29D009F208D /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -561,8 +584,28 @@
 			isa = PBXVariantGroup;
 			children = (
 				571600F52714713B002E53B9 /* Base */,
+				57BAAF2C28E4F29D009F208D /* ko */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		57A4CFC828E4E2460016A6CF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57A4CFC728E4E2460016A6CF /* en */,
+				57BAAF2E28E4F29E009F208D /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		57A4CFD028E4E7E40016A6CF /* Onboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				57A4CFCF28E4E7E40016A6CF /* Base */,
+				57A4CFD228E4E7ED0016A6CF /* en */,
+				57BAAF2D28E4F29E009F208D /* ko */,
+			);
+			name = Onboarding.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -572,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -633,6 +677,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -691,9 +736,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y45X66CA2C;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = Y45X66CA2C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PocketSong/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
@@ -715,6 +763,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seunghyeonKang.PocketSong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = PocketsongDistribution;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -728,9 +778,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y45X66CA2C;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = Y45X66CA2C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PocketSong/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
@@ -752,6 +805,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seunghyeonKang.PocketSong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = PocketsongDistribution;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

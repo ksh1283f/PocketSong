@@ -65,15 +65,8 @@ class CatchSongVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.tabBarController?.navigationItem.title = self.title
-        
-        
-    
     }
-    
-    override func didMove(toParent parent: UIViewController?) {
-        print("[catchSongVC] didMove")
-    }
-    
+
     @IBAction func onClickedBtnCatch(_ sender: Any) {
         
         if setAni(aniName: "PocketsongCatchSongInAppPre", loopMode: .playOnce) {
@@ -89,53 +82,45 @@ class CatchSongVC: UIViewController {
             }
         }
         
-        print(UIDevice().model)
-        if UIDevice().model == "iPhonehh"{
-            print("[CatchSongVC] onClickedBtnCatch")
-            performSegue(withIdentifier: "ShowCatchedSongDetail", sender: self)
-        }else{
-            btnCatch.isUserInteractionEnabled = false;
-            btnCatch.alpha = 0.0
+        btnCatch.isUserInteractionEnabled = false;
+        btnCatch.alpha = 0.0
+        
+        // start shazam
+        do{
+            // the app doesn't use custom catalog, so parameter value is nil.
             
-            // start shazam
-            do{
-                // the app doesn't use custom catalog, so parameter value is nil.
-                
-                // get location info
-                let geoCoder = CLGeocoder()
-                if let location = LocationController.shared.locManager.location {
-                    geoCoder.reverseGeocodeLocation(location){ [weak self] (placemarks, error) in
-                        
-                        // maybe below code will be useless
-                        guard let self = self else { return }
-                        
-                        if let _error = error{
-                            //todo show alert informing the user
-                            print("\(_error)")
-                            return
-                        }
-                        
-                        guard let placemark = placemarks?.first else{
-                            print("place mark is nil");
-                            return
-                        }
-                        
-                        let country:String = placemark.country ?? ""
-                        let locality:String = placemark.locality ?? ""
-                        let city:String = placemark.administrativeArea ?? ""
-                        let street:String = placemark.name ?? ""
-                        let timeData = Date()
+            // get location info
+            let geoCoder = CLGeocoder()
+            if let location = LocationController.shared.locManager.location {
+                geoCoder.reverseGeocodeLocation(location){ [weak self] (placemarks, error) in
                     
-                        self.locationData = LocationModel(country: country, administrativeArea: city, locality: locality, street: street, timeData: timeData, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-                        print("street data")
+                    // maybe below code will be useless
+                    guard let self = self else { return }
+                    
+                    if let _error = error{
+                        //todo show alert informing the user
+                        print("\(_error)")
+                        return
                     }
+                    
+                    guard let placemark = placemarks?.first else{
+                        print("place mark is nil");
+                        return
+                    }
+                    
+                    let country:String = placemark.country ?? ""
+                    let locality:String = placemark.locality ?? ""
+                    let city:String = placemark.administrativeArea ?? ""
+                    let street:String = placemark.name ?? ""
+                    let timeData = Date()
+                    
+                    self.locationData = LocationModel(country: country, administrativeArea: city, locality: locality, street: street, timeData: timeData, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+                    print("street data")
                 }
-                
-                try shazamController?.match(catalog: nil)
-                
-            } catch{
-                print("shazamController's match handler is not handled.")
             }
+            try shazamController?.match(catalog: nil)
+        } catch{
+            print("shazamController's match handler is not handled.")
         }
     }
     
@@ -145,7 +130,7 @@ class CatchSongVC: UIViewController {
         // isListening = false
         if error != nil {
             print("[CatchSongVC] \(error.debugDescription)")
-            let alert = UIAlertController(title: "Recognizing failed!", message: "\(error.debugDescription)", preferredStyle: .alert)
+            let alert = UIAlertController(title: LocalizeText.RecognizingFailedTitle, message: "\(error.debugDescription)", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
                 self.btnCatch.isUserInteractionEnabled = true;
                 self.btnCatch.alpha = 1.0
@@ -199,8 +184,8 @@ extension CatchSongVC : Observer {
             try?shazamController?.stopListening()
             
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "network is disconnected!", message: "Please check your network state and connect cellular or wifi", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .default){ _ in
+                let alert = UIAlertController(title: LocalizeText.NetworkDisconnectedTitle, message: LocalizeText.NetworkDisconnectedMsg, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: LocalizeText.Ok, style: .default){ _ in
                     return
                 })
                 
@@ -257,12 +242,6 @@ extension CatchSongVC {
         return Animation.named(aniName)
     }
 }
-
-
-
-
-
-
 
 //-------------------------
 public enum Model : String {
